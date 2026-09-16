@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>لوحة التحكم - مكتب علام للعقارات</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+
+        .admin-container {
+            max-width: 950px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .admin-container h2 {
+            margin-bottom: 20px;
+            color: #b8955a;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 15px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .btn-save,
+        .btn-cancel,
+        .btn-edit,
+        .btn-delete {
+            border: none;
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-save {
+            background-color: #b8955a;
+            color: #fff;
+        }
+
+        .btn-save:hover {
+            background-color: #9c7c47;
+        }
+
+        .btn-cancel {
+            background-color: #777;
+            color: #fff;
+            margin-right: 8px;
+        }
+
+        .btn-edit {
+            background-color: #5b7fa3;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #b94a48;
+            color: white;
+            margin-right: 5px;
+        }
+
+        #successMessage {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #errorMessage {
+            display: none;
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        .section-title {
+            margin-top: 45px;
+            margin-bottom: 20px;
+            color: #b8955a;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .property-admin-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+
+        .property-admin-card h3 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .property-admin-info {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .status-sale {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-rent {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .status-sold {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .status-rented {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .empty-properties {
+            text-align: center;
+            color: #777;
+            padding: 30px;
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+        }
+
+        .english-section {
+            margin-top: 35px;
+            padding: 25px;
+            border-top: 2px solid #eee;
+            background: #fafafa;
+            border-radius: 8px;
+        }
+
+        .english-section h3 {
+            color: #b8955a;
+            margin-bottom: 20px;
+        }
+
+        .auto-field {
+            background-color: #f1f1f1;
+            color: #555;
+            cursor: not-allowed;
+        }
+
+        .english-note {
+            background: #fff8e8;
+            border-right: 4px solid #b8955a;
+            padding: 12px;
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <nav>
+
+        <div>
+            <h1>مكتب علام</h1>
+            <span>لوحة التحكم الإدارية</span>
+        </div>
+
+    </nav>
+
+
+    <div class="admin-container">
+
+        <h2 id="formTitle">
+            إضافة عقار جديد
+        </h2>
+
+
+        <div id="successMessage"></div>
+
+        <div id="errorMessage"></div>
+
+
+        <form id="addPropertyForm">
+
+
+            <!-- نوع العقار -->
+
+            <div class="form-group">
+
+                <label>نوع العقار *</label>
+
+                <select id="propType" required>
+
+                    <option value="شقة سكنية">
+                        شقة سكنية
+                    </option>
+
+                    <option value="شقة إدارية">
+                        شقة إدارية
+                    </option>
+
+                    <option value="محل تجاري">
+                        محل تجاري
+                    </option>
+
+                    <option value="أرض">
+                        أرض
+                    </option>
+
+                    <option value="مصانع ومخازن">
+                        مصانع ومخازن
+                    </option>
+
+                    <option value="منزل">
+                        منزل
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- حالة العقار -->
+
+            <div class="form-group">
+
+                <label>حالة العقار *</label>
+
+                <select id="propStatus" required>
+
+                    <option value="للبيع">
+                        للبيع
+                    </option>
+
+                    <option value="للإيجار">
+                        للإيجار
+                    </option>
+
+                    <option value="تم البيع">
+                        تم البيع
+                    </option>
+
+                    <option value="تم التأجير">
+                        تم التأجير
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- المنطقة -->
+
+            <div class="form-group">
+
+                <label>المنطقة *</label>
+
+                <select id="propLocation" required>
+
+                    <option value="">
+                        اختر المنطقة
+                    </option>
+
+                    <option value="السبع بنات">السبع بنات</option>
+                    <option value="شكرى القوتلي">شكرى القوتلي</option>
+                    <option value="الشعبية">الشعبية</option>
+                    <option value="الجمهورية">الجمهورية</option>
+                    <option value="سكة زفتى">سكة زفتى</option>
+                    <option value="طريق نادي الشرطة">طريق نادي الشرطة</option>
+                    <option value="البندر">البندر</option>
+                    <option value="المستشار">المستشار</option>
+                    <option value="الزراعة">الزراعة</option>
+                    <option value="مكتب العمل">مكتب العمل</option>
+                    <option value="ابو راضي">ابو راضي</option>
+                    <option value="عزبة خضر">عزبة خضر</option>
+                    <option value="سوق اللبن">سوق اللبن</option>
+                    <option value="الوراقة">الوراقة</option>
+                    <option value="السكة الوسطانية">السكة الوسطانية</option>
+                    <option value="منشية السلام">منشية السلام</option>
+                    <option value="محب">محب</option>
+                    <option value="المشحمة">المشحمة</option>
+                    <option value="الشون">الشون</option>
+                    <option value="المنشية الجديدة">المنشية الجديدة</option>
+                    <option value="الشيشتاوي">الشيشتاوي</option>
+                    <option value="نادي البلدية">نادي البلدية</option>
+                    <option value="تقسيم الشامي">تقسيم الشامي</option>
+                    <option value="عادل الرفاعي">عادل الرفاعي</option>
+                    <option value="المنصورة القديمة">المنصورة القديمة</option>
+                    <option value="الدواخلية">الدواخلية</option>
+                    <option value="شارع الترعة">شارع الترعة</option>
+                    <option value="شارع البحر">شارع البحر</option>
+                    <option value="محلة البرج">محلة البرج</option>
+                    <option value=""></option>
+
+
+                </select>
+
+            </div>
+
+
+            <!-- English Information -->
+
+            <div class="english-section">
+
+                <h3>
+                    English Property Information
+                </h3>
+
+
+                <div class="english-note">
+
+                    الاختيارات الإنجليزية يتم إنشاؤها تلقائيًا
+                    من الاختيارات العربية بالأعلى.
+                    <br>
+                    لا تحتاجين إلى اختيارها مرة أخرى.
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Property Title (English)
+                    </label>
+
+                    <input
+                        type="text"
+                        id="propTitleEn"
+                        class="auto-field"
+                        readonly
+                        placeholder="سيتم إنشاؤه تلقائيًا">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Property Type (English)
+                    </label>
+
+                    <select
+                        id="propTypeEn"
+                        class="auto-field"
+                        disabled>
+
+                        <option value="">
+                            سيتم اختياره تلقائيًا
+                        </option>
+
+                        <option value="Residential Apartment">
+                            Residential Apartment
+                        </option>
+
+                        <option value="Administrative Apartment">
+                            Administrative Apartment
+                        </option>
+
+                        <option value="Commercial Shop">
+                            Commercial Shop
+                        </option>
+
+                        <option value="Land">
+                            Land
+                        </option>
+
+                        <option value="Factories and Warehouses">
+                            Factories and Warehouses
+                        </option>
+
+                        <option value="House">
+                            House
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Location (English)
+                    </label>
+
+                    <input
+                        type="text"
+                        id="propLocationEn"
+                        class="auto-field"
+                        readonly
+                        placeholder="سيتم إنشاؤه تلقائيًا">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Description (English)
+                    </label>
+
+                    <textarea
+                        id="propDetailsEn"
+                        placeholder="Write the property details in English..."></textarea>
+
+                    <div class="note">
+                        يمكنك كتابة الوصف الإنجليزي يدويًا إذا أردتِ،
+                        وإذا تركتيه فارغًا سيتم وضع وصف افتراضي.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- السعر -->
+            <!-- ============================= -->
+
+            <div class="form-group">
+
+                <label>السعر</label>
+
+                <input
+                    type="number"
+                    id="propPrice"
+                    placeholder="مثال: 1500000">
+
+                <div class="note">
+                    اكتبِ الرقم فقط بدون كلمة جنيه.
+                </div>
+
+            </div>
+
+
+            <!-- طريقة عرض السعر -->
+
+            <div class="form-group">
+
+                <label>طريقة عرض السعر</label>
+
+                <select id="propPriceType">
+
+                    <option value="total">
+                        سعر العقار بالكامل
+                    </option>
+
+                    <option value="meter">
+                        سعر المتر
+                    </option>
+
+                    <option value="monthly">
+                        سعر شهري
+                    </option>
+
+                    <option value="yearly">
+                        سعر سنوي
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ملاحظة السعر -->
+
+            <div class="form-group">
+
+                <label>ملاحظة إضافية للسعر</label>
+
+                <input
+                    type="text"
+                    id="propPriceNote"
+                    placeholder="مثال: قابل للتفاوض - السعر يبدأ من - أو أي ملاحظة">
+
+                <div class="note">
+                    هذه الخانة اختيارية ويمكن تركها فارغة.
+                </div>
+
+            </div>
+
+
+            <!-- فئة السعر -->
+
+            <div class="form-group">
+
+                <label>فئة السعر</label>
+
+                <select id="propPriceCategory">
+
+                    <option value="all">
+                        غير محدد
+                    </option>
+
+                    <option value="less-5k">
+                        أقل من 5 آلاف
+                    </option>
+
+                    <option value="5k-10k">
+                        5 آلاف - 10 آلاف
+                    </option>
+
+                    <option value="10k-20k">
+                        10 آلاف - 20 ألف
+                    </option>
+
+                    <option value="20k-50k">
+                        20 ألف - 50 ألف
+                    </option>
+
+                    <option value="50k-100k">
+                        50 ألف - 100 ألف
+                    </option>
+
+                    <option value="100k-500k">
+                        100 ألف - 500 ألف
+                    </option>
+
+                    <option value="500k-1m">
+                        500 ألف - مليون
+                    </option>
+
+                    <option value="1m-2m">
+                        مليون - 2 مليون
+                    </option>
+
+                    <option value="2m-3m">
+                        2 مليون - 3 مليون
+                    </option>
+
+                    <option value="more-3m">
+                        أكثر من 3 مليون
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- المساحة -->
+
+            <div class="form-group">
+
+                <label>المساحة (م²)</label>
+
+                <input
+                    type="number"
+                    id="propArea"
+                    placeholder="مثال: 150">
+
+            </div>
+
+
+            <!-- فئة المساحة -->
+
+            <div class="form-group">
+
+                <label>فئة المساحة</label>
+
+                <select id="propAreaCategory">
+
+                    <option value="all">
+                        غير محدد
+                    </option>
+
+                    <option value="less-100">
+                        أقل من 100 م²
+                    </option>
+
+                    <option value="100-150">
+                        100 - 150 م²
+                    </option>
+
+                    <option value="150-200">
+                        150 - 200 م²
+                    </option>
+
+                    <option value="200-300">
+                        200 - 300 م²
+                    </option>
+
+                    <option value="more-300">
+                        أكثر من 300 م²
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- الغرف -->
+
+            <div class="form-group">
+
+                <label>عدد الغرف</label>
+
+                <input
+                    type="number"
+                    id="propRooms"
+                    placeholder="مثال: 3">
+
+            </div>
+
+
+            <!-- الحمامات -->
+
+            <div class="form-group">
+
+                <label>عدد الحمامات</label>
+
+                <input
+                    type="number"
+                    id="propBathrooms"
+                    placeholder="مثال: 2">
+
+            </div>
+
+
+            <!-- الدور -->
+
+            <div class="form-group">
+
+                <label>الدور</label>
+
+                <select id="propFloor">
+
+                    <option value="">
+                        اختر الدور
+                    </option>
+
+                    <option value="الأرضي">الأرضي</option>
+                    <option value="الأول">الأول</option>
+                    <option value="الثاني">الثاني</option>
+                    <option value="الثالث">الثالث</option>
+                    <option value="الرابع">الرابع</option>
+                    <option value="الخامس">الخامس</option>
+                    <option value="السادس">السادس</option>
+                    <option value="السابع">السابع</option>
+                    <option value="الثامن">الثامن</option>
+                    <option value="التاسع">التاسع</option>
+                    <option value="العاشر">العاشر</option>
+                    <option value="الأخير">الأخير</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- التشطيب -->
+
+            <div class="form-group">
+
+                <label>التشطيب</label>
+
+                <select id="propFinishing">
+
+                    <option value="">
+                        اختر مستوى التشطيب
+                    </option>
+
+                    <option value="بدون تشطيب">
+                        بدون تشطيب
+                    </option>
+
+                    <option value="على الطوب الأحمر">
+                        على الطوب الأحمر
+                    </option>
+
+                    <option value="نصف تشطيب">
+                        نصف تشطيب
+                    </option>
+
+                    <option value="تشطيب كامل">
+                        تشطيب كامل
+                    </option>
+
+                    <option value="تشطيب سوبر لوكس">
+                        تشطيب سوبر لوكس
+                    </option>
+
+                    <option value="تشطيب فاخر">
+                        تشطيب فاخر
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- الصور -->
+
+            <div class="form-group">
+
+                <label>روابط الصور *</label>
+
+                <input
+                    type="text"
+                    id="propImages"
+                    placeholder="property1.jpg, property2.jpg"
+                    value="property1.jpg"
+                    required>
+
+            </div>
+
+
+            <!-- الوصف العربي -->
+
+            <div class="form-group">
+
+                <label>
+                    الوصف التفصيلي للعقار
+                </label>
+
+                <textarea
+                    id="propDetails"
+                    placeholder="اكتب تفاصيل العقار هنا..."></textarea>
+
+            </div>
+
+
+            <!-- زر الحفظ -->
+
+            <button
+                type="submit"
+                class="btn-save"
+                id="saveButton">
+
+                حفظ ونشر العقار
+
+            </button>
+
+
+            <button
+                type="button"
+                class="btn-cancel"
+                id="cancelEditButton"
+                style="display:none;">
+
+                إلغاء التعديل
+
+            </button>
+
+        </form>
+
+
+        <!-- العقارات الموجودة -->
+
+        <h2 class="section-title">
+            العقارات الموجودة
+        </h2>
+
+        <div id="propertiesList">
+
+            <div class="empty-properties">
+                جاري تحميل العقارات...
+            </div>
+
+        </div>
+
+    </div>
+
+
+<script>
+
+    const SUPABASE_URL =
+        "https://pqralzsrhiizmjwzrnwb.supabase.co";
+
+
+    const SUPABASE_KEY =
+        "sb_publishable_VeFVHO_UC_BynC1J-WONiA_tGk3gPnM";
+
+
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+
+    let editingPropertyId = null;
+
+
+    // =========================================
+    // ترجمة نوع العقار
+    // =========================================
+
+    const typeTranslations = {
+
+        "شقة سكنية":
+            "Residential Apartment",
+
+        "شقة إدارية":
+            "Administrative Apartment",
+
+        "محل تجاري":
+            "Commercial Shop",
+
+        "أرض":
+            "Land",
+
+        "مصانع ومخازن":
+            "Factories and Warehouses",
+
+        "منزل":
+            "House"
+
+    };
+
+
+    // =========================================
+    // ترجمة المناطق
+    // =========================================
+
+    const locationTranslations = {
+
+        "السبع بنات":
+            "El Sabe' Banat",
+
+        "شكرى القوتلي":
+            "Shokry El Koutly",
+
+        "الشعبية":
+            "El Shaabia",
+
+        "الجمهورية":
+            "El Gomhoria",
+
+        "سكة زفتى":
+            "Zefta Road",
+
+        "طريق نادي الشرطة":
+            "Police Club Road",
+
+        "البندر":
+            "El Bandar",
+
+        "المستشار":
+            "El Mostashar",
+
+        "الزراعة":
+            "El Zeraa",
+
+        "مكتب العمل":
+            "Labor Office",
+
+        "ابو راضي":
+            "Abu Rady",
+
+        "عزبة خضر":
+            "Ezbet Khodr",
+
+        "سوق اللبن":
+            "Souq El Laban",
+
+        "الوراقة":
+            "El Warraq",
+
+        "السكة الوسطانية":
+            "El Sekka El Wostania",
+
+        "منشية السلام":
+            "Mansheya El Salam",
+
+        "محب":
+            "Mahb",
+
+        "المشحمة":
+            "El Meshma"
+
+    };
+
+
+    // =========================================
+    // تحديث البيانات الإنجليزية تلقائيًا
+    // =========================================
+
+    function updateEnglishFields() {
+
+        const type =
+            document.getElementById("propType").value;
+
+
+        const location =
+            document.getElementById("propLocation").value;
+
+
+        const englishType =
+            typeTranslations[type] || "";
+
+
+        const englishLocation =
+            locationTranslations[location] || "";
+
+
+        const titleEn =
+            englishType && englishLocation
+                ? `${englishType} in ${englishLocation}`
+                : "";
+
+
+        document.getElementById("propTypeEn").value =
+            englishType;
+
+
+        document.getElementById("propLocationEn").value =
+            englishLocation;
+
+
+        document.getElementById("propTitleEn").value =
+            titleEn;
+
+    }
+
+
+    document
+        .getElementById("propType")
+        .addEventListener(
+            "change",
+            updateEnglishFields
+        );
+
+
+    document
+        .getElementById("propLocation")
+        .addEventListener(
+            "change",
+            updateEnglishFields
+        );
+
+
+    // =========================================
+    // التأكد من أن المستخدم أدمن
+    // =========================================
+
+    async function checkAdminAccess() {
+
+        const {
+            data: { user }
+        } =
+            await supabaseClient.auth.getUser();
+
+
+        if (!user) {
+
+            window.location.href =
+                "admin-login.html";
+
+            return false;
+        }
+
+
+        const {
+            data: adminData,
+            error
+        } =
+            await supabaseClient
+                .from("admin_users")
+                .select("user_id")
+                .eq("user_id", user.id)
+                .maybeSingle();
+
+
+        if (error || !adminData) {
+
+            await supabaseClient.auth.signOut();
+
+            window.location.href =
+                "admin-login.html";
+
+            return false;
+        }
+
+
+        return true;
+
+    }
+
+
+    // =========================================
+    // رسالة نجاح
+    // =========================================
+
+    function showSuccess(message) {
+
+        const box =
+            document.getElementById("successMessage");
+
+
+        box.textContent =
+            message;
+
+
+        box.style.display =
+            "block";
+
+
+        document.getElementById("errorMessage")
+            .style.display =
+            "none";
+
+
+        setTimeout(() => {
+
+            box.style.display =
+                "none";
+
+        }, 4000);
+
+    }
+
+
+    // =========================================
+    // رسالة خطأ
+    // =========================================
+
+    function showError(message) {
+
+        const box =
+            document.getElementById("errorMessage");
+
+
+        box.textContent =
+            message;
+
+
+        box.style.display =
+            "block";
+
+
+        document.getElementById("successMessage")
+            .style.display =
+            "none";
+
+    }
+
+
+    // =========================================
+    // تحميل العقارات
+    // =========================================
+
+    async function loadProperties() {
+
+        const list =
+            document.getElementById("propertiesList");
+
+
+        list.innerHTML =
+            '<div class="empty-properties">جاري تحميل العقارات...</div>';
+
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .from("properties")
+                .select("*")
+                .order("updated_at", {
+                    ascending: false
+                });
+
+
+        if (error) {
+
+            console.error(error);
+
+
+            list.innerHTML =
+                '<div class="empty-properties">حدث خطأ أثناء تحميل العقارات.</div>';
+
+
+            return;
+        }
+
+
+        if (!data || data.length === 0) {
+
+            list.innerHTML =
+                '<div class="empty-properties">لا توجد عقارات مضافة حتى الآن.</div>';
+
+
+            return;
+        }
+
+
+        list.innerHTML =
+            "";
+
+
+        data.forEach(property => {
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "property-admin-card";
+
+
+            let statusClass =
+                "status-sale";
+
+
+            if (property.status === "للإيجار") {
+
+                statusClass =
+                    "status-rent";
+
+            }
+
+
+            if (property.status === "تم البيع") {
+
+                statusClass =
+                    "status-sold";
+
+            }
+
+
+            if (property.status === "تم التأجير") {
+
+                statusClass =
+                    "status-rented";
+
+            }
+
+
+            const title =
+                property.title_ar ||
+                `${property.property_type || ""} في ${property.location || ""}`;
+
+
+            // تجهيز طريقة عرض السعر في لوحة التحكم
+
+            let priceDisplay =
+                "السعر عند التواصل";
+
+
+            if (property.price) {
+
+                const formattedPrice =
+                    Number(property.price)
+                        .toLocaleString("ar-EG");
+
+
+                if (property.price_type === "meter") {
+
+                    priceDisplay =
+                        `${formattedPrice} جنيه / م²`;
+
+                } else if (property.price_type === "monthly") {
+
+                    priceDisplay =
+                        `${formattedPrice} جنيه / شهر`;
+
+                } else if (property.price_type === "yearly") {
+
+                    priceDisplay =
+                        `${formattedPrice} جنيه / سنة`;
+
+                } else {
+
+                    priceDisplay =
+                        `${formattedPrice} جنيه`;
+
+                }
+
+
+                if (property.price_note) {
+
+                    priceDisplay +=
+                        ` - ${property.price_note}`;
+
+                }
+
+            }
+
+
+            card.innerHTML = `
+
+                <span class="status-badge ${statusClass}">
+                    ${property.status || "غير محدد"}
+                </span>
+
+
+                <h3>
+                    ${title}
+                </h3>
+
+
+                <div style="
+                    font-weight: bold;
+                    color: #b8955a;
+                    margin-bottom: 8px;
+                ">
+
+                    كود العقار:
+                    ${property.property_code || "غير محدد"}
+
+                </div>
+
+
+                <div class="property-admin-info">
+
+                    النوع:
+                    ${property.property_type || "غير محدد"}
+
+                    <br>
+
+                    المنطقة:
+                    ${property.location || "غير محدد"}
+
+                    <br>
+
+                    السعر:
+                    ${priceDisplay}
+
+                    <br>
+
+                    المساحة:
+                    ${property.area || "غير محددة"} م²
+
+                    <br>
+
+                    الغرف:
+                    ${property.rooms || "غير محدد"}
+
+                    <br>
+
+                    الحمامات:
+                    ${property.bathrooms || "غير محدد"}
+
+                    <br>
+
+                    الدور:
+                    ${property.floor || "غير محدد"}
+
+                    <br>
+
+                    التشطيب:
+                    ${property.finish || "غير محدد"}
+
+                </div>
+
+
+                <button
+                    class="btn-edit"
+                    onclick="editProperty('${property.property_id || property.id}')">
+
+                    ✏️ تعديل
+
+                </button>
+
+
+                <button
+                    class="btn-delete"
+                    onclick="deleteProperty('${property.property_id || property.id}')">
+
+                    🗑️ حذف
+
+                </button>
+
+            `;
+
+
+            list.appendChild(card);
+
+        });
+
+    }
+
+
+    // =========================================
+    // إضافة أو تعديل العقار
+    // =========================================
+
+    document
+        .getElementById("addPropertyForm")
+        .addEventListener(
+            "submit",
+            async function(e) {
+
+                e.preventDefault();
+
+
+                const type =
+                    document.getElementById("propType").value;
+
+
+                const status =
+                    document.getElementById("propStatus").value;
+
+
+                const location =
+                    document.getElementById("propLocation").value;
+
+
+                updateEnglishFields();
+
+
+                const titleEn =
+                    document.getElementById("propTitleEn").value;
+
+
+                const typeEn =
+                    document.getElementById("propTypeEn").value;
+
+
+                const locationEn =
+                    document.getElementById("propLocationEn").value;
+
+
+                const price =
+                    document.getElementById("propPrice").value;
+
+
+                const priceType =
+                    document.getElementById("propPriceType").value;
+
+
+                const priceNote =
+                    document.getElementById("propPriceNote").value.trim();
+
+
+                const priceCategory =
+                    document.getElementById("propPriceCategory").value;
+
+
+                const area =
+                    document.getElementById("propArea").value;
+
+
+                const areaCategory =
+                    document.getElementById("propAreaCategory").value;
+
+
+                const rooms =
+                    document.getElementById("propRooms").value;
+
+
+                const bathrooms =
+                    document.getElementById("propBathrooms").value;
+
+
+                const floor =
+                    document.getElementById("propFloor").value;
+
+
+                const finishing =
+                    document.getElementById("propFinishing").value;
+
+
+                const imagesInput =
+                    document.getElementById("propImages").value;
+
+
+                const details =
+                    document.getElementById("propDetails").value;
+
+
+                const detailsEn =
+                    document.getElementById("propDetailsEn").value;
+
+
+                const images =
+                    imagesInput
+                        .split(",")
+                        .map(img => img.trim())
+                        .filter(img => img.length > 0);
+
+
+                const propertyData = {
+
+                    property_type:
+                        type,
+
+
+                    status:
+                        status,
+
+
+                    location:
+                        location,
+
+
+                    title_ar:
+                        `${type} في ${location}`,
+
+
+                    title_en:
+                        titleEn ||
+                        `${typeEn} in ${locationEn}`,
+
+
+                    property_type_en:
+                        typeEn,
+
+
+                    location_en:
+                        locationEn,
+
+
+                    description_ar:
+                        details ||
+                        "التفاصيل متوفرة عند الاتصال والتواصل معنا مباشرة لمعرفة كافة تفاصيل هذا العقار.",
+
+
+                    description_en:
+                        detailsEn ||
+                        `Contact us directly for more details about this ${typeEn} in ${locationEn}.`,
+
+
+                    price:
+                        price || "",
+
+
+                    price_type:
+                        priceType,
+
+
+                    price_note:
+                        priceNote,
+
+
+                    price_category:
+                        priceCategory,
+
+
+                    area:
+                        area || "",
+
+
+                    area_category:
+                        areaCategory,
+
+
+                    rooms:
+                        rooms || "",
+
+
+                    bathrooms:
+                        bathrooms || "",
+
+
+                    floor:
+                        floor || "",
+
+
+                    finish:
+                        finishing || "",
+
+
+                    images:
+                        images.join(","),
+
+
+                    updated_at:
+                        new Date().toISOString()
+
+                };
+
+
+                let error;
+
+
+                // =========================================
+                // تعديل عقار
+                // =========================================
+
+                if (editingPropertyId) {
+
+                    const result =
+                        await supabaseClient
+                            .from("properties")
+                            .update(propertyData)
+                            .eq(
+                                "property_id",
+                                editingPropertyId
+                            );
+
+
+                    error =
+                        result.error;
+
+
+                    if (!error) {
+
+                        showSuccess(
+                            "تم تعديل العقار بنجاح."
+                        );
+
+                    }
+
+                }
+
+
+                // =========================================
+                // إضافة عقار جديد
+                // =========================================
+
+                else {
+
+                    propertyData.property_id =
+                        Date.now().toString();
+
+
+                    const {
+                        data: lastProperty,
+                        error: codeError
+                    } =
+                        await supabaseClient
+                            .from("properties")
+                            .select("property_code")
+                            .like(
+                                "property_code",
+                                "P%"
+                            )
+                            .order(
+                                "property_code",
+                                {
+                                    ascending: false
+                                }
+                            )
+                            .limit(1)
+                            .maybeSingle();
+
+
+                    if (codeError) {
+
+                        console.error(codeError);
+
+
+                        showError(
+                            "حدث خطأ أثناء إنشاء كود العقار: " +
+                            codeError.message
+                        );
+
+
+                        return;
+                    }
+
+
+                    let nextNumber =
+                        1;
+
+
+                    if (
+                        lastProperty &&
+                        lastProperty.property_code
+                    ) {
+
+                        const lastNumber =
+                            parseInt(
+                                lastProperty
+                                    .property_code
+                                    .replace("P", ""),
+                                10
+                            );
+
+
+                        if (!isNaN(lastNumber)) {
+
+                            nextNumber =
+                                lastNumber + 1;
+
+                        }
+
+                    }
+
+
+                    propertyData.property_code =
+                        "P" +
+                        String(nextNumber)
+                            .padStart(3, "0");
+
+
+                    const result =
+                        await supabaseClient
+                            .from("properties")
+                            .insert([
+                                propertyData
+                            ]);
+
+
+                    error =
+                        result.error;
+
+
+                    if (!error) {
+
+                        showSuccess(
+                            "تم إضافة العقار " +
+                            propertyData.property_code +
+                            " ونشره بنجاح."
+                        );
+
+                    }
+
+                }
+
+
+                if (error) {
+
+                    console.error(error);
+
+
+                    showError(
+                        "حدث خطأ أثناء حفظ العقار: " +
+                        error.message
+                    );
+
+
+                    return;
+                }
+
+
+                resetForm();
+
+
+                loadProperties();
+
+            }
+        );
+
+
+    // =========================================
+    // تعديل عقار
+    // =========================================
+
+    async function editProperty(id) {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .from("properties")
+                .select("*")
+                .eq(
+                    "property_id",
+                    id
+                )
+                .maybeSingle();
+
+
+        if (error || !data) {
+
+            showError(
+                "لم نتمكن من العثور على العقار."
+            );
+
+
+            return;
+        }
+
+
+        editingPropertyId =
+            data.property_id;
+
+
+        document.getElementById("formTitle")
+            .textContent =
+            "تعديل العقار";
+
+
+        document.getElementById("propType")
+            .value =
+            data.property_type || "";
+
+
+        document.getElementById("propStatus")
+            .value =
+            data.status || "للبيع";
+
+
+        document.getElementById("propLocation")
+            .value =
+            data.location || "";
+
+
+        updateEnglishFields();
+
+
+        document.getElementById("propDetailsEn")
+            .value =
+            data.description_en || "";
+
+
+        document.getElementById("propPrice")
+            .value =
+            data.price || "";
+
+
+        document.getElementById("propPriceType")
+            .value =
+            data.price_type || "total";
+
+
+        document.getElementById("propPriceNote")
+            .value =
+            data.price_note || "";
+
+
+        document.getElementById("propPriceCategory")
+            .value =
+            data.price_category || "all";
+
+
+        document.getElementById("propArea")
+            .value =
+            data.area || "";
+
+
+        document.getElementById("propAreaCategory")
+            .value =
+            data.area_category || "all";
+
+
+        document.getElementById("propRooms")
+            .value =
+            data.rooms || "";
+
+
+        document.getElementById("propBathrooms")
+            .value =
+            data.bathrooms || "";
+
+
+        document.getElementById("propFloor")
+            .value =
+            data.floor || "";
+
+
+        document.getElementById("propFinishing")
+            .value =
+            data.finish || "";
+
+
+        document.getElementById("propImages")
+            .value =
+            data.images || "";
+
+
+        document.getElementById("propDetails")
+            .value =
+            data.description_ar || "";
+
+
+        document.getElementById("saveButton")
+            .textContent =
+            "💾 حفظ التعديلات";
+
+
+        document.getElementById("cancelEditButton")
+            .style.display =
+            "inline-block";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    // =========================================
+    // حذف عقار
+    // =========================================
+
+    async function deleteProperty(id) {
+
+        const confirmDelete =
+            confirm(
+                "هل أنتِ متأكدة من حذف هذا العقار؟"
+            );
+
+
+        if (!confirmDelete) {
+
+            return;
+        }
+
+
+        const {
+            error
+        } =
+            await supabaseClient
+                .from("properties")
+                .delete()
+                .eq(
+                    "property_id",
+                    id
+                );
+
+
+        if (error) {
+
+            console.error(error);
+
+
+            showError(
+                "حدث خطأ أثناء حذف العقار: " +
+                error.message
+            );
+
+
+            return;
+        }
+
+
+        showSuccess(
+            "تم حذف العقار بنجاح."
+        );
+
+
+        loadProperties();
+
+    }
+
+
+    // =========================================
+    // إلغاء التعديل
+    // =========================================
+
+    document
+        .getElementById("cancelEditButton")
+        .addEventListener(
+            "click",
+            function() {
+
+                resetForm();
+
+            }
+        );
+
+
+    // =========================================
+    // إعادة الفورم لوضع الإضافة
+    // =========================================
+
+    function resetForm() {
+
+        editingPropertyId =
+            null;
+
+
+        document
+            .getElementById("addPropertyForm")
+            .reset();
+
+
+        document.getElementById("formTitle")
+            .textContent =
+            "إضافة عقار جديد";
+
+
+        document.getElementById("saveButton")
+            .textContent =
+            "حفظ ونشر العقار";
+
+
+        document.getElementById("cancelEditButton")
+            .style.display =
+            "none";
+
+
+        document.getElementById("propImages")
+            .value =
+            "property1.jpg";
+
+
+        document.getElementById("propPriceType")
+            .value =
+            "total";
+
+
+        document.getElementById("propPriceCategory")
+            .value =
+            "all";
+
+
+        updateEnglishFields();
+
+    }
+
+
+    // =========================================
+    // تشغيل الصفحة
+    // =========================================
+
+    async function startAdmin() {
+
+        const allowed =
+            await checkAdminAccess();
+
+
+        if (!allowed) {
+
+            return;
+        }
+
+
+        updateEnglishFields();
+
+
+        loadProperties();
+
+    }
+
+
+    startAdmin();
+
+</script>
+
+</body>
+</html>

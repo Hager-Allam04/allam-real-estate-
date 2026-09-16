@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>تسجيل دخول الإدارة - مكتب علام للعقارات</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        .login-container {
+            max-width: 450px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #b8955a;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 13px;
+            background: #b8955a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background: #9c7c47;
+        }
+
+        #errorMessage {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div>
+            <h1>مكتب علام</h1>
+            <span>دخول لوحة التحكم</span>
+        </div>
+    </nav>
+
+    <div class="login-container">
+
+        <h2>تسجيل دخول الإدارة</h2>
+
+        <div id="errorMessage"></div>
+
+        <form id="loginForm">
+
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="أدخل البريد الإلكتروني"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">كلمة المرور</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="أدخل كلمة المرور"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="login-button">
+                تسجيل الدخول
+            </button>
+
+        </form>
+
+    </div>
+
+    <script>
+
+        const SUPABASE_URL = "https://pqralzsrhiizmjwzrnwb.supabase.co";
+
+        const SUPABASE_KEY = "sb_publishable_VeFVHO_UC_BynC1J-WONiA_tGk3gPnM";
+
+        const supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+
+        document.getElementById("loginForm").addEventListener("submit", async function(e) {
+
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            const errorMessage = document.getElementById("errorMessage");
+
+            errorMessage.style.display = "none";
+
+
+            const { data, error } = await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
+
+
+            if (error) {
+
+                errorMessage.textContent = "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
+                errorMessage.style.display = "block";
+
+                return;
+            }
+
+
+            const user = data.user;
+
+
+            const { data: adminData, error: adminError } =
+                await supabaseClient
+                    .from("admin_users")
+                    .select("user_id")
+                    .eq("user_id", user.id)
+                    .maybeSingle();
+
+
+            if (adminError || !adminData) {
+
+                await supabaseClient.auth.signOut();
+
+                errorMessage.textContent =
+                    "هذا الحساب ليس لديه صلاحية الدخول إلى لوحة التحكم.";
+
+                errorMessage.style.display = "block";
+
+                return;
+            }
+
+
+            window.location.href = "admin.html";
+
+        });
+
+    </script>
+
+</body>
+
+</html>

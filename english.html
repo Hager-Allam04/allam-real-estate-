@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Allam Real Estate</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div>
+        <h1>Allam Real Estate</h1>
+        <span>Real Estate Office</span>
+    </div>
+
+    <div>
+        <a href="english.html">Home</a>
+        <a href="properties.html?lang=en">Properties</a>
+        <a href="about.html?lang=en">About Us</a>
+        <a href="contact.html?lang=en">Contact Us</a>
+        <a href="index.html">العربية</a>
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-label">
+            ALLAM REAL ESTATE
+        </span>
+
+        <h2>
+            Find Your Perfect Property
+        </h2>
+
+        <p>
+            Discover the best properties for sale and rent
+            in El Mahalla El Kubra and surrounding areas.
+        </p>
+
+        <div class="search-box">
+
+            <select id="englishStatus">
+
+                <option value="all">Sale or Rent</option>
+
+                <option value="For Sale">
+                    For Sale
+                </option>
+
+                <option value="For Rent">
+                    For Rent
+                </option>
+
+            </select>
+
+
+            <select id="englishType">
+
+                <option value="all">
+                    Property Type
+                </option>
+
+                <option value="Residential Apartment">
+                    Residential Apartment
+                </option>
+
+                <option value="Administrative Apartment">
+                    Administrative Apartment
+                </option>
+
+                <option value="Commercial Shop">
+                    Commercial Shop
+                </option>
+
+                <option value="Land">
+                    Land
+                </option>
+
+                <option value="Factories and Warehouses">
+                    Factories and Warehouses
+                </option>
+
+                <option value="House">
+                    House
+                </option>
+
+            </select>
+
+
+            <select id="englishLocation">
+
+                <option value="all">
+                    Location
+                </option>
+
+                <option value="El Sabe' Banat">
+                    El Sabe' Banat
+                </option>
+
+                <option value="Shokry El Koutly">
+                    Shokry El Koutly
+                </option>
+
+                <option value="El Shaabia">
+                    El Shaabia
+                </option>
+
+                <option value="El Gomhoria">
+                    El Gomhoria
+                </option>
+
+                <option value="Zefta Road">
+                    Zefta Road
+                </option>
+
+                <option value="Police Club Road">
+                    Police Club Road
+                </option>
+
+                <option value="El Bandar">
+                    El Bandar
+                </option>
+
+                <option value="El Mostashar">
+                    El Mostashar
+                </option>
+
+                <option value="El Zeraa">
+                    El Zeraa
+                </option>
+
+                <option value="Labor Office">
+                    Labor Office
+                </option>
+
+                <option value="Abu Rady">
+                    Abu Rady
+                </option>
+
+                <option value="Ezbet Khodr">
+                    Ezbet Khodr
+                </option>
+
+                <option value="Souq El Laban">
+                    Souq El Laban
+                </option>
+
+                <option value="El Warraq">
+                    El Warraq
+                </option>
+
+                <option value="El Sekka El Wostania">
+                    El Sekka El Wostania
+                </option>
+
+                <option value="Mansheya El Salam">
+                    Mansheya El Salam
+                </option>
+
+                <option value="Mahb">
+                    Mahb
+                </option>
+
+                <option value="El Meshma">
+                    El Meshma
+                </option>
+
+            </select>
+
+
+            <select id="englishPriceType">
+
+                <option value="all">
+                    Price Type
+                </option>
+
+                <option value="total">
+                    Total Property Price
+                </option>
+
+                <option value="meter">
+                    Price per m²
+                </option>
+
+                <option value="monthly">
+                    Monthly Price
+                </option>
+
+                <option value="yearly">
+                    Yearly Price
+                </option>
+
+            </select>
+
+
+            <select id="englishPrice">
+
+                <option value="all">
+                    Price
+                </option>
+
+            </select>
+
+
+            <select id="englishArea">
+
+                <option value="all">
+                    Area
+                </option>
+
+                <option value="Less than 100 m²">
+                    Less than 100 m²
+                </option>
+
+                <option value="100 - 150 m²">
+                    100 - 150 m²
+                </option>
+
+                <option value="150 - 200 m²">
+                    150 - 200 m²
+                </option>
+
+                <option value="200 - 300 m²">
+                    200 - 300 m²
+                </option>
+
+                <option value="More than 300 m²">
+                    More than 300 m²
+                </option>
+
+            </select>
+
+
+            <button id="englishSearchButton">
+                Search
+            </button>
+
+            <button id="englishResetButton">
+                Reset
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="featured-properties">
+
+    <h2>
+        Featured Properties
+    </h2>
+
+    <p>
+        Choose from our best available properties
+    </p>
+
+    <div
+        class="properties-container"
+        id="englishPropertiesContainer"
+    >
+
+        <p id="englishLoading">
+            Loading properties...
+        </p>
+
+        <p
+            id="englishNoResults"
+            style="display: none;"
+        >
+            No properties match your search.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-about">
+
+            <h3>
+                Allam Real Estate
+            </h3>
+
+            <p>
+                We help you find the right property
+                for sale or rent.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="english.html">
+                Home
+            </a>
+
+            <a href="properties.html?lang=en">
+                Properties
+            </a>
+
+            <a href="about.html?lang=en">
+                About Us
+            </a>
+
+            <a href="contact.html?lang=en">
+                Contact Us
+            </a>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <h3>
+                Contact Us
+            </h3>
+
+            <p>
+                📞 01282597010
+            </p>
+
+            <p>
+                📞 01066008110
+            </p>
+
+            <p>
+                ✉️ info@example.com
+            </p>
+
+            <p>
+                📍 El Mahalla El Kubra - Gharbia
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Allam Real Estate. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+const SUPABASE_URL =
+    "https://pqralzsrhiizmjwzrnwb.supabase.co";
+
+
+/*
+    IMPORTANT:
+    This is the working Legacy anon/public key.
+*/
+
+const SUPABASE_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBxcmFsenNyaGlpem1qd3pybndiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkzMTMzNDksImV4cCI6MjEwNDg4OTM0OX0.XaQpZhcj_qCOZltyQlcTkjqp7FQvwwTOQqvjjV3n0dI";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+let allEnglishProperties = [];
+
+
+function openPropertyDetails(id) {
+
+    window.location.href =
+        "property-details.html?id=" +
+        id +
+        "&lang=en";
+
+}
+
+
+function getPriceType(property) {
+
+    let type =
+        String(property.price_type || "")
+            .trim()
+            .toLowerCase();
+
+
+    if (
+        type === "meter" ||
+        type === "per_meter" ||
+        type === "price_per_meter" ||
+        type === "price per meter" ||
+        type === "m2"
+    ) {
+
+        return "meter";
+
+    }
+
+
+    if (
+        type === "monthly" ||
+        type === "month"
+    ) {
+
+        return "monthly";
+
+    }
+
+
+    if (
+        type === "yearly" ||
+        type === "year"
+    ) {
+
+        return "yearly";
+
+    }
+
+
+    return "total";
+
+}
+
+
+const englishPriceRanges = {
+
+    total: [
+
+        {
+            value: "less-500k",
+            text: "Less than 500K",
+            min: 0,
+            max: 500000
+        },
+
+        {
+            value: "500k-1m",
+            text: "500K - 1M",
+            min: 500000,
+            max: 1000000
+        },
+
+        {
+            value: "1m-2m",
+            text: "1M - 2M",
+            min: 1000000,
+            max: 2000000
+        },
+
+        {
+            value: "2m-3m",
+            text: "2M - 3M",
+            min: 2000000,
+            max: 3000000
+        },
+
+        {
+            value: "3m-5m",
+            text: "3M - 5M",
+            min: 3000000,
+            max: 5000000
+        },
+
+        {
+            value: "more-5m",
+            text: "More than 5M",
+            min: 5000000,
+            max: Infinity
+        }
+
+    ],
+
+
+    meter: [
+
+        {
+            value: "less-10k",
+            text: "Less than 10K / m²",
+            min: 0,
+            max: 10000
+        },
+
+        {
+            value: "10k-15k",
+            text: "10K - 15K / m²",
+            min: 10000,
+            max: 15000
+        },
+
+        {
+            value: "15k-20k",
+            text: "15K - 20K / m²",
+            min: 15000,
+            max: 20000
+        },
+
+        {
+            value: "20k-30k",
+            text: "20K - 30K / m²",
+            min: 20000,
+            max: 30000
+        },
+
+        {
+            value: "30k-50k",
+            text: "30K - 50K / m²",
+            min: 30000,
+            max: 50000
+        },
+
+        {
+            value: "more-50k",
+            text: "More than 50K / m²",
+            min: 50000,
+            max: Infinity
+        }
+
+    ],
+
+
+    monthly: [
+
+        {
+            value: "less-5k",
+            text: "Less than 5K / Month",
+            min: 0,
+            max: 5000
+        },
+
+        {
+            value: "5k-10k",
+            text: "5K - 10K / Month",
+            min: 5000,
+            max: 10000
+        },
+
+        {
+            value: "10k-15k",
+            text: "10K - 15K / Month",
+            min: 10000,
+            max: 15000
+        },
+
+        {
+            value: "15k-20k",
+            text: "15K - 20K / Month",
+            min: 15000,
+            max: 20000
+        },
+
+        {
+            value: "20k-30k",
+            text: "20K - 30K / Month",
+            min: 20000,
+            max: 30000
+        },
+
+        {
+            value: "more-30k",
+            text: "More than 30K / Month",
+            min: 30000,
+            max: Infinity
+        }
+
+    ],
+
+
+    yearly: [
+
+        {
+            value: "less-100k",
+            text: "Less than 100K / Year",
+            min: 0,
+            max: 100000
+        },
+
+        {
+            value: "100k-200k",
+            text: "100K - 200K / Year",
+            min: 100000,
+            max: 200000
+        },
+
+        {
+            value: "200k-300k",
+            text: "200K - 300K / Year",
+            min: 200000,
+            max: 300000
+        },
+
+        {
+            value: "300k-500k",
+            text: "300K - 500K / Year",
+            min: 300000,
+            max: 500000
+        },
+
+        {
+            value: "500k-1m",
+            text: "500K - 1M / Year",
+            min: 500000,
+            max: 1000000
+        },
+
+        {
+            value: "more-1m",
+            text: "More than 1M / Year",
+            min: 1000000,
+            max: Infinity
+        }
+
+    ]
+
+};
+
+
+function updateEnglishPriceOptions() {
+
+    const priceType =
+        document.getElementById(
+            "englishPriceType"
+        ).value;
+
+
+    const priceSelect =
+        document.getElementById(
+            "englishPrice"
+        );
+
+
+    priceSelect.innerHTML = "";
+
+
+    const allOption =
+        document.createElement("option");
+
+
+    allOption.value = "all";
+
+    allOption.textContent =
+        "Price";
+
+
+    priceSelect.appendChild(
+        allOption
+    );
+
+
+    const selectedType =
+        priceType === "all"
+            ? "total"
+            : priceType;
+
+
+    const ranges =
+        englishPriceRanges[selectedType];
+
+
+    ranges.forEach(function(range) {
+
+        const option =
+            document.createElement("option");
+
+
+        option.value =
+            range.value;
+
+
+        option.textContent =
+            range.text;
+
+
+        priceSelect.appendChild(
+            option
+        );
+
+    });
+
+}
+
+
+function englishPriceMatches(
+    price,
+    priceType,
+    selectedRange
+) {
+
+    if (
+        selectedRange === "all"
+    ) {
+
+        return true;
+
+    }
+
+
+    const ranges =
+        englishPriceRanges[priceType];
+
+
+    if (!ranges) {
+
+        return true;
+
+    }
+
+
+    const range =
+        ranges.find(function(item) {
+
+            return item.value === selectedRange;
+
+        });
+
+
+    if (!range) {
+
+        return true;
+
+    }
+
+
+    const numericPrice =
+        Number(price);
+
+
+    if (
+        Number.isNaN(numericPrice)
+    ) {
+
+        return false;
+
+    }
+
+
+    return (
+        numericPrice >= range.min &&
+        numericPrice < range.max
+    );
+
+}
+
+
+function formatEnglishPrice(property) {
+
+    if (
+        property.price === null ||
+        property.price === undefined ||
+        property.price === ""
+    ) {
+
+        return "";
+
+    }
+
+
+    const price =
+        Number(property.price);
+
+
+    if (Number.isNaN(price)) {
+
+        return "";
+
+    }
+
+
+    let text =
+        price.toLocaleString("en-US") +
+        " EGP";
+
+
+    const priceType =
+        getPriceType(property);
+
+
+    if (priceType === "meter") {
+
+        text += " / m²";
+
+    } else if (priceType === "monthly") {
+
+        text += " / Month";
+
+    } else if (priceType === "yearly") {
+
+        text += " / Year";
+
+    }
+
+
+    if (
+        property.price_note &&
+        String(property.price_note).trim() !== ""
+    ) {
+
+        text +=
+            " " +
+            String(property.price_note).trim();
+
+    }
+
+
+    return text;
+
+}
+
+
+async function loadEnglishProperties() {
+
+    const container =
+        document.getElementById(
+            "englishPropertiesContainer"
+        );
+
+
+    const loading =
+        document.getElementById(
+            "englishLoading"
+        );
+
+
+    try {
+
+        const { data, error } =
+            await supabaseClient
+                .from("properties")
+                .select("*")
+                .order("created_at", {
+                    ascending: false
+                });
+
+
+        if (error) {
+
+            console.error(
+                "Error loading properties:",
+                error
+            );
+
+
+            loading.textContent =
+                "Could not load properties.";
+
+
+            return;
+
+        }
+
+
+        allEnglishProperties =
+            data || [];
+
+
+        loading.style.display =
+            "none";
+
+
+        displayEnglishProperties(
+            allEnglishProperties
+        );
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        loading.textContent =
+            "Could not load properties.";
+
+    }
+
+}
+
+
+function displayEnglishProperties(properties) {
+
+    const container =
+        document.getElementById(
+            "englishPropertiesContainer"
+        );
+
+
+    const noResults =
+        document.getElementById(
+            "englishNoResults"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if (
+        !properties ||
+        properties.length === 0
+    ) {
+
+        noResults.style.display =
+            "block";
+
+
+        return;
+
+    }
+
+
+    noResults.style.display =
+        "none";
+
+
+    properties.forEach(function(property) {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "property-card";
+
+
+        card.onclick = function() {
+
+            openPropertyDetails(
+                property.id ||
+                property.property_id
+            );
+
+        };
+
+
+        let image =
+            "property1.jpg";
+
+
+        if (
+            property.images &&
+            Array.isArray(property.images) &&
+            property.images.length > 0
+        ) {
+
+            image =
+                property.images[0];
+
+        }
+
+
+        let statusText =
+            property.status || "";
+
+
+        if (statusText === "للبيع") {
+
+            statusText =
+                "For Sale";
+
+        } else if (statusText === "للإيجار") {
+
+            statusText =
+                "For Rent";
+
+        } else if (statusText === "تم البيع") {
+
+            statusText =
+                "Sold";
+
+        } else if (statusText === "تم التأجير") {
+
+            statusText =
+                "Rented";
+
+        }
+
+
+        let type =
+            property.property_type_en ||
+            "";
+
+
+        let location =
+            property.location_en ||
+            "";
+
+
+        let title =
+            property.title_en ||
+            (
+                type +
+                " in " +
+                location
+            );
+
+
+        const priceText =
+            formatEnglishPrice(property);
+
+
+        let details = [];
+
+
+        if (
+            property.rooms !== null &&
+            property.rooms !== undefined &&
+            property.rooms !== ""
+        ) {
+
+            details.push(
+                property.rooms +
+                (
+                    Number(property.rooms) === 1
+                        ? " Bedroom"
+                        : " Bedrooms"
+                )
+            );
+
+        }
+
+
+        if (
+            property.bathrooms !== null &&
+            property.bathrooms !== undefined &&
+            property.bathrooms !== ""
+        ) {
+
+            details.push(
+                property.bathrooms +
+                (
+                    Number(property.bathrooms) === 1
+                        ? " Bathroom"
+                        : " Bathrooms"
+                )
+            );
+
+        }
+
+
+        if (
+            property.area !== null &&
+            property.area !== undefined &&
+            property.area !== ""
+        ) {
+
+            details.push(
+                property.area +
+                " m²"
+            );
+
+        }
+
+
+        if (
+            property.floor !== null &&
+            property.floor !== undefined &&
+            property.floor !== ""
+        ) {
+
+            details.push(
+                "Floor " +
+                property.floor
+            );
+
+        }
+
+
+        card.innerHTML = `
+
+            <div class="property-image">
+
+                <img
+                    src="${image}"
+                    alt="${title}"
+                    onerror="this.src='property1.jpg'"
+                >
+
+            </div>
+
+
+            <div class="property-info">
+
+                <span>
+                    ${statusText}
+                </span>
+
+
+                <h3>
+                    ${title}
+                </h3>
+
+
+                <p>
+                    ${details.join(" • ")}
+                </p>
+
+
+                <strong>
+                    ${priceText}
+                </strong>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+document
+    .getElementById("englishSearchButton")
+    .addEventListener(
+        "click",
+        function() {
+
+            const status =
+                document.getElementById(
+                    "englishStatus"
+                ).value;
+
+
+            const type =
+                document.getElementById(
+                    "englishType"
+                ).value;
+
+
+            const location =
+                document.getElementById(
+                    "englishLocation"
+                ).value;
+
+
+            const priceType =
+                document.getElementById(
+                    "englishPriceType"
+                ).value;
+
+
+            const price =
+                document.getElementById(
+                    "englishPrice"
+                ).value;
+
+
+            const area =
+                document.getElementById(
+                    "englishArea"
+                ).value;
+
+
+            const filtered =
+                allEnglishProperties.filter(
+                    function(property) {
+
+                        let propertyStatus =
+                            property.status;
+
+
+                        if (
+                            propertyStatus === "للبيع"
+                        ) {
+
+                            propertyStatus =
+                                "For Sale";
+
+                        } else if (
+                            propertyStatus === "للإيجار"
+                        ) {
+
+                            propertyStatus =
+                                "For Rent";
+
+                        } else if (
+                            propertyStatus === "تم البيع"
+                        ) {
+
+                            propertyStatus =
+                                "Sold";
+
+                        } else if (
+                            propertyStatus === "تم التأجير"
+                        ) {
+
+                            propertyStatus =
+                                "Rented";
+
+                        }
+
+
+                        const propertyType =
+                            property.property_type_en ||
+                            "";
+
+
+                        const propertyLocation =
+                            property.location_en ||
+                            "";
+
+
+                        const propertyPriceType =
+                            getPriceType(property);
+
+
+                        const propertyArea =
+                            property.area_category ||
+                            "";
+
+
+                        const statusMatch =
+                            status === "all" ||
+                            status === propertyStatus;
+
+
+                        const typeMatch =
+                            type === "all" ||
+                            type === propertyType;
+
+
+                        const locationMatch =
+                            location === "all" ||
+                            location === propertyLocation;
+
+
+                        const priceTypeMatch =
+                            priceType === "all" ||
+                            priceType === propertyPriceType;
+
+
+                        const selectedPriceType =
+                            priceType === "all"
+                                ? propertyPriceType
+                                : priceType;
+
+
+                        const priceMatch =
+                            englishPriceMatches(
+                                property.price,
+                                selectedPriceType,
+                                price
+                            );
+
+
+                        const areaMatch =
+                            area === "all" ||
+                            area === propertyArea;
+
+
+                        return (
+                            statusMatch &&
+                            typeMatch &&
+                            locationMatch &&
+                            priceTypeMatch &&
+                            priceMatch &&
+                            areaMatch
+                        );
+
+                    }
+                );
+
+
+            displayEnglishProperties(
+                filtered
+            );
+
+        }
+    );
+
+
+document
+    .getElementById("englishPriceType")
+    .addEventListener(
+        "change",
+        function() {
+
+            updateEnglishPriceOptions();
+
+        }
+    );
+
+
+document
+    .getElementById("englishResetButton")
+    .addEventListener(
+        "click",
+        function() {
+
+            document.getElementById(
+                "englishStatus"
+            ).value = "all";
+
+
+            document.getElementById(
+                "englishType"
+            ).value = "all";
+
+
+            document.getElementById(
+                "englishLocation"
+            ).value = "all";
+
+
+            document.getElementById(
+                "englishPriceType"
+            ).value = "all";
+
+
+            updateEnglishPriceOptions();
+
+
+            document.getElementById(
+                "englishPrice"
+            ).value = "all";
+
+
+            document.getElementById(
+                "englishArea"
+            ).value = "all";
+
+
+            displayEnglishProperties(
+                allEnglishProperties
+            );
+
+        }
+    );
+
+
+updateEnglishPriceOptions();
+
+loadEnglishProperties();
+
+</script>
+
+</body>
+
+</html>
