@@ -2,1769 +2,2496 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title id="pageTitle">تفاصيل العقار - مكتب علام للعقارات</title>
+    <title id="pageTitle">
+        تفاصيل العقار - مكتب علام للعقارات
+    </title>
 
     <link rel="stylesheet" href="style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+
+        /* =========================
+           WHATSAPP PROPERTY
+        ========================= */
+
+        .property-whatsapp {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .property-whatsapp-title {
+            margin: 0 0 8px;
+            color: var(--primary);
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .property-whatsapp-text {
+            margin: 0 0 16px;
+            color: var(--text-medium);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .whatsapp-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .property-whatsapp-btn {
+            min-height: 54px;
+            padding: 0 22px;
+            border-radius: 12px;
+            background: var(--olive);
+            color: var(--bone) !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            font-size: 16px;
+            font-weight: 800;
+            transition: var(--transition-fast);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .property-whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        @media (max-width: 600px) {
+
+            .whatsapp-buttons {
+                flex-direction: column;
+            }
+
+            .property-whatsapp-btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
-    <nav>
-        <div>
-            <h1 id="officeName">مكتب علام للعقارات</h1>
-            <span id="officeSubtitle">Allam Real Estate</span>
-        </div>
 
-        <div>
-            <a id="navHome" href="index.html">الرئيسية</a>
-            <a id="navProperties" href="properties.html">العقارات</a>
-            <a id="navAbout" href="about.html">من نحن</a>
-            <a id="navContact" href="contact.html">تواصل معنا</a>
-            <a id="navLanguage" href="#">English</a>
-        </div>
-    </nav>
+<!-- =========================
+     NAVBAR
+========================= -->
 
+<nav>
 
-    <!-- =========================
-         PROPERTY DETAILS
-    ========================== -->
-    <section class="property-details" id="propertyDetailsSection">
+    <div>
 
-        <div class="details-image">
+        <h1 id="officeName">
+            مكتب علام للعقارات
+        </h1>
 
-            <img
-                id="propertyImage"
-                class="main-property-image"
-                src="property1.jpg"
-                alt="تفاصيل العقار"
-            >
+        <span id="officeSubtitle">
+            Allam Real Estate
+        </span>
 
-            <div
-                class="property-thumbnails"
-                id="propertyThumbnails"
-            ></div>
-
-        </div>
+    </div>
 
 
-        <div class="details-info">
+    <div>
 
-            <span id="propertyStatusText">
-                جاري التحميل...
-            </span>
+        <a id="navHome" href="index.html">
+            الرئيسية
+        </a>
 
-            <h2 id="propertyTitle">
-                جاري تحميل العقار...
-            </h2>
+        <a id="navProperties" href="properties.html">
+            العقارات
+        </a>
 
-            <strong id="propertyPriceText">
-                -
-            </strong>
+        <a id="navAbout" href="about.html">
+            من نحن
+        </a>
 
-            <p id="propertyDetailsText">
-                -
-            </p>
+        <a id="navContact" href="contact.html">
+            تواصل معنا
+        </a>
 
-            <p id="propertyDescription">
-                جاري تحميل تفاصيل العقار...
-            </p>
+        <a id="navLanguage" href="#">
+            English
+        </a>
 
+    </div>
 
-            <div class="details-buttons">
-
-                <a
-                    id="backToProperties"
-                    href="properties.html"
-                >
-                    العودة للعقارات
-                </a>
-
-                <a
-                    id="contactButton"
-                    href="contact.html"
-                >
-                    تواصل معنا
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
+</nav>
 
 
-    <!-- =========================
-         SIMILAR PROPERTIES
-    ========================== -->
-    <section class="similar-properties">
 
-        <h2 id="similarTitle">
-            عقارات مشابهة
-        </h2>
+<!-- =========================
+     PROPERTY DETAILS
+========================= -->
 
-        <p id="similarIntro">
-            قد تجد ما يناسبك من هذه العقارات أيضًا
-        </p>
+<section
+    class="property-details"
+    id="propertyDetailsSection"
+>
 
-        <div
-            class="properties-container"
-            id="similarPropertiesContainer"
+    <div class="details-image">
+
+        <img
+            id="propertyImage"
+            class="main-property-image"
+            src=""
+            alt="تفاصيل العقار"
         >
 
-            <p
-                id="noSimilarProperties"
-                style="
-                    display:none;
-                    text-align:center;
-                    grid-column:1 / -1;
-                    color:#777;
-                "
+        <div
+            class="property-thumbnails"
+            id="propertyThumbnails"
+        ></div>
+
+    </div>
+
+
+
+    <div class="details-info">
+
+        <span id="propertyStatusText">
+            جاري التحميل...
+        </span>
+
+
+        <h2 id="propertyTitle">
+            جاري تحميل العقار...
+        </h2>
+
+
+        <strong id="propertyPriceText">
+            -
+        </strong>
+
+
+        <p id="propertyDetailsText">
+            -
+        </p>
+
+
+        <p id="propertyDescription">
+            جاري تحميل تفاصيل العقار...
+        </p>
+
+
+        <!-- =========================
+             WHATSAPP
+        ========================= -->
+
+        <div class="property-whatsapp">
+
+            <h3
+                class="property-whatsapp-title"
+                id="whatsappTitle"
             >
-                لا توجد عقارات مشابهة حالياً.
+                💬 مهتم بالعقار؟
+            </h3>
+
+            <p
+                class="property-whatsapp-text"
+                id="whatsappText"
+            >
+                تواصل معنا مباشرة عبر واتساب للاستفسار عن هذا العقار.
+            </p>
+
+            <div class="whatsapp-buttons">
+
+                <a
+                    id="whatsappButton1"
+                    class="property-whatsapp-btn"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    💬 واتساب — 01282597010
+                </a>
+
+
+                <a
+                    id="whatsappButton2"
+                    class="property-whatsapp-btn"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    💬 واتساب — 01066008110
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             DETAILS BUTTONS
+        ========================= -->
+
+        <div class="details-buttons">
+
+            <a
+                id="backToProperties"
+                href="properties.html"
+            >
+                العودة للعقارات
+            </a>
+
+            <a
+                id="contactButton"
+                href="contact.html"
+            >
+                تواصل معنا
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SIMILAR PROPERTIES
+========================= -->
+
+<section class="similar-properties">
+
+    <h2 id="similarTitle">
+        عقارات مشابهة
+    </h2>
+
+    <p id="similarIntro">
+        قد تجد ما يناسبك من هذه العقارات أيضًا
+    </p>
+
+    <div
+        class="properties-container"
+        id="similarPropertiesContainer"
+    >
+
+        <p
+            id="noSimilarProperties"
+            style="
+                display:none;
+                text-align:center;
+                grid-column:1 / -1;
+                color:#777;
+            "
+        >
+            لا توجد عقارات مشابهة حالياً.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-about">
+
+            <h3 id="footerOfficeName">
+                مكتب علام للعقارات
+            </h3>
+
+            <p id="footerAboutText">
+                نساعدك في العثور على العقار المناسب
+                للبيع أو الإيجار.
             </p>
 
         </div>
 
-    </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
-    <footer class="site-footer">
+        <div class="footer-links">
 
-        <div class="footer-content">
+            <h3 id="footerLinksTitle">
+                روابط سريعة
+            </h3>
 
-            <div class="footer-about">
+            <a
+                id="footerHome"
+                href="index.html"
+            >
+                الرئيسية
+            </a>
 
-                <h3 id="footerOfficeName">
-                    مكتب علام للعقارات
-                </h3>
+            <a
+                id="footerProperties"
+                href="properties.html"
+            >
+                العقارات
+            </a>
 
-                <p id="footerAboutText">
-                    نساعدك في العثور على العقار المناسب
-                    للبيع أو الإيجار.
-                </p>
+            <a
+                id="footerAbout"
+                href="about.html"
+            >
+                من نحن
+            </a>
 
-            </div>
-
-
-            <div class="footer-links">
-
-                <h3 id="footerLinksTitle">
-                    روابط سريعة
-                </h3>
-
-                <a
-                    id="footerHome"
-                    href="index.html"
-                >
-                    الرئيسية
-                </a>
-
-                <a
-                    id="footerProperties"
-                    href="properties.html"
-                >
-                    العقارات
-                </a>
-
-                <a
-                    id="footerAbout"
-                    href="about.html"
-                >
-                    من نحن
-                </a>
-
-                <a
-                    id="footerContact"
-                    href="contact.html"
-                >
-                    تواصل معنا
-                </a>
-
-            </div>
-
-
-            <div class="footer-contact">
-
-                <h3 id="footerContactTitle">
-                    تواصل معنا
-                </h3>
-
-                <p>
-                    📞 01282597010
-                </p>
-
-                <p>
-                    📍 المحلة الكبرى - الغربية
-                </p>
-
-            </div>
+            <a
+                id="footerContact"
+                href="contact.html"
+            >
+                تواصل معنا
+            </a>
 
         </div>
 
 
-        <div class="footer-bottom">
+
+        <div class="footer-contact">
+
+            <h3 id="footerContactTitle">
+                تواصل معنا
+            </h3>
 
             <p>
-                © 2026 مكتب علام للعقارات
+                📞 01282597010
+            </p>
+
+            <p>
+                📞 01066008110
+            </p>
+
+            <p>
+                📍 <span id="footerLocation">
+                    المحلة الكبرى - الغربية
+                </span>
             </p>
 
         </div>
 
-    </footer>
+    </div>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-    <script>
 
-        /* =========================
-           SUPABASE
-        ========================== */
+    <div class="footer-bottom">
 
-        const SUPABASE_URL =
-            "https://pqralzsrhiizmjwzrnwb.supabase.co";
+        <p id="footerCopyright">
+            جميع الحقوق محفوظة © 2026 مكتب علام للعقارات
+        </p>
 
-        const SUPABASE_KEY =
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBxcmFsenNyaGlpem1qd3pybndiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkzMTMzNDksImV4cCI6MjEwNDg4OTM0OX0.XaQpZhcj_qCOZltyQlcTkjqp7FQvwwTOQqvjjV3n0dI";
+    </div>
 
-        const supabaseClient =
-            window.supabase.createClient(
-                SUPABASE_URL,
-                SUPABASE_KEY
+</footer>
+
+
+
+<script>
+
+/* =========================
+   SUPABASE
+========================= */
+
+const SUPABASE_URL =
+    "https://pqralzsrhiizmjwzrnwb.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_VeFVHO_UC_BynC1J-WONiA_tGk3gPnM";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+/* =========================
+   URL
+========================= */
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const propertyId =
+    urlParams.get("id");
+
+const propertyIdFromUrl =
+    urlParams.get("property_id");
+
+const isEnglish =
+    urlParams.get("lang") === "en";
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const propertyStatusText =
+    document.getElementById("propertyStatusText");
+
+const propertyTitle =
+    document.getElementById("propertyTitle");
+
+const propertyPriceText =
+    document.getElementById("propertyPriceText");
+
+const propertyDetailsText =
+    document.getElementById("propertyDetailsText");
+
+const propertyDescription =
+    document.getElementById("propertyDescription");
+
+const propertyImage =
+    document.getElementById("propertyImage");
+
+const propertyThumbnails =
+    document.getElementById("propertyThumbnails");
+
+const whatsappTitle =
+    document.getElementById("whatsappTitle");
+
+const whatsappText =
+    document.getElementById("whatsappText");
+
+const whatsappButton1 =
+    document.getElementById("whatsappButton1");
+
+const whatsappButton2 =
+    document.getElementById("whatsappButton2");
+
+
+/* =========================
+   TRANSLATIONS
+========================= */
+
+const typeTranslations = {
+
+    "شقة سكنية": "Residential Apartment",
+    "شقة إدارية": "Administrative Apartment",
+    "محل تجاري": "Commercial Shop",
+    "محل": "Commercial Shop",
+    "أرض": "Land",
+    "مصانع ومخازن": "Factories and Warehouses",
+    "مصانع و هناجر": "Factories and Warehouses",
+    "منزل": "House",
+    "منازل": "House"
+
+};
+
+
+const locationTranslations = {
+
+    "السبع بنات": "El Sabe' Banat",
+    "شكرى القوتلي": "Shokry El Koutly",
+    "شكري القوتلي": "Shokry El Koutly",
+    "الشعبية": "El Shaabia",
+    "الجمهورية": "El Gomhoria",
+    "سكة زفتى": "Zefta Road",
+    "طريق نادي الشرطة": "Police Club Road",
+    "البندر": "El Bandar",
+    "المستشار": "El Mostashar",
+    "الزراعة": "El Zeraa",
+    "مكتب العمل": "Labor Office",
+    "ابو راضي": "Abu Rady",
+    "عزبة خضر": "Ezbet Khodr",
+    "سوق اللبن": "Souq El Laban",
+    "الوراقة": "El Warraq",
+    "السكة الوسطانية": "El Sekka El Wostania",
+    "منشية السلام": "Mansheya El Salam",
+    "محب": "Mahb",
+    "المشحمة": "El Meshma",
+    "الشون": "El Shoun",
+    "المنشية الجديدة": "New Mansheya",
+    "الشيشتاوي": "El Sheshtawy",
+    "نادي البلدية": "Baladeya Club",
+    "تقسيم الشامي": "El Shamy Division",
+    "عادل الرفاعي": "Adel El Refai",
+    "المنصورة القديمة": "Old Mansoura",
+    "الدواخلية": "El Dawakhlia",
+    "شارع الترعة": "El Teraa Street",
+    "شارع البحر": "El Bahr Street",
+    "محلة البرج": "Mahallet El Borg"
+
+};
+
+
+/* =========================
+   LANGUAGE HELPERS
+========================= */
+
+function getEnglishType(type) {
+
+    return (
+        typeTranslations[type] ||
+        type ||
+        "Property"
+    );
+
+}
+
+
+function getEnglishLocation(location) {
+
+    return (
+        locationTranslations[location] ||
+        location ||
+        ""
+    );
+
+}
+
+
+function getEnglishStatus(status) {
+
+    if (status === "للبيع")
+        return "For Sale";
+
+    if (status === "للإيجار")
+        return "For Rent";
+
+    if (status === "تم البيع")
+        return "Sold";
+
+    if (status === "تم التأجير")
+        return "Rented";
+
+    return status || "For Sale";
+
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+function normalizePriceType(value) {
+
+    return String(value || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, " ");
+
+}
+
+
+function getPropertyPriceType(property) {
+
+    const raw =
+        normalizePriceType(
+            property.price_type ||
+            property.priceType ||
+            property.price_unit ||
+            property.priceUnit ||
+            ""
+        );
+
+
+    if (
+        [
+            "meter",
+            "per meter",
+            "per_meter",
+            "per-meter",
+            "price per meter",
+            "price_per_meter",
+            "price/m2",
+            "price per m2",
+            "price per sqm",
+            "per m2",
+            "per sqm",
+            "m2",
+            "sqm",
+            "متر",
+            "المتر",
+            "سعر المتر",
+            "سعر متر",
+            "بالمتر",
+            "متر مربع",
+            "سعر المتر المربع"
+        ].includes(raw)
+    ) {
+
+        return "meter";
+
+    }
+
+
+    if (
+        [
+            "monthly",
+            "month",
+            "per month",
+            "per_month",
+            "per-month",
+            "monthly price",
+            "monthly_price",
+            "price per month",
+            "price_per_month",
+            "سعر شهري",
+            "شهري",
+            "بالشهر",
+            "شهريا",
+            "شهرياً"
+        ].includes(raw)
+    ) {
+
+        return "monthly";
+
+    }
+
+
+    if (
+        [
+            "yearly",
+            "year",
+            "annual",
+            "per year",
+            "per_year",
+            "per-year",
+            "yearly price",
+            "yearly_price",
+            "price per year",
+            "price_per_year",
+            "سعر سنوي",
+            "سنوي",
+            "بالسنة",
+            "سنويا",
+            "سنوياً"
+        ].includes(raw)
+    ) {
+
+        return "yearly";
+
+    }
+
+
+    return "total";
+
+}
+
+
+function formatPropertyPrice(property) {
+
+    const price =
+        property.price;
+
+
+    if (
+        price === null ||
+        price === undefined ||
+        price === "" ||
+        Number(price) === 0
+    ) {
+
+        return isEnglish
+            ? "Price upon request"
+            : "السعر عند التواصل";
+
+    }
+
+
+    const numericPrice =
+        Number(price);
+
+
+    const formattedPrice =
+        Number.isNaN(numericPrice)
+            ? String(price)
+            : numericPrice.toLocaleString("en-US");
+
+
+    const priceType =
+        getPropertyPriceType(property);
+
+
+    let result;
+
+
+    if (priceType === "meter") {
+
+        result =
+            formattedPrice +
+            (
+                isEnglish
+                    ? " EGP / m²"
+                    : " جنيه / م²"
             );
 
+    }
 
-        /* =========================
-           URL PARAMETERS
-        ========================== */
+    else if (priceType === "monthly") {
 
-        const urlParams =
-            new URLSearchParams(
-                window.location.search
+        result =
+            formattedPrice +
+            (
+                isEnglish
+                    ? " EGP / Month"
+                    : " جنيه / شهر"
             );
 
-        const propertyId =
-            urlParams.get("id");
+    }
 
-        const propertyIdFromUrl =
-            urlParams.get("property_id");
+    else if (priceType === "yearly") {
 
-        const language =
-            urlParams.get("lang");
-
-
-        /* =========================
-           ELEMENTS
-        ========================== */
-
-        const propertyStatusText =
-            document.getElementById(
-                "propertyStatusText"
+        result =
+            formattedPrice +
+            (
+                isEnglish
+                    ? " EGP / Year"
+                    : " جنيه / سنة"
             );
 
-        const propertyTitle =
-            document.getElementById(
-                "propertyTitle"
+    }
+
+    else {
+
+        result =
+            formattedPrice +
+            (
+                isEnglish
+                    ? " EGP"
+                    : " جنيه"
             );
 
-        const propertyPriceText =
-            document.getElementById(
-                "propertyPriceText"
-            );
-
-        const propertyDetailsText =
-            document.getElementById(
-                "propertyDetailsText"
-            );
-
-        const propertyDescription =
-            document.getElementById(
-                "propertyDescription"
-            );
-
-        const propertyImage =
-            document.getElementById(
-                "propertyImage"
-            );
-
-        const propertyThumbnails =
-            document.getElementById(
-                "propertyThumbnails"
-            );
+    }
 
 
-        /* =========================
-           PRICE TYPE
-        ========================== */
-
-        function getPropertyPriceType(property) {
-
-            const value = String(
-                property.price_type ||
-                property.priceType ||
-                ""
-            )
-                .trim()
-                .toLowerCase();
-
-            if (
-                value === "meter" ||
-                value === "per_meter" ||
-                value === "per-meter" ||
-                value === "m2" ||
-                value === "m²" ||
-                value === "sqm"
-            ) {
-                return "meter";
-            }
-
-            if (
-                value === "monthly" ||
-                value === "month" ||
-                value === "per_month" ||
-                value === "per-month"
-            ) {
-                return "monthly";
-            }
-
-            if (
-                value === "yearly" ||
-                value === "year" ||
-                value === "annual" ||
-                value === "per_year" ||
-                value === "per-year"
-            ) {
-                return "yearly";
-            }
-
-            return "total";
-        }
+    const priceNote =
+        String(
+            property.price_note ||
+            property.priceNote ||
+            ""
+        ).trim();
 
 
-        /* =========================
-           FORMAT PRICE
-        ========================== */
+    if (priceNote) {
 
-        function formatPropertyPrice(
-            property,
-            isEnglish
+        result +=
+            " - " +
+            priceNote;
+
+    }
+
+
+    return result;
+
+}
+
+
+/* =========================
+   IMAGES
+========================= */
+
+function getImages(property) {
+
+    const possibleValues = [
+
+        property.images,
+        property.image_urls,
+        property.imageUrls,
+        property.image_url,
+        property.imageUrl,
+        property.image,
+        property.photo,
+        property.photos
+
+    ];
+
+
+    let value = null;
+
+
+    for (const item of possibleValues) {
+
+        if (
+            item !== null &&
+            item !== undefined &&
+            item !== ""
         ) {
 
-            if (
-                property.price === null ||
-                property.price === undefined ||
-                property.price === "" ||
-                Number(property.price) === 0
-            ) {
-                return isEnglish
-                    ? "Price upon request"
-                    : "السعر عند التواصل";
-            }
+            value = item;
 
-            const numberValue =
-                Number(property.price);
+            break;
 
-            const formattedPrice =
-                isNaN(numberValue)
-                    ? String(property.price)
-                    : numberValue.toLocaleString(
-                        isEnglish
-                            ? "en-US"
-                            : "ar-EG"
-                    );
-
-            const priceType =
-                getPropertyPriceType(property);
-
-            let priceText;
-
-            if (isEnglish) {
-
-                if (priceType === "meter") {
-
-                    priceText =
-                        formattedPrice +
-                        " EGP / m²";
-
-                }
-                else if (priceType === "monthly") {
-
-                    priceText =
-                        formattedPrice +
-                        " EGP / month";
-
-                }
-                else if (priceType === "yearly") {
-
-                    priceText =
-                        formattedPrice +
-                        " EGP / year";
-
-                }
-                else {
-
-                    priceText =
-                        formattedPrice +
-                        " EGP";
-
-                }
-
-            }
-            else {
-
-                if (priceType === "meter") {
-
-                    priceText =
-                        formattedPrice +
-                        " جنيه / م²";
-
-                }
-                else if (priceType === "monthly") {
-
-                    priceText =
-                        formattedPrice +
-                        " جنيه / شهر";
-
-                }
-                else if (priceType === "yearly") {
-
-                    priceText =
-                        formattedPrice +
-                        " جنيه / سنة";
-
-                }
-                else {
-
-                    priceText =
-                        formattedPrice +
-                        " جنيه";
-
-                }
-
-            }
-
-
-            if (property.price_note) {
-
-                priceText +=
-                    " - " +
-                    property.price_note;
-
-            }
-
-            return priceText;
         }
 
+    }
 
-        /* =========================
-           IMAGES
-        ========================== */
 
-        function getImages(images) {
+    if (!value) {
 
-            if (!images) {
-                return [];
-            }
+        return [];
 
-            if (Array.isArray(images)) {
+    }
 
-                return images
+
+    if (Array.isArray(value)) {
+
+        return value
+            .filter(Boolean)
+            .map(
+                image => String(image).trim()
+            )
+            .filter(Boolean);
+
+    }
+
+
+    const text =
+        String(value).trim();
+
+
+    if (!text) {
+
+        return [];
+
+    }
+
+
+    if (
+        text.startsWith("[") &&
+        text.endsWith("]")
+    ) {
+
+        try {
+
+            const parsed =
+                JSON.parse(text);
+
+
+            if (Array.isArray(parsed)) {
+
+                return parsed
                     .filter(Boolean)
-                    .map(function(image) {
-                        return String(image).trim();
-                    })
+                    .map(
+                        image => String(image).trim()
+                    )
                     .filter(Boolean);
 
             }
 
-            return String(images)
-                .split(",")
-                .map(function(image) {
-
-                    return image.trim();
-
-                })
-                .filter(Boolean);
         }
 
+        catch (error) {
 
-        /*
-         * الصورة الأساسية للعقار
-         *
-         * لو مفيش صورة:
-         * property1.jpg
-         *
-         * ولو فيه اسم صورة لكن الملف مش موجود:
-         * property1.jpg
-         */
+            console.log(
+                "Could not parse images JSON."
+            );
 
-        function getPropertyImage(property) {
-
-            const images =
-                getImages(
-                    property.images
-                );
-
-            if (images.length > 0) {
-
-                return images[0];
-
-            }
-
-            return "property1.jpg";
         }
 
-
-        /*
-         * لو الصورة المطلوبة مش موجودة
-         * نرجع للصورة الافتراضية
-         */
-
-        function setImageWithFallback(
-            imageElement,
-            imageSrc
-        ) {
-
-            imageElement.onerror =
-                function() {
-
-                    this.onerror = null;
-
-                    this.src =
-                        "property1.jpg";
-
-                };
-
-            imageElement.src =
-                imageSrc || "property1.jpg";
-        }
+    }
 
 
-        function addThumbnail(imageName) {
+    return text
+        .split(",")
+        .map(
+            image => image.trim()
+        )
+        .filter(Boolean);
 
-            const image =
-                document.createElement("img");
-
-            image.src =
-                imageName;
-
-            image.alt =
-                language === "en"
-                    ? "Property image"
-                    : "صورة العقار";
-
-            /*
-             * لو الـ thumbnail نفسه مش موجود
-             * نخليه يستخدم الصورة الافتراضية
-             */
-
-            image.onerror =
-                function() {
-
-                    this.onerror = null;
-
-                    this.src =
-                        "property1.jpg";
-
-                };
+}
 
 
-            image.onclick =
-                function() {
+/* =========================
+   IMAGE HANDLING
+========================= */
 
-                    changeImage(
-                        imageName
-                    );
+function setImage(element, source) {
 
-                };
+    if (!source) {
 
-            propertyThumbnails.appendChild(
+        element.removeAttribute("src");
+
+        return;
+
+    }
+
+
+    element.onerror =
+        function() {
+
+            this.onerror = null;
+
+            this.removeAttribute("src");
+
+        };
+
+
+    element.src =
+        source;
+
+}
+
+
+function addThumbnail(imageName, index) {
+
+    const image =
+        document.createElement("img");
+
+
+    image.src =
+        imageName;
+
+
+    image.alt =
+        isEnglish
+            ? "Property image " + (index + 1)
+            : "صورة العقار " + (index + 1);
+
+
+    image.onerror =
+        function() {
+
+            this.remove();
+
+        };
+
+
+    image.onclick =
+        function() {
+
+            changeImage(
+                imageName,
                 image
             );
 
+        };
+
+
+    propertyThumbnails.appendChild(
+        image
+    );
+
+
+    if (index === 0) {
+
+        image.style.borderColor =
+            "#b8955a";
+
+    }
+
+}
+
+
+function changeImage(
+    imageName,
+    selectedThumbnail
+) {
+
+    setImage(
+        propertyImage,
+        imageName
+    );
+
+
+    const thumbnails =
+        propertyThumbnails.querySelectorAll("img");
+
+
+    thumbnails.forEach(
+        function(image) {
+
+            image.style.borderColor =
+                "transparent";
+
+        }
+    );
+
+
+    if (selectedThumbnail) {
+
+        selectedThumbnail.style.borderColor =
+            "#b8955a";
+
+    }
+
+}
+
+
+/* =========================
+   PROPERTY ID
+========================= */
+
+function getPropertyId(property) {
+
+    return (
+        property.property_id ||
+        property.id ||
+        ""
+    );
+
+}
+
+
+/* =========================
+   PROPERTY CODE
+   IMPORTANT:
+   Finds the real code such as P001
+========================= */
+
+function getPropertyCode(property) {
+
+    /*
+       أولاً نجرب أسماء الأعمدة المحتملة
+    */
+
+    const possibleCodeFields = [
+
+        "code",
+        "property_code",
+        "propertyCode",
+        "property_number",
+        "propertyNumber",
+        "reference_code",
+        "referenceCode",
+        "listing_code",
+        "listingCode",
+        "reference",
+        "listing_id",
+        "listingId"
+
+    ];
+
+
+    for (
+        const field of possibleCodeFields
+    ) {
+
+        const value =
+            property[field];
+
+
+        if (
+            value !== null &&
+            value !== undefined &&
+            String(value).trim() !== ""
+        ) {
+
+            const text =
+                String(value).trim();
+
+
+            /*
+               نقبل الكود لو شكله P001
+               أو P002 أو P123...
+            */
 
             if (
-                propertyThumbnails.children.length === 1
+                /^P\d+$/i.test(text)
             ) {
 
-                image.style.borderColor =
-                    "#b8955a";
+                return text.toUpperCase();
 
             }
 
         }
 
-
-        function changeImage(imageName) {
-
-            setImageWithFallback(
-                propertyImage,
-                imageName
-            );
+    }
 
 
-            const thumbnails =
-                document.querySelectorAll(
-                    ".property-thumbnails img"
-                );
+    /*
+       لو اسم العمود مختلف تماماً،
+       نبحث داخل كل بيانات العقار
+       عن قيمة شكلها P001
+    */
+
+    for (
+        const key in property
+    ) {
+
+        const value =
+            property[key];
 
 
-            thumbnails.forEach(
-                function(image) {
+        if (
+            value === null ||
+            value === undefined
+        ) {
 
-                    image.style.borderColor =
-                        "transparent";
-
-                }
-            );
-
-
-            thumbnails.forEach(
-                function(image) {
-
-                    if (
-                        image.src.includes(
-                            imageName
-                        )
-                    ) {
-
-                        image.style.borderColor =
-                            "#b8955a";
-
-                    }
-
-                }
-            );
+            continue;
 
         }
 
 
-        /* =========================
-           BACK URL
-        ========================== */
-
-        function getBackToPropertiesUrl() {
-
-            const params =
-                new URLSearchParams();
-
-            if (language === "en") {
-
-                params.set(
-                    "lang",
-                    "en"
-                );
-
-            }
-
-            const filterNames = [
-                "status",
-                "type",
-                "location",
-                "price",
-                "area",
-                "priceType"
-            ];
+        const text =
+            String(value).trim();
 
 
-            filterNames.forEach(
-                function(name) {
+        if (
+            /^P\d+$/i.test(text)
+        ) {
 
-                    const value =
-                        urlParams.get(name);
+            return text.toUpperCase();
 
-                    if (value) {
-
-                        params.set(
-                            name,
-                            value
-                        );
-
-                    }
-
-                }
-            );
-
-
-            const query =
-                params.toString();
-
-
-            if (query) {
-
-                return (
-                    "properties.html?" +
-                    query
-                );
-
-            }
-
-            return "properties.html";
         }
 
-
-        /* =========================
-           LANGUAGE SWITCH
-        ========================== */
-
-        function getLanguageSwitchUrl() {
-
-            const params =
-                new URLSearchParams();
-
-            const currentId =
-                propertyId ||
-                propertyIdFromUrl;
+    }
 
 
-            if (currentId) {
+    /*
+       مهم:
+       لا نرجع property.id
+       ولا property.property_id
+       هنا؛ لأنهما أرقام داخلية.
+    */
 
-                params.set(
-                    "id",
+    return "";
+
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function setupWhatsApp(property) {
+
+    const type =
+        property.property_type ||
+        "عقار";
+
+
+    const location =
+        property.location ||
+        "المحلة الكبرى";
+
+
+    const titleArabic =
+        property.title_ar ||
+        type +
+        " في " +
+        location;
+
+
+    const titleEnglish =
+        property.title_en ||
+        (
+            property.property_type_en ||
+            getEnglishType(type)
+        ) +
+        " in " +
+        (
+            property.location_en ||
+            getEnglishLocation(location)
+        );
+
+
+    const price =
+        formatPropertyPrice(property);
+
+
+    /*
+       هنا نجيب كود العقار الحقيقي
+       مثل P001
+    */
+
+    const propertyCode =
+        getPropertyCode(property);
+
+
+    let message;
+
+
+    if (isEnglish) {
+
+        message =
+            "Hello, I am interested in this property." +
+            "\n\n" +
+            "Property: " +
+            titleEnglish +
+            "\n" +
+            "Price: " +
+            price +
+            "\n" +
+            (
+                propertyCode
+                    ? "Property Code: " +
+                      propertyCode +
+                      "\n"
+                    : ""
+            ) +
+            "\nI would like to know more details.";
+
+        whatsappTitle.textContent =
+            "💬 Interested in this property?";
+
+        whatsappText.textContent =
+            "Contact us directly on WhatsApp to ask about this property.";
+
+        whatsappButton1.textContent =
+            "💬 WhatsApp — 01282597010";
+
+        whatsappButton2.textContent =
+            "💬 WhatsApp — 01066008110";
+
+    }
+
+    else {
+
+        message =
+            "مرحبًا، أريد الاستفسار عن هذا العقار." +
+            "\n\n" +
+            "العقار: " +
+            titleArabic +
+            "\n" +
+            "السعر: " +
+            price +
+            "\n" +
+            (
+                propertyCode
+                    ? "كود العقار: " +
+                      propertyCode +
+                      "\n"
+                    : ""
+            ) +
+            "\nأرغب في معرفة المزيد من التفاصيل.";
+
+        whatsappTitle.textContent =
+            "💬 مهتم بالعقار؟";
+
+        whatsappText.textContent =
+            "تواصل معنا مباشرة عبر واتساب للاستفسار عن هذا العقار.";
+
+        whatsappButton1.textContent =
+            "💬 واتساب — 01282597010";
+
+        whatsappButton2.textContent =
+            "💬 واتساب — 01066008110";
+
+    }
+
+
+    const encodedMessage =
+        encodeURIComponent(message);
+
+
+    whatsappButton1.href =
+        "https://wa.me/201282597010?text=" +
+        encodedMessage;
+
+
+    whatsappButton2.href =
+        "https://wa.me/201066008110?text=" +
+        encodedMessage;
+
+}
+
+
+/* =========================
+   FIND PROPERTY
+========================= */
+
+async function findProperty() {
+
+    console.log("URL:", window.location.href);
+
+    console.log("propertyId:", propertyId);
+
+    console.log(
+        "propertyIdFromUrl:",
+        propertyIdFromUrl
+    );
+
+
+    const idsToTry = [];
+
+
+    if (propertyId) {
+
+        idsToTry.push(
+            propertyId
+        );
+
+    }
+
+
+    if (
+        propertyIdFromUrl &&
+        propertyIdFromUrl !== propertyId
+    ) {
+
+        idsToTry.push(
+            propertyIdFromUrl
+        );
+
+    }
+
+
+    if (idsToTry.length === 0) {
+
+        return {
+
+            property: null,
+
+            error: "NO_ID"
+
+        };
+
+    }
+
+
+    console.log(
+        "IDs to try:",
+        idsToTry
+    );
+
+
+    // البحث أولاً باستخدام property_id
+    for (const currentId of idsToTry) {
+
+        console.log(
+            "Trying property_id:",
+            currentId
+        );
+
+
+        const result =
+            await supabaseClient
+                .from("properties")
+                .select("*")
+                .eq(
+                    "property_id",
                     currentId
-                );
-
-            }
-
-
-            if (language !== "en") {
-
-                params.set(
-                    "lang",
-                    "en"
-                );
-
-            }
+                )
+                .limit(1);
 
 
-            return (
-                "property-details.html?" +
-                params.toString()
+        console.log(
+            "property_id result:",
+            result
+        );
+
+
+        if (
+            !result.error &&
+            result.data &&
+            result.data.length > 0
+        ) {
+
+            console.log(
+                "PROPERTY FOUND BY property_id:",
+                result.data[0]
             );
-        }
-
-
-        /* =========================
-           FIND PROPERTY
-        ========================== */
-
-        async function findProperty() {
-
-            const idsToTry = [];
-
-
-            if (propertyId) {
-
-                idsToTry.push(
-                    propertyId
-                );
-
-            }
-
-
-            if (
-                propertyIdFromUrl &&
-                propertyIdFromUrl !== propertyId
-            ) {
-
-                idsToTry.push(
-                    propertyIdFromUrl
-                );
-
-            }
-
-
-            if (idsToTry.length === 0) {
-
-                return {
-                    property: null,
-                    error: "NO_ID"
-                };
-
-            }
-
-
-            /* =========================
-               TRY ID
-            ========================== */
-
-            for (
-                let i = 0;
-                i < idsToTry.length;
-                i++
-            ) {
-
-                const currentId =
-                    idsToTry[i];
-
-
-                const resultById =
-                    await supabaseClient
-                        .from("properties")
-                        .select("*")
-                        .eq(
-                            "id",
-                            currentId
-                        )
-                        .limit(1);
-
-
-                console.log(
-                    "Search by id:",
-                    currentId,
-                    resultById
-                );
-
-
-                if (resultById.error) {
-
-                    console.error(
-                        "Supabase ID error:",
-                        resultById.error
-                    );
-
-
-                    return {
-                        property: null,
-                        error: "SUPABASE_ERROR"
-                    };
-
-                }
-
-
-                if (
-                    resultById.data &&
-                    resultById.data.length > 0
-                ) {
-
-                    return {
-                        property:
-                            resultById.data[0],
-                        error: null
-                    };
-
-                }
-
-            }
-
-
-            /* =========================
-               TRY PROPERTY_ID
-            ========================== */
-
-            for (
-                let i = 0;
-                i < idsToTry.length;
-                i++
-            ) {
-
-                const currentId =
-                    idsToTry[i];
-
-
-                const resultByPropertyId =
-                    await supabaseClient
-                        .from("properties")
-                        .select("*")
-                        .eq(
-                            "property_id",
-                            currentId
-                        )
-                        .limit(1);
-
-
-                console.log(
-                    "Search by property_id:",
-                    currentId,
-                    resultByPropertyId
-                );
-
-
-                if (resultByPropertyId.error) {
-
-                    console.error(
-                        "Supabase property_id error:",
-                        resultByPropertyId.error
-                    );
-
-
-                    return {
-                        property: null,
-                        error: "SUPABASE_ERROR"
-                    };
-
-                }
-
-
-                if (
-                    resultByPropertyId.data &&
-                    resultByPropertyId.data.length > 0
-                ) {
-
-                    return {
-                        property:
-                            resultByPropertyId.data[0],
-                        error: null
-                    };
-
-                }
-
-            }
 
 
             return {
-                property: null,
-                error: "NOT_FOUND"
+
+                property:
+                    result.data[0],
+
+                error: null
+
             };
 
         }
 
+    }
 
-        /* =========================
-           LOAD PROPERTY
-        ========================== */
 
-        async function loadProperty() {
+    // لو ملقاش، يبحث باستخدام id
+    for (const currentId of idsToTry) {
 
-            console.log(
-                "Starting property loading..."
-            );
+        console.log(
+            "Trying id:",
+            currentId
+        );
 
 
-            console.log(
-                "Property ID:",
-                propertyId
-            );
+        const result =
+            await supabaseClient
+                .from("properties")
+                .select("*")
+                .eq(
+                    "id",
+                    currentId
+                )
+                .limit(1);
 
 
-            console.log(
-                "Property ID from URL:",
-                propertyIdFromUrl
-            );
+        console.log(
+            "id result:",
+            result
+        );
 
 
-            try {
-
-                const result =
-                    await findProperty();
-
-
-                console.log(
-                    "Final property result:",
-                    result
-                );
-
-
-                if (result.property) {
-
-                    displayProperty(
-                        result.property
-                    );
-
-
-                    await loadSimilarProperties(
-                        result.property
-                    );
-
-
-                    return;
-
-                }
-
-
-                showError(
-                    result.error
-                );
-
-            }
-            catch (error) {
-
-                console.error(
-                    "Error loading property:",
-                    error
-                );
-
-
-                showError(
-                    "ERROR"
-                );
-
-            }
-
-        }
-
-
-        /* =========================
-           DISPLAY PROPERTY
-        ========================== */
-
-        function displayProperty(property) {
-
-            const isEnglish =
-                language === "en";
-
-
-            propertyStatusText.textContent =
-                isEnglish
-                    ? getEnglishStatus(
-                        property.status
-                    )
-                    : (
-                        property.status ||
-                        "للبيع"
-                    );
-
-
-            propertyTitle.textContent =
-                isEnglish
-                    ? (
-                        property.title_en ||
-                        property.title_ar ||
-                        "Property"
-                    )
-                    : (
-                        property.title_ar ||
-                        property.title_en ||
-                        "عقار"
-                    );
-
-
-            propertyPriceText.textContent =
-                formatPropertyPrice(
-                    property,
-                    isEnglish
-                );
-
-
-            let details = "";
-
-
-            if (property.rooms) {
-
-                details +=
-                    isEnglish
-                        ? property.rooms +
-                          " Bedrooms"
-                        : property.rooms +
-                          " غرف";
-
-            }
-
-
-            if (property.bathrooms) {
-
-                if (details) {
-                    details += " • ";
-                }
-
-
-                details +=
-                    isEnglish
-                        ? property.bathrooms +
-                          " Bathrooms"
-                        : property.bathrooms +
-                          " حمام";
-
-            }
-
-
-            if (property.area) {
-
-                if (details) {
-                    details += " • ";
-                }
-
-
-                details +=
-                    property.area +
-                    " m²";
-
-            }
-
-
-            if (property.floor) {
-
-                if (details) {
-                    details += " • ";
-                }
-
-
-                details +=
-                    isEnglish
-                        ? "Floor: " +
-                          property.floor
-                        : "الدور: " +
-                          property.floor;
-
-            }
-
-
-            if (property.finish) {
-
-                if (details) {
-                    details += " • ";
-                }
-
-
-                details +=
-                    property.finish;
-
-            }
-
-
-            propertyDetailsText.textContent =
-                details ||
-                (
-                    isEnglish
-                        ? "Property details"
-                        : "تفاصيل العقار"
-                );
-
-
-            propertyDescription.textContent =
-                isEnglish
-                    ? (
-                        property.description_en ||
-                        property.description_ar ||
-                        "No description available."
-                    )
-                    : (
-                        property.description_ar ||
-                        property.description_en ||
-                        "لا يوجد وصف مضاف لهذا العقار."
-                    );
-
-
-            /* =========================
-               PROPERTY IMAGES
-            ========================== */
-
-            propertyThumbnails.innerHTML =
-                "";
-
-
-            const images =
-                getImages(
-                    property.images
-                );
-
-
-            /*
-             * لو فيه صور مسجلة في Supabase
-             */
-
-            if (images.length > 0) {
-
-                setImageWithFallback(
-                    propertyImage,
-                    images[0]
-                );
-
-
-                images.forEach(
-                    function(image) {
-
-                        addThumbnail(
-                            image
-                        );
-
-                    }
-                );
-
-            }
-
-
-            /*
-             * لو مفيش صور
-             */
-
-            else {
-
-                setImageWithFallback(
-                    propertyImage,
-                    "property1.jpg"
-                );
-
-            }
-
-
-            document.getElementById(
-                "pageTitle"
-            ).textContent =
-                isEnglish
-                    ? "Property Details - Allam Real Estate"
-                    : "تفاصيل العقار - مكتب علام للعقارات";
-
-
-            console.log(
-                "Property displayed successfully:",
-                property
-            );
-
-        }
-
-
-        /* =========================
-           SIMILAR PROPERTIES
-        ========================== */
-
-        async function loadSimilarProperties(
-            currentProperty
+        if (
+            !result.error &&
+            result.data &&
+            result.data.length > 0
         ) {
 
-            const container =
-                document.getElementById(
-                    "similarPropertiesContainer"
-                );
-
-
-            const noSimilar =
-                document.getElementById(
-                    "noSimilarProperties"
-                );
-
-
-            try {
-
-                const result =
-                    await supabaseClient
-                        .from("properties")
-                        .select("*")
-                        .limit(10);
-
-
-                if (
-                    result.error ||
-                    !result.data
-                ) {
-
-                    showNoSimilar();
-
-                    return;
-
-                }
-
-
-                const currentId =
-                    currentProperty.property_id ||
-                    currentProperty.id;
-
-
-                const similarProperties =
-                    result.data
-                        .filter(
-                            function(property) {
-
-                                const id =
-                                    property.property_id ||
-                                    property.id;
-
-
-                                return String(id) !==
-                                    String(currentId);
-
-                            }
-                        )
-                        .slice(0, 3);
-
-
-                if (
-                    similarProperties.length === 0
-                ) {
-
-                    showNoSimilar();
-
-                    return;
-
-                }
-
-
-                container.innerHTML =
-                    "";
-
-                noSimilar.style.display =
-                    "none";
-
-
-                similarProperties.forEach(
-                    function(property) {
-
-                        createSimilarCard(
-                            property,
-                            container
-                        );
-
-                    }
-                );
-
-            }
-            catch (error) {
-
-                console.error(
-                    "Similar properties error:",
-                    error
-                );
-
-
-                showNoSimilar();
-
-            }
-
-
-            function showNoSimilar() {
-
-                container.innerHTML =
-                    "";
-
-                noSimilar.style.display =
-                    "block";
-
-
-                container.appendChild(
-                    noSimilar
-                );
-
-            }
-
-        }
-
-
-        /* =========================
-           SIMILAR CARD
-        ========================== */
-
-        function createSimilarCard(
-            property,
-            container
-        ) {
-
-            const card =
-                document.createElement("div");
-
-
-            card.className =
-                "property-card";
-
-
-            const propId =
-                property.id ||
-                property.property_id;
-
-
-            card.onclick =
-                function() {
-
-                    openPropertyDetails(
-                        propId
-                    );
-
-                };
-
-
-            const imageSrc =
-                getPropertyImage(
-                    property
-                );
-
-
-            const title =
-                language === "en"
-                    ? (
-                        property.title_en ||
-                        property.title_ar ||
-                        "Property"
-                    )
-                    : (
-                        property.title_ar ||
-                        property.title_en ||
-                        "عقار"
-                    );
-
-
-            const status =
-                language === "en"
-                    ? getEnglishStatus(
-                        property.status
-                    )
-                    : (
-                        property.status ||
-                        "للبيع"
-                    );
-
-
-            let details = "";
-
-
-            if (property.rooms) {
-
-                details +=
-                    language === "en"
-                        ? property.rooms +
-                          " Bedrooms"
-                        : property.rooms +
-                          " غرف";
-
-            }
-
-
-            if (property.bathrooms) {
-
-                if (details) {
-                    details += " • ";
-                }
-
-
-                details +=
-                    language === "en"
-                        ? property.bathrooms +
-                          " Bathrooms"
-                        : property.bathrooms +
-                          " حمام";
-
-            }
-
-
-            if (property.area) {
-
-                if (details) {
-                    details += " • ";
-                }
-
-
-                details +=
-                    property.area +
-                    " m²";
-
-            }
-
-
-            const priceText =
-                formatPropertyPrice(
-                    property,
-                    language === "en"
-                );
-
-
-            card.innerHTML = `
-
-                <div class="property-image">
-
-                    <img
-                        src="${imageSrc}"
-                        alt="${title}"
-                        onerror="this.onerror=null; this.src='property1.jpg';"
-                    >
-
-                </div>
-
-
-                <div class="property-info">
-
-                    <span>
-                        ${status}
-                    </span>
-
-                    <h3>
-                        ${title}
-                    </h3>
-
-                    <p>
-                        ${details}
-                    </p>
-
-                    <strong>
-                        ${priceText}
-                    </strong>
-
-                </div>
-
-            `;
-
-
-            container.appendChild(
-                card
+            console.log(
+                "PROPERTY FOUND BY id:",
+                result.data[0]
             );
 
+
+            return {
+
+                property:
+                    result.data[0],
+
+                error: null
+
+            };
+
+        }
+
+    }
+
+
+    console.error(
+        "PROPERTY NOT FOUND. IDs:",
+        idsToTry
+    );
+
+
+    return {
+
+        property: null,
+
+        error: "NOT_FOUND"
+
+    };
+
+}
+
+/* =========================
+   DISPLAY PROPERTY
+========================= */
+
+function displayProperty(property) {
+
+    const status =
+        property.status ||
+        "للبيع";
+
+
+    const type =
+        property.property_type ||
+        "عقار";
+
+
+    const location =
+        property.location ||
+        "المحلة الكبرى";
+
+
+    const displayStatus =
+        isEnglish
+            ? getEnglishStatus(status)
+            : status;
+
+
+    const displayType =
+        isEnglish
+            ? (
+                property.property_type_en ||
+                getEnglishType(type)
+            )
+            : type;
+
+
+    const displayLocation =
+        isEnglish
+            ? (
+                property.location_en ||
+                getEnglishLocation(location)
+            )
+            : location;
+
+
+    propertyStatusText.textContent =
+        displayStatus;
+
+
+    propertyTitle.textContent =
+        isEnglish
+            ? (
+                property.title_en ||
+                displayType +
+                " in " +
+                displayLocation
+            )
+            : (
+                property.title_ar ||
+                type +
+                " في " +
+                location
+            );
+
+
+    propertyPriceText.textContent =
+        formatPropertyPrice(
+            property
+        );
+
+
+    const details = [];
+
+
+    if (
+        property.rooms !== null &&
+        property.rooms !== undefined &&
+        property.rooms !== ""
+    ) {
+
+        details.push(
+            isEnglish
+                ? property.rooms +
+                    (
+                        Number(property.rooms) === 1
+                            ? " Bedroom"
+                            : " Bedrooms"
+                    )
+                : property.rooms + " غرف"
+        );
+
+    }
+
+
+    if (
+        property.bathrooms !== null &&
+        property.bathrooms !== undefined &&
+        property.bathrooms !== ""
+    ) {
+
+        details.push(
+            isEnglish
+                ? property.bathrooms +
+                    (
+                        Number(property.bathrooms) === 1
+                            ? " Bathroom"
+                            : " Bathrooms"
+                    )
+                : property.bathrooms + " حمام"
+        );
+
+    }
+
+
+    if (
+        property.area !== null &&
+        property.area !== undefined &&
+        property.area !== ""
+    ) {
+
+        details.push(
+            property.area +
+            " " +
+            (
+                isEnglish
+                    ? "m²"
+                    : "م²"
+            )
+        );
+
+    }
+
+
+    if (
+        property.floor !== null &&
+        property.floor !== undefined &&
+        property.floor !== ""
+    ) {
+
+        details.push(
+            isEnglish
+                ? "Floor " + property.floor
+                : "الدور " + property.floor
+        );
+
+    }
+
+
+    if (
+        property.finish !== null &&
+        property.finish !== undefined &&
+        property.finish !== ""
+    ) {
+
+        details.push(
+            property.finish
+        );
+
+    }
+
+
+    propertyDetailsText.textContent =
+        details.length > 0
+            ? details.join(" • ")
+            : (
+                isEnglish
+                    ? "Property details"
+                    : "تفاصيل العقار"
+            );
+
+
+    propertyDescription.textContent =
+        isEnglish
+            ? (
+                property.description_en ||
+                property.description_ar ||
+                "No description available."
+            )
+            : (
+                property.description_ar ||
+                property.description_en ||
+                "لا يوجد وصف مضاف لهذا العقار."
+            );
+
+
+    /*
+       تشغيل واتساب للعقار الحالي
+       وهنا سيتم استخدام P001 وليس رقم id
+    */
+
+    setupWhatsApp(
+        property
+    );
+
+
+    /*
+       الصور
+    */
+
+    propertyThumbnails.innerHTML =
+        "";
+
+
+    const images =
+        getImages(property);
+
+
+    if (images.length > 0) {
+
+        setImage(
+            propertyImage,
+            images[0]
+        );
+
+
+        images.forEach(
+            function(image, index) {
+
+                addThumbnail(
+                    image,
+                    index
+                );
+
+            }
+        );
+
+    }
+
+    else {
+
+        propertyImage.removeAttribute("src");
+
+    }
+
+
+    document.getElementById(
+        "pageTitle"
+    ).textContent =
+        isEnglish
+            ? "Property Details - Allam Real Estate"
+            : "تفاصيل العقار - مكتب علام للعقارات";
+
+}
+
+
+/* =========================
+   SIMILAR PROPERTIES
+========================= */
+
+async function loadSimilarProperties(
+    currentProperty
+) {
+
+    const container =
+        document.getElementById(
+            "similarPropertiesContainer"
+        );
+
+
+    const noSimilar =
+        document.getElementById(
+            "noSimilarProperties"
+        );
+
+
+    try {
+
+        const result =
+            await supabaseClient
+                .from("properties")
+                .select("*");
+
+
+        if (
+            result.error ||
+            !result.data
+        ) {
+
+            showNoSimilar();
+
+            return;
+
         }
 
 
-        /* =========================
-           ENGLISH STATUS
-        ========================== */
+        const currentId =
+            getPropertyId(
+                currentProperty
+            );
 
-        function getEnglishStatus(status) {
 
-            if (status === "للإيجار") {
-                return "For Rent";
-            }
+        const sameType =
+            result.data.filter(
+                function(property) {
 
-            if (status === "للبيع") {
-                return "For Sale";
-            }
+                    const id =
+                        getPropertyId(property);
 
-            if (status === "تم البيع") {
-                return "Sold";
-            }
 
-            if (status === "تم التأجير") {
-                return "Rented";
-            }
+                    return (
+                        String(id) !==
+                        String(currentId)
+                    ) &&
+                    String(
+                        property.property_type || ""
+                    ).trim() ===
+                    String(
+                        currentProperty.property_type || ""
+                    ).trim();
 
-            return status || "For Sale";
+                }
+            );
+
+
+        const others =
+            result.data.filter(
+                function(property) {
+
+                    const id =
+                        getPropertyId(property);
+
+
+                    return (
+                        String(id) !==
+                        String(currentId)
+                    ) &&
+                    !sameType.includes(property);
+
+                }
+            );
+
+
+        const similarProperties =
+            [
+                ...sameType,
+                ...others
+            ].slice(0, 3);
+
+
+        if (
+            similarProperties.length === 0
+        ) {
+
+            showNoSimilar();
+
+            return;
+
         }
 
 
-        /* =========================
-           OPEN PROPERTY DETAILS
-        ========================== */
+        container.innerHTML =
+            "";
 
-        function openPropertyDetails(id) {
+
+        noSimilar.style.display =
+            "none";
+
+
+        similarProperties.forEach(
+            function(property) {
+
+                createSimilarCard(
+                    property,
+                    container
+                );
+
+            }
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Similar properties error:",
+            error
+        );
+
+        showNoSimilar();
+
+    }
+
+
+    function showNoSimilar() {
+
+        container.innerHTML =
+            "";
+
+        noSimilar.style.display =
+            "block";
+
+        container.appendChild(
+            noSimilar
+        );
+
+    }
+
+}
+
+
+/* =========================
+   SIMILAR CARD
+========================= */
+
+function createSimilarCard(
+    property,
+    container
+) {
+
+    const card =
+        document.createElement("div");
+
+
+    card.className =
+        "property-card";
+
+
+    card.onclick =
+        function() {
+
+            const id =
+                getPropertyId(property);
+
 
             if (!id) {
+
                 return;
+
+            }
+
+
+            const params =
+                new URLSearchParams();
+
+
+            params.set(
+                "id",
+                id
+            );
+
+
+            if (isEnglish) {
+
+                params.set(
+                    "lang",
+                    "en"
+                );
+
             }
 
 
             window.location.href =
-                "property-details.html?id=" +
-                encodeURIComponent(id);
+                "property-details.html?" +
+                params.toString();
+
+        };
+
+
+    const type =
+        property.property_type ||
+        "عقار";
+
+
+    const location =
+        property.location ||
+        "المحلة الكبرى";
+
+
+    const displayType =
+        isEnglish
+            ? (
+                property.property_type_en ||
+                getEnglishType(type)
+            )
+            : type;
+
+
+    const displayLocation =
+        isEnglish
+            ? (
+                property.location_en ||
+                getEnglishLocation(location)
+            )
+            : location;
+
+
+    const title =
+        isEnglish
+            ? (
+                property.title_en ||
+                displayType +
+                " in " +
+                displayLocation
+            )
+            : (
+                property.title_ar ||
+                type +
+                " في " +
+                location
+            );
+
+
+    const status =
+        isEnglish
+            ? getEnglishStatus(
+                property.status
+            )
+            : (
+                property.status ||
+                "للبيع"
+            );
+
+
+    const imageSrc =
+        getImages(property)[0];
+
+
+    const details = [];
+
+
+    if (
+        property.rooms !== null &&
+        property.rooms !== undefined &&
+        property.rooms !== ""
+    ) {
+
+        details.push(
+            isEnglish
+                ? property.rooms +
+                    (
+                        Number(property.rooms) === 1
+                            ? " Bedroom"
+                            : " Bedrooms"
+                    )
+                : property.rooms + " غرف"
+        );
+
+    }
+
+
+    if (
+        property.bathrooms !== null &&
+        property.bathrooms !== undefined &&
+        property.bathrooms !== ""
+    ) {
+
+        details.push(
+            isEnglish
+                ? property.bathrooms +
+                    (
+                        Number(property.bathrooms) === 1
+                            ? " Bathroom"
+                            : " Bathrooms"
+                    )
+                : property.bathrooms + " حمام"
+        );
+
+    }
+
+
+    if (
+        property.area !== null &&
+        property.area !== undefined &&
+        property.area !== ""
+    ) {
+
+        details.push(
+            property.area + " m²"
+        );
+
+    }
+
+
+    const priceText =
+        formatPropertyPrice(property);
+
+
+    card.innerHTML = `
+
+        <div class="property-image">
+
+            ${
+                imageSrc
+                    ? `
+                        <img
+                            src="${escapeHTML(imageSrc)}"
+                            alt="${escapeHTML(title)}"
+                            onerror="this.remove();"
+                        >
+                    `
+                    : ""
+            }
+
+        </div>
+
+
+        <div class="property-info">
+
+            <span>
+                ${escapeHTML(status)}
+            </span>
+
+
+            <h3>
+                ${escapeHTML(title)}
+            </h3>
+
+
+            <p>
+                ${
+                    details.length > 0
+                        ? escapeHTML(
+                            details.join(" • ")
+                        )
+                        : (
+                            isEnglish
+                                ? "Details not added yet"
+                                : "لم تتم إضافة التفاصيل بعد"
+                        )
+                }
+            </p>
+
+
+            <strong>
+                ${escapeHTML(priceText)}
+            </strong>
+
+        </div>
+
+    `;
+
+
+    container.appendChild(card);
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHTML(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================
+   BACK URL
+========================= */
+
+function getBackToPropertiesUrl() {
+
+    const params =
+        new URLSearchParams();
+
+
+    if (isEnglish) {
+
+        params.set(
+            "lang",
+            "en"
+        );
+
+    }
+
+
+    const filterNames = [
+        "status",
+        "type",
+        "location",
+        "price",
+        "area",
+        "priceType"
+    ];
+
+
+    filterNames.forEach(
+        function(name) {
+
+            const value =
+                urlParams.get(name);
+
+
+            if (value) {
+
+                params.set(
+                    name,
+                    value
+                );
+
+            }
+
+        }
+    );
+
+
+    const query =
+        params.toString();
+
+
+    return query
+        ? "properties.html?" + query
+        : "properties.html";
+
+}
+
+
+/* =========================
+   LANGUAGE SWITCH
+========================= */
+
+function getLanguageSwitchUrl() {
+
+    const params =
+        new URLSearchParams();
+
+
+    const currentId =
+        propertyId ||
+        propertyIdFromUrl;
+
+
+    if (currentId) {
+
+        params.set(
+            "id",
+            currentId
+        );
+
+    }
+
+
+    if (!isEnglish) {
+
+        params.set(
+            "lang",
+            "en"
+        );
+
+    }
+
+
+    return (
+        "property-details.html?" +
+        params.toString()
+    );
+
+}
+
+
+/* =========================
+   PAGE LANGUAGE
+========================= */
+
+function setupPageLanguage() {
+
+    if (!isEnglish) {
+
+        return;
+
+    }
+
+
+    document.documentElement.lang =
+        "en";
+
+
+    document.documentElement.dir =
+        "ltr";
+
+
+    document.getElementById("officeName").textContent =
+        "Allam Real Estate";
+
+
+    document.getElementById("officeSubtitle").textContent =
+        "Real Estate Office";
+
+
+    document.getElementById("navHome").textContent =
+        "Home";
+
+
+    document.getElementById("navProperties").textContent =
+        "Properties";
+
+
+    document.getElementById("navAbout").textContent =
+        "About Us";
+
+
+    document.getElementById("navContact").textContent =
+        "Contact Us";
+
+
+    document.getElementById("navLanguage").textContent =
+        "العربية";
+
+
+    document.getElementById("navHome").href =
+        "english.html";
+
+
+    document.getElementById("navProperties").href =
+        "properties.html?lang=en";
+
+
+    document.getElementById("navAbout").href =
+        "about.html?lang=en";
+
+
+    document.getElementById("navContact").href =
+        "contact.html?lang=en";
+
+
+    document.getElementById("navLanguage").href =
+        getLanguageSwitchUrl();
+
+
+    document.getElementById("similarTitle").textContent =
+        "Similar Properties";
+
+
+    document.getElementById("similarIntro").textContent =
+        "You may also find these properties suitable for you.";
+
+
+    document.getElementById("backToProperties").textContent =
+        "Back to Properties";
+
+
+    document.getElementById("contactButton").textContent =
+        "Contact Us";
+
+
+    document.getElementById("backToProperties").href =
+        getBackToPropertiesUrl();
+
+
+    document.getElementById("footerOfficeName").textContent =
+        "Allam Real Estate";
+
+
+    document.getElementById("footerAboutText").textContent =
+        "We help you find the right property for sale or rent.";
+
+
+    document.getElementById("footerLinksTitle").textContent =
+        "Quick Links";
+
+
+    document.getElementById("footerHome").textContent =
+        "Home";
+
+
+    document.getElementById("footerProperties").textContent =
+        "Properties";
+
+
+    document.getElementById("footerAbout").textContent =
+        "About Us";
+
+
+    document.getElementById("footerContact").textContent =
+        "Contact Us";
+
+
+    document.getElementById("footerContactTitle").textContent =
+        "Contact Us";
+
+
+    document.getElementById("footerLocation").textContent =
+        "El Mahalla El Kubra - Gharbia";
+
+
+    document.getElementById("footerCopyright").textContent =
+        "© 2026 Allam Real Estate. All Rights Reserved.";
+
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+function showError(errorType) {
+
+    propertyStatusText.textContent =
+        isEnglish
+            ? "Property"
+            : "العقار";
+
+
+    propertyTitle.textContent =
+        isEnglish
+            ? "Property not found"
+            : "لم يتم العثور على العقار";
+
+
+    propertyPriceText.textContent =
+        "";
+
+
+    propertyDetailsText.textContent =
+        "";
+
+
+    if (errorType === "NO_ID") {
+
+        propertyDescription.textContent =
+            isEnglish
+                ? "No property ID was provided."
+                : "لم يتم إرسال رقم العقار.";
+
+    }
+
+    else {
+
+        propertyDescription.textContent =
+            isEnglish
+                ? "This property may have been removed or the link may be incorrect."
+                : "قد يكون هذا العقار غير موجود أو أن الرابط غير صحيح.";
+
+    }
+
+
+    propertyThumbnails.innerHTML =
+        "";
+
+
+    propertyImage.removeAttribute("src");
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+setupPageLanguage();
+
+
+document.getElementById(
+    "backToProperties"
+).href =
+    getBackToPropertiesUrl();
+
+
+document.getElementById(
+    "navLanguage"
+).href =
+    getLanguageSwitchUrl();
+
+
+loadProperty();
+
+
+/* =========================
+   LOAD PROPERTY
+========================= */
+
+async function loadProperty() {
+
+    try {
+
+        const result =
+            await findProperty();
+
+
+        if (result.property) {
+
+            displayProperty(
+                result.property
+            );
+
+
+            await loadSimilarProperties(
+                result.property
+            );
+
+
+            return;
 
         }
 
 
-        /* =========================
-           ERROR
-        ========================== */
+        showError(
+            result.error
+        );
 
-        function showError(errorType) {
+    }
 
-            propertyStatusText.textContent =
-                language === "en"
-                    ? "Property"
-                    : "العقار";
+    catch (error) {
 
+        console.error(
+            "Property loading error:",
+            error
+        );
 
-            propertyTitle.textContent =
-                language === "en"
-                    ? "Property not found"
-                    : "لم يتم العثور على العقار";
 
+        showError(
+            "ERROR"
+        );
 
-            propertyPriceText.textContent =
-                "";
+    }
 
+}
 
-            propertyDetailsText.textContent =
-                "";
+</script>
 
-
-            if (errorType === "SUPABASE_ERROR") {
-
-                propertyDescription.textContent =
-                    language === "en"
-                        ? "There was a problem connecting to the database. Please try again."
-                        : "حدثت مشكلة في الاتصال بقاعدة البيانات. حاولي تحديث الصفحة مرة أخرى.";
-
-            }
-            else if (errorType === "ERROR") {
-
-                propertyDescription.textContent =
-                    language === "en"
-                        ? "There was an error loading the property. Please try again."
-                        : "حدث خطأ أثناء تحميل العقار. حاولي تحديث الصفحة مرة أخرى.";
-
-            }
-            else if (errorType === "NO_ID") {
-
-                propertyDescription.textContent =
-                    language === "en"
-                        ? "No property ID was provided."
-                        : "لم يتم إرسال رقم العقار.";
-
-            }
-            else {
-
-                propertyDescription.textContent =
-                    language === "en"
-                        ? "This property may have been removed or the link may be incorrect."
-                        : "قد يكون هذا العقار غير موجود أو أن الرابط غير صحيح.";
-
-            }
-
-
-            propertyThumbnails.innerHTML =
-                "";
-
-        }
-
-
-        /* =========================
-           PAGE SETUP
-        ========================== */
-
-        function setupPage() {
-
-            document.getElementById(
-                "backToProperties"
-            ).href =
-                getBackToPropertiesUrl();
-
-
-            document.getElementById(
-                "navLanguage"
-            ).href =
-                getLanguageSwitchUrl();
-
-
-            if (language === "en") {
-
-                document.documentElement.lang =
-                    "en";
-
-
-                document.documentElement.dir =
-                    "ltr";
-
-
-                document.getElementById(
-                    "officeName"
-                ).textContent =
-                    "Allam Real Estate";
-
-
-                document.getElementById(
-                    "officeSubtitle"
-                ).textContent =
-                    "Real Estate Office";
-
-
-                document.getElementById(
-                    "navHome"
-                ).textContent =
-                    "Home";
-
-
-                document.getElementById(
-                    "navProperties"
-                ).textContent =
-                    "Properties";
-
-
-                document.getElementById(
-                    "navAbout"
-                ).textContent =
-                    "About Us";
-
-
-                document.getElementById(
-                    "navContact"
-                ).textContent =
-                    "Contact Us";
-
-
-                document.getElementById(
-                    "navLanguage"
-                ).textContent =
-                    "العربية";
-
-
-                document.getElementById(
-                    "similarTitle"
-                ).textContent =
-                    "Similar Properties";
-
-
-                document.getElementById(
-                    "similarIntro"
-                ).textContent =
-                    "You may also find these properties suitable for you.";
-
-
-                document.getElementById(
-                    "backToProperties"
-                ).textContent =
-                    "Back to Properties";
-
-
-                document.getElementById(
-                    "contactButton"
-                ).textContent =
-                    "Contact Us";
-
-
-                document.getElementById(
-                    "footerOfficeName"
-                ).textContent =
-                    "Allam Real Estate";
-
-
-                document.getElementById(
-                    "footerAboutText"
-                ).textContent =
-                    "We help you find the right property for sale or rent.";
-
-
-                document.getElementById(
-                    "footerLinksTitle"
-                ).textContent =
-                    "Quick Links";
-
-
-                document.getElementById(
-                    "footerHome"
-                ).textContent =
-                    "Home";
-
-
-                document.getElementById(
-                    "footerProperties"
-                ).textContent =
-                    "Properties";
-
-
-                document.getElementById(
-                    "footerAbout"
-                ).textContent =
-                    "About Us";
-
-
-                document.getElementById(
-                    "footerContact"
-                ).textContent =
-                    "Contact Us";
-
-
-                document.getElementById(
-                    "footerContactTitle"
-                ).textContent =
-                    "Contact Us";
-
-            }
-
-        }
-
-
-        /* =========================
-           START
-        ========================== */
-
-        setupPage();
-
-        loadProperty();
-
-    </script>
 
 </body>
 
