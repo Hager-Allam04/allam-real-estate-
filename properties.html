@@ -4,12 +4,9 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title id="pageTitle">
-        جميع العقارات - مكتب علام للعقارات
-    </title>
+    <title id="pageTitle">جميع العقارات - مكتب علام للعقارات</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -21,22 +18,30 @@
 <body>
 
 
-<nav>
+<!-- =========================
+     NAVBAR
+========================= -->
 
-    <div>
+<nav class="navbar">
 
-        <h1 id="navOfficeName">
-            مكتب علام
-        </h1>
+    <div class="nav-brand">
 
-        <span id="navOfficeSubtitle">
-            للعقارات
-        </span>
+        <a href="index.html" class="brand-link">
+
+            <h1 id="navOfficeName">
+                مكتب علام
+            </h1>
+
+            <span id="navOfficeSubtitle">
+                للعقارات
+            </span>
+
+        </a>
 
     </div>
 
 
-    <div>
+    <div class="nav-links">
 
         <a id="navHome" href="index.html">
             الرئيسية
@@ -64,22 +69,37 @@
 
 
 
+<!-- =========================
+     PAGE
+========================= -->
+
 <section class="featured-properties">
 
+    <div class="section-heading">
 
-    <h2 id="pageHeading">
-        قائمة العقارات المتاحة
-    </h2>
+        <span>
+            <span id="sectionLabel">
+                اكتشف عقاراتنا
+            </span>
+        </span>
+
+        <h2 id="pageHeading">
+            جميع العقارات المتاحة
+        </h2>
+
+        <p id="pageDescription">
+            تصفح جميع العقارات المعروضة لدينا للبيع والإيجار
+        </p>
+
+    </div>
 
 
-    <p id="pageDescription">
-        تصفح جميع العقارات المعروضة لدينا للبيع والإيجار
-    </p>
 
-
+    <!-- =========================
+         SEARCH
+    ========================= -->
 
     <div class="search-box">
-
 
         <select id="propertyStatus">
 
@@ -93,6 +113,14 @@
 
             <option value="للإيجار">
                 للإيجار
+            </option>
+
+            <option value="تم البيع">
+                تم البيع
+            </option>
+
+            <option value="تم التأجير">
+                تم التأجير
             </option>
 
         </select>
@@ -139,37 +167,35 @@
                 كل المناطق
             </option>
 
-             <option value="السبع بنات">السبع بنات</option>
-                    <option value="شكرى القوتلي">شكرى القوتلي</option>
-                    <option value="الشعبية">الشعبية</option>
-                    <option value="الجمهورية">الجمهورية</option>
-                    <option value="سكة زفتى">سكة زفتى</option>
-                    <option value="طريق نادي الشرطة">طريق نادي الشرطة</option>
-                    <option value="البندر">البندر</option>
-                    <option value="المستشار">المستشار</option>
-                    <option value="الزراعة">الزراعة</option>
-                    <option value="مكتب العمل">مكتب العمل</option>
-                    <option value="ابو راضي">ابو راضي</option>
-                    <option value="عزبة خضر">عزبة خضر</option>
-                    <option value="سوق اللبن">سوق اللبن</option>
-                    <option value="الوراقة">الوراقة</option>
-                    <option value="السكة الوسطانية">السكة الوسطانية</option>
-                    <option value="منشية السلام">منشية السلام</option>
-                    <option value="محب">محب</option>
-                    <option value="المشحمة">المشحمة</option>
-                    <option value="الشون">الشون</option>
-                    <option value="المنشية الجديدة">المنشية الجديدة</option>
-                    <option value="الشيشتاوي">الشيشتاوي</option>
-                    <option value="نادي البلدية">نادي البلدية</option>
-                    <option value="تقسيم الشامي">تقسيم الشامي</option>
-                    <option value="عادل الرفاعي">عادل الرفاعي</option>
-                    <option value="المنصورة القديمة">المنصورة القديمة</option>
-                    <option value="الدواخلية">الدواخلية</option>
-                    <option value="شارع الترعة">شارع الترعة</option>
-                    <option value="شارع البحر">شارع البحر</option>
-                    <option value="محلة البرج">محلة البرج</option>
-                    <option value=""></option>
-
+            <option value="السبع بنات">السبع بنات</option>
+            <option value="شكرى القوتلي">شكرى القوتلي</option>
+            <option value="الشعبية">الشعبية</option>
+            <option value="الجمهورية">الجمهورية</option>
+            <option value="سكة زفتى">سكة زفتى</option>
+            <option value="طريق نادي الشرطة">طريق نادي الشرطة</option>
+            <option value="البندر">البندر</option>
+            <option value="المستشار">المستشار</option>
+            <option value="الزراعة">الزراعة</option>
+            <option value="مكتب العمل">مكتب العمل</option>
+            <option value="ابو راضي">ابو راضي</option>
+            <option value="عزبة خضر">عزبة خضر</option>
+            <option value="سوق اللبن">سوق اللبن</option>
+            <option value="الوراقة">الوراقة</option>
+            <option value="السكة الوسطانية">السكة الوسطانية</option>
+            <option value="منشية السلام">منشية السلام</option>
+            <option value="محب">محب</option>
+            <option value="المشحمة">المشحمة</option>
+            <option value="الشون">الشون</option>
+            <option value="المنشية الجديدة">المنشية الجديدة</option>
+            <option value="الشيشتاوي">الشيشتاوي</option>
+            <option value="نادي البلدية">نادي البلدية</option>
+            <option value="تقسيم الشامي">تقسيم الشامي</option>
+            <option value="عادل الرفاعي">عادل الرفاعي</option>
+            <option value="المنصورة القديمة">المنصورة القديمة</option>
+            <option value="الدواخلية">الدواخلية</option>
+            <option value="شارع الترعة">شارع الترعة</option>
+            <option value="شارع البحر">شارع البحر</option>
+            <option value="محلة البرج">محلة البرج</option>
 
         </select>
 
@@ -201,7 +227,13 @@
 
 
 
-        <select id="propertyPrice"></select>
+        <select id="propertyPrice">
+
+            <option value="">
+                كل الأسعار
+            </option>
+
+        </select>
 
 
 
@@ -235,24 +267,27 @@
 
 
 
-        <button id="searchButton">
-            بحث
-        </button>
+        <div class="search-actions">
 
+            <button id="searchButton" type="button">
+                بحث
+            </button>
 
-        <button id="resetButton" type="button">
-            إعادة ضبط
-        </button>
+            <button id="resetButton" type="button">
+                إعادة ضبط
+            </button>
 
+        </div>
 
     </div>
 
 
 
-    <div
-        class="properties-container"
-        id="allPropertiesContainer"
-    >
+    <!-- =========================
+         RESULTS
+    ========================= -->
+
+    <div class="properties-container" id="allPropertiesContainer">
 
         <p
             id="loadingText"
@@ -279,16 +314,17 @@
 
     </div>
 
-
 </section>
 
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer class="site-footer">
 
-
     <div class="footer-content">
-
 
         <div class="footer-about">
 
@@ -303,28 +339,23 @@
         </div>
 
 
-
         <div class="footer-links">
 
             <h3 id="footerLinksTitle">
                 روابط سريعة
             </h3>
 
-
             <a id="footerHome" href="index.html">
                 الرئيسية
             </a>
-
 
             <a id="footerProperties" href="properties.html">
                 العقارات
             </a>
 
-
             <a id="footerAbout" href="about.html">
                 من نحن
             </a>
-
 
             <a id="footerContact" href="contact.html">
                 اتصل بنا
@@ -333,35 +364,26 @@
         </div>
 
 
-
         <div class="footer-contact">
 
             <h3 id="footerContactTitle">
                 تواصل معنا
             </h3>
 
+            <p>📞 01282597010</p>
+
+            <p>📞 01066008110</p>
 
             <p>
-                📞 01282597010
-            </p>
-
-
-            <p>
-                📞 01066008110
-            </p>
-
-
-            <p>
-                📍 <span id="footerLocation">
+                📍
+                <span id="footerLocation">
                     المحلة الكبرى - الغربية
                 </span>
             </p>
 
         </div>
 
-
     </div>
-
 
 
     <div class="footer-bottom">
@@ -372,26 +394,21 @@
 
     </div>
 
-
 </footer>
 
 
 
 <script>
 
-
 /* =========================
    LANGUAGE
 ========================= */
 
 const urlParams =
-    new URLSearchParams(
-        window.location.search
-    );
+    new URLSearchParams(window.location.search);
 
 const isEnglish =
     urlParams.get("lang") === "en";
-
 
 
 /* =========================
@@ -402,7 +419,7 @@ const SUPABASE_URL =
     "https://pqralzsrhiizmjwzrnwb.supabase.co";
 
 const SUPABASE_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBxcmFsenNyaGlpem1qd3pybndiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkzMTMzNDksImV4cCI6MjEwNDg4OTM0OX0.XaQpZhcj_qCOZltyQlcTkjqp7FQvwwTOQqvjjV3n0dI";
+    "sb_publishable_VeFVHO_UC_BynC1J-WONiA_tGk3gPnM";
 
 const supabaseClient =
     window.supabase.createClient(
@@ -411,13 +428,11 @@ const supabaseClient =
     );
 
 
-
 /* =========================
    DATA
 ========================= */
 
 let allProperties = [];
-
 
 
 /* =========================
@@ -442,8 +457,8 @@ const typeTranslations = {
 const locationTranslations = {
 
     "السبع بنات": "El Sabe' Banat",
-    "شكري القوتلي": "Shokry El Koutly",
     "شكرى القوتلي": "Shokry El Koutly",
+    "شكري القوتلي": "Shokry El Koutly",
     "الشعبية": "El Shaabia",
     "الجمهورية": "El Gomhoria",
     "سكة زفتى": "Zefta Road",
@@ -459,10 +474,20 @@ const locationTranslations = {
     "السكة الوسطانية": "El Sekka El Wostania",
     "منشية السلام": "Mansheya El Salam",
     "محب": "Mahb",
-    "المشحمة": "El Meshma"
+    "المشحمة": "El Meshma",
+    "الشون": "El Shoun",
+    "المنشية الجديدة": "New Mansheya",
+    "الشيشتاوي": "El Sheishtawy",
+    "نادي البلدية": "Municipal Club",
+    "تقسيم الشامي": "El Shamy District",
+    "عادل الرفاعي": "Adel El Refai",
+    "المنصورة القديمة": "Old Mansoura",
+    "الدواخلية": "El Dawakhlia",
+    "شارع الترعة": "El Teraa Street",
+    "شارع البحر": "El Bahr Street",
+    "محلة البرج": "Mahallat El Borg"
 
 };
-
 
 
 /* =========================
@@ -515,24 +540,26 @@ function setupEnglishPage() {
         "properties.html";
 
 
+    document.getElementById("sectionLabel").textContent =
+        "Explore Our Properties";
+
     document.getElementById("pageHeading").textContent =
-        "Available Properties";
+        "All Properties";
 
     document.getElementById("pageDescription").textContent =
-        "Browse all our available properties for sale and rent.";
+        "Browse our properties for sale and rent.";
 
 
     document.getElementById("propertyStatus").innerHTML = `
-
         <option value="">All Statuses</option>
         <option value="للبيع">For Sale</option>
         <option value="للإيجار">For Rent</option>
-
+        <option value="تم البيع">Sold</option>
+        <option value="تم التأجير">Rented</option>
     `;
 
 
     document.getElementById("propertyType").innerHTML = `
-
         <option value="">All Property Types</option>
         <option value="شقة سكنية">Residential Apartment</option>
         <option value="شقة إدارية">Administrative Apartment</option>
@@ -540,15 +567,13 @@ function setupEnglishPage() {
         <option value="أرض">Land</option>
         <option value="مصانع ومخازن">Factories and Warehouses</option>
         <option value="منزل">House</option>
-
     `;
 
 
     document.getElementById("propertyLocation").innerHTML = `
-
         <option value="">All Locations</option>
         <option value="السبع بنات">El Sabe' Banat</option>
-        <option value="شكري القوتلي">Shokry El Koutly</option>
+        <option value="شكرى القوتلي">Shokry El Koutly</option>
         <option value="الشعبية">El Shaabia</option>
         <option value="الجمهورية">El Gomhoria</option>
         <option value="سكة زفتى">Zefta Road</option>
@@ -565,30 +590,36 @@ function setupEnglishPage() {
         <option value="منشية السلام">Mansheya El Salam</option>
         <option value="محب">Mahb</option>
         <option value="المشحمة">El Meshma</option>
-
+        <option value="الشون">El Shoun</option>
+        <option value="المنشية الجديدة">New Mansheya</option>
+        <option value="الشيشتاوي">El Sheishtawy</option>
+        <option value="نادي البلدية">Municipal Club</option>
+        <option value="تقسيم الشامي">El Shamy District</option>
+        <option value="عادل الرفاعي">Adel El Refai</option>
+        <option value="المنصورة القديمة">Old Mansoura</option>
+        <option value="الدواخلية">El Dawakhlia</option>
+        <option value="شارع الترعة">El Teraa Street</option>
+        <option value="شارع البحر">El Bahr Street</option>
+        <option value="محلة البرج">Mahallat El Borg</option>
     `;
 
 
     document.getElementById("propertyPriceType").innerHTML = `
-
         <option value="">All Price Types</option>
         <option value="total">Total Property Price</option>
         <option value="meter">Price per m²</option>
         <option value="monthly">Monthly Price</option>
         <option value="yearly">Yearly Price</option>
-
     `;
 
 
     document.getElementById("propertyArea").innerHTML = `
-
         <option value="">All Areas</option>
         <option value="less-100">Less than 100 m²</option>
         <option value="100-150">100 - 150 m²</option>
         <option value="150-200">150 - 200 m²</option>
         <option value="200-300">200 - 300 m²</option>
         <option value="more-300">More than 300 m²</option>
-
     `;
 
 
@@ -651,163 +682,6 @@ function setupEnglishPage() {
 }
 
 
-
-/* =========================
-   PRICE OPTIONS
-========================= */
-
-function updatePriceOptions() {
-
-    const status =
-        document.getElementById("propertyStatus").value;
-
-    const priceSelect =
-        document.getElementById("propertyPrice");
-
-    const oldValue =
-        priceSelect.value;
-
-
-    let html = "";
-
-
-    html += `
-        <option value="">
-            ${isEnglish ? "All Prices" : "كل الأسعار"}
-        </option>
-    `;
-
-
-    /* RENT */
-
-    if (status === "للإيجار") {
-
-        if (isEnglish) {
-
-            html += `
-                <option value="less-5k">Less than 5K</option>
-                <option value="5k-10k">5K - 10K</option>
-                <option value="10k-15k">10K - 15K</option>
-                <option value="15k-20k">15K - 20K</option>
-                <option value="20k-30k">20K - 30K</option>
-                <option value="more-30k">More than 30K</option>
-            `;
-
-        }
-
-        else {
-
-            html += `
-                <option value="less-5k">أقل من 5 آلاف</option>
-                <option value="5k-10k">5 آلاف - 10 آلاف</option>
-                <option value="10k-15k">10 آلاف - 15 ألف</option>
-                <option value="15k-20k">15 ألف - 20 ألف</option>
-                <option value="20k-30k">20 ألف - 30 ألف</option>
-                <option value="more-30k">أكثر من 30 ألف</option>
-            `;
-
-        }
-
-    }
-
-
-    /* SALE */
-
-    else if (status === "للبيع") {
-
-        if (isEnglish) {
-
-            html += `
-                <option value="less-500k">Less than 500K</option>
-                <option value="500k-1m">500K - 1M</option>
-                <option value="1m-2m">1M - 2M</option>
-                <option value="2m-3m">2M - 3M</option>
-                <option value="more-3m">More than 3M</option>
-            `;
-
-        }
-
-        else {
-
-            html += `
-                <option value="less-500k">أقل من 500 ألف</option>
-                <option value="500k-1m">500 ألف - 1 مليون</option>
-                <option value="1m-2m">1 - 2 مليون</option>
-                <option value="2m-3m">2 - 3 مليون</option>
-                <option value="more-3m">أكثر من 3 مليون</option>
-            `;
-
-        }
-
-    }
-
-
-    /* ALL */
-
-    else {
-
-        if (isEnglish) {
-
-            html += `
-                <option value="less-5k">Less than 5K</option>
-                <option value="5k-10k">5K - 10K</option>
-                <option value="10k-20k">10K - 20K</option>
-                <option value="20k-50k">20K - 50K</option>
-                <option value="50k-100k">50K - 100K</option>
-                <option value="100k-500k">100K - 500K</option>
-                <option value="500k-1m">500K - 1M</option>
-                <option value="1m-2m">1M - 2M</option>
-                <option value="2m-3m">2M - 3M</option>
-                <option value="more-3m">More than 3M</option>
-            `;
-
-        }
-
-        else {
-
-            html += `
-                <option value="less-5k">أقل من 5 آلاف</option>
-                <option value="5k-10k">5 آلاف - 10 آلاف</option>
-                <option value="10k-20k">10 آلاف - 20 ألف</option>
-                <option value="20k-50k">20 ألف - 50 ألف</option>
-                <option value="50k-100k">50 ألف - 100 ألف</option>
-                <option value="100k-500k">100 ألف - 500 ألف</option>
-                <option value="500k-1m">500 ألف - 1 مليون</option>
-                <option value="1m-2m">1 - 2 مليون</option>
-                <option value="2m-3m">2 - 3 مليون</option>
-                <option value="more-3m">أكثر من 3 مليون</option>
-            `;
-
-        }
-
-    }
-
-
-    priceSelect.innerHTML = html;
-
-
-    const exists =
-        [...priceSelect.options].some(
-            option => option.value === oldValue
-        );
-
-
-    if (exists) {
-
-        priceSelect.value = oldValue;
-
-    }
-
-    else {
-
-        priceSelect.value = "";
-
-    }
-
-}
-
-
-
 /* =========================
    PRICE TYPE
 ========================= */
@@ -822,97 +696,81 @@ function normalizePriceType(value) {
 }
 
 
-function getPropertyPriceType(prop) {
+function getPropertyPriceType(property) {
 
     const raw =
         normalizePriceType(
-            prop.price_type ||
-            prop.priceType ||
-            prop.price_unit ||
-            prop.priceUnit ||
-            ""
+            property.price_type || ""
         );
 
 
-    if (
-
-        [
-            "meter",
-            "per meter",
-            "per_meter",
-            "per-meter",
-            "price per meter",
-            "price_per_meter",
-            "price/m2",
-            "price per m2",
-            "price per sqm",
-            "per m2",
-            "per sqm",
-            "m2",
-            "sqm",
-            "متر",
-            "المتر",
-            "سعر المتر",
-            "سعر متر",
-            "بالمتر",
-            "متر مربع",
-            "سعر المتر المربع"
-        ].includes(raw)
-
-    ) {
+    if ([
+        "meter",
+        "per meter",
+        "per_meter",
+        "per-meter",
+        "price per meter",
+        "price_per_meter",
+        "price/m2",
+        "price per m2",
+        "price per sqm",
+        "per m2",
+        "per sqm",
+        "m2",
+        "sqm",
+        "متر",
+        "المتر",
+        "سعر المتر",
+        "سعر متر",
+        "بالمتر",
+        "متر مربع",
+        "سعر المتر المربع"
+    ].includes(raw)) {
 
         return "meter";
 
     }
 
 
-    if (
-
-        [
-            "monthly",
-            "month",
-            "per month",
-            "per_month",
-            "per-month",
-            "monthly price",
-            "monthly_price",
-            "price per month",
-            "price_per_month",
-            "سعر شهري",
-            "شهري",
-            "بالشهر",
-            "شهريا",
-            "شهرياً"
-        ].includes(raw)
-
-    ) {
+    if ([
+        "monthly",
+        "month",
+        "per month",
+        "per_month",
+        "per-month",
+        "monthly price",
+        "monthly_price",
+        "price per month",
+        "price_per_month",
+        "سعر شهري",
+        "شهري",
+        "بالشهر",
+        "شهريا",
+        "شهرياً"
+    ].includes(raw)) {
 
         return "monthly";
 
     }
 
 
-    if (
-
-        [
-            "yearly",
-            "year",
-            "annual",
-            "per year",
-            "per_year",
-            "per-year",
-            "yearly price",
-            "yearly_price",
-            "price per year",
-            "price_per_year",
-            "سعر سنوي",
-            "سنوي",
-            "بالسنة",
-            "سنويا",
-            "سنوياً"
-        ].includes(raw)
-
-    ) {
+    if ([
+        "yearly",
+        "year",
+        "annual",
+        "per year",
+        "per_year",
+        "per-year",
+        "yearly price",
+        "yearly_price",
+        "price per year",
+        "price_per_year",
+        "سعر سنوي",
+        "سنوي",
+        "بالسنة",
+        "سنويا",
+        "سنوياً"
+    ].includes(raw)) {
 
         return "yearly";
 
@@ -924,24 +782,411 @@ function getPropertyPriceType(prop) {
 }
 
 
+/* =========================
+   PRICE OPTIONS
+========================= */
+
+function updatePriceOptions() {
+
+    const priceType =
+        document.getElementById("propertyPriceType").value;
+
+    const priceSelect =
+        document.getElementById("propertyPrice");
+
+    const oldValue =
+        priceSelect.value;
+
+
+    let html = `
+        <option value="">
+            ${isEnglish ? "All Prices" : "كل الأسعار"}
+        </option>
+    `;
+
+
+    /* سعر المتر */
+
+    if (priceType === "meter") {
+
+        html += isEnglish ? `
+            <option value="less-10k">Less than 10K</option>
+            <option value="10k-15k">10K - 15K</option>
+            <option value="15k-20k">15K - 20K</option>
+            <option value="20k-30k">20K - 30K</option>
+            <option value="30k-50k">30K - 50K</option>
+            <option value="50k-100k">50K - 100K</option>
+            <option value="more-100k">More than 100K</option>
+        ` : `
+            <option value="less-10k">أقل من 10 آلاف</option>
+            <option value="10k-15k">10 آلاف - 15 ألف</option>
+            <option value="15k-20k">15 ألف - 20 ألف</option>
+            <option value="20k-30k">20 ألف - 30 ألف</option>
+            <option value="30k-50k">30 ألف - 50 ألف</option>
+            <option value="50k-100k">50 ألف - 100 ألف</option>
+            <option value="more-100k">أكثر من 100 ألف</option>
+        `;
+
+    }
+
+
+    /* الإيجار الشهري */
+
+    else if (priceType === "monthly") {
+
+        html += isEnglish ? `
+            <option value="less-5k">Less than 5K</option>
+            <option value="5k-10k">5K - 10K</option>
+            <option value="10k-20k">10K - 20K</option>
+            <option value="20k-30k">20K - 30K</option>
+            <option value="30k-50k">30K - 50K</option>
+            <option value="50k-100k">50K - 100K</option>
+            <option value="100k-200k">100K - 200K</option>
+            <option value="200k-500k">200K - 500K</option>
+            <option value="more-500k">More than 500K</option>
+        ` : `
+            <option value="less-5k">أقل من 5 آلاف</option>
+            <option value="5k-10k">5 آلاف - 10 آلاف</option>
+            <option value="10k-20k">10 آلاف - 20 ألف</option>
+            <option value="20k-30k">20 ألف - 30 ألف</option>
+            <option value="30k-50k">30 ألف - 50 ألف</option>
+            <option value="50k-100k">50 ألف - 100 ألف</option>
+            <option value="100k-200k">100 ألف - 200 ألف</option>
+            <option value="200k-500k">200 ألف - 500 ألف</option>
+            <option value="more-500k">أكثر من 500 ألف</option>
+        `;
+
+    }
+
+
+    /* السعر السنوي */
+
+    else if (priceType === "yearly") {
+
+        html += isEnglish ? `
+            <option value="less-100k">Less than 100K</option>
+            <option value="100k-200k">100K - 200K</option>
+            <option value="200k-300k">200K - 300K</option>
+            <option value="300k-500k">300K - 500K</option>
+            <option value="500k-1m">500K - 1M</option>
+            <option value="1m-2m">1M - 2M</option>
+            <option value="2m-5m">2M - 5M</option>
+            <option value="5m-10m">5M - 10M</option>
+            <option value="more-10m">More than 10M</option>
+        ` : `
+            <option value="less-100k">أقل من 100 ألف</option>
+            <option value="100k-200k">100 ألف - 200 ألف</option>
+            <option value="200k-300k">200 ألف - 300 ألف</option>
+            <option value="300k-500k">300 ألف - 500 ألف</option>
+            <option value="500k-1m">500 ألف - 1 مليون</option>
+            <option value="1m-2m">1 - 2 مليون</option>
+            <option value="2m-5m">2 - 5 مليون</option>
+            <option value="5m-10m">5 - 10 مليون</option>
+            <option value="more-10m">أكثر من 10 مليون</option>
+        `;
+
+    }
+
+
+    /* السعر الكلي */
+
+    else {
+
+        html += isEnglish ? `
+            <option value="less-500k">Less than 500K</option>
+            <option value="500k-1m">500K - 1M</option>
+            <option value="1m-2m">1M - 2M</option>
+            <option value="2m-3m">2M - 3M</option>
+            <option value="3m-5m">3M - 5M</option>
+            <option value="5m-10m">5M - 10M</option>
+            <option value="10m-20m">10M - 20M</option>
+            <option value="more-20m">More than 20M</option>
+        ` : `
+            <option value="less-500k">أقل من 500 ألف</option>
+            <option value="500k-1m">500 ألف - 1 مليون</option>
+            <option value="1m-2m">1 - 2 مليون</option>
+            <option value="2m-3m">2 - 3 مليون</option>
+            <option value="3m-5m">3 - 5 مليون</option>
+            <option value="5m-10m">5 - 10 مليون</option>
+            <option value="10m-20m">10 - 20 مليون</option>
+            <option value="more-20m">أكثر من 20 مليون</option>
+        `;
+
+    }
+
+
+    priceSelect.innerHTML =
+        html;
+
+
+    const exists =
+        [...priceSelect.options].some(
+            option => option.value === oldValue
+        );
+
+
+    priceSelect.value =
+        exists ? oldValue : "";
+
+}
+
+
+/* =========================
+   PRICE MATCH
+========================= */
+
+function priceMatches(price, selectedRange) {
+
+    if (!selectedRange)
+        return true;
+
+
+    const value =
+        Number(price);
+
+
+    if (Number.isNaN(value))
+        return false;
+
+
+    if (selectedRange === "less-5k")
+        return value < 5000;
+
+    if (selectedRange === "5k-10k")
+        return value >= 5000 && value < 10000;
+
+    if (selectedRange === "10k-20k")
+        return value >= 10000 && value < 20000;
+
+    if (selectedRange === "20k-30k")
+        return value >= 20000 && value < 30000;
+
+    if (selectedRange === "30k-50k")
+        return value >= 30000 && value < 50000;
+
+    if (selectedRange === "50k-100k")
+        return value >= 50000 && value < 100000;
+
+    if (selectedRange === "100k-200k")
+        return value >= 100000 && value < 200000;
+
+    if (selectedRange === "200k-500k")
+        return value >= 200000 && value < 500000;
+
+    if (selectedRange === "more-500k")
+        return value >= 500000;
+
+
+    if (selectedRange === "less-10k")
+        return value < 10000;
+
+    if (selectedRange === "10k-15k")
+        return value >= 10000 && value < 15000;
+
+    if (selectedRange === "15k-20k")
+        return value >= 15000 && value < 20000;
+
+    if (selectedRange === "20k-30k")
+        return value >= 20000 && value < 30000;
+
+    if (selectedRange === "30k-50k")
+        return value >= 30000 && value < 50000;
+
+    if (selectedRange === "50k-100k")
+        return value >= 50000 && value < 100000;
+
+    if (selectedRange === "more-100k")
+        return value >= 100000;
+
+
+    if (selectedRange === "less-100k")
+        return value < 100000;
+
+    if (selectedRange === "100k-200k")
+        return value >= 100000 && value < 200000;
+
+    if (selectedRange === "200k-300k")
+        return value >= 200000 && value < 300000;
+
+    if (selectedRange === "300k-500k")
+        return value >= 300000 && value < 500000;
+
+    if (selectedRange === "500k-1m")
+        return value >= 500000 && value < 1000000;
+
+    if (selectedRange === "1m-2m")
+        return value >= 1000000 && value < 2000000;
+
+    if (selectedRange === "2m-5m")
+        return value >= 2000000 && value < 5000000;
+
+    if (selectedRange === "5m-10m")
+        return value >= 5000000 && value < 10000000;
+
+    if (selectedRange === "more-10m")
+        return value >= 10000000;
+
+
+    if (selectedRange === "less-500k")
+        return value < 500000;
+
+    if (selectedRange === "500k-1m")
+        return value >= 500000 && value < 1000000;
+
+    if (selectedRange === "1m-2m")
+        return value >= 1000000 && value < 2000000;
+
+    if (selectedRange === "2m-3m")
+        return value >= 2000000 && value < 3000000;
+
+    if (selectedRange === "3m-5m")
+        return value >= 3000000 && value < 5000000;
+
+    if (selectedRange === "5m-10m")
+        return value >= 5000000 && value < 10000000;
+
+    if (selectedRange === "10m-20m")
+        return value >= 10000000 && value < 20000000;
+
+    if (selectedRange === "more-20m")
+        return value >= 20000000;
+
+
+    return true;
+
+}
+
+
+/* =========================
+   AREA MATCH
+========================= */
+
+function areaMatches(area, selectedArea) {
+
+    if (!selectedArea)
+        return true;
+
+
+    const value =
+        Number(area);
+
+
+    if (Number.isNaN(value))
+        return false;
+
+
+    if (selectedArea === "less-100")
+        return value < 100;
+
+    if (selectedArea === "100-150")
+        return value >= 100 && value < 150;
+
+    if (selectedArea === "150-200")
+        return value >= 150 && value < 200;
+
+    if (selectedArea === "200-300")
+        return value >= 200 && value < 300;
+
+    if (selectedArea === "more-300")
+        return value >= 300;
+
+
+    return true;
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHTML(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================
+   IMAGES
+========================= */
+
+function getPropertyImages(property) {
+
+    const value =
+        property.images;
+
+
+    if (!value)
+        return [];
+
+
+    if (Array.isArray(value)) {
+
+        return value
+            .map(image => String(image).trim())
+            .filter(Boolean);
+
+    }
+
+
+    if (typeof value === "string") {
+
+        const text =
+            value.trim();
+
+
+        if (!text)
+            return [];
+
+
+        try {
+
+            const parsed =
+                JSON.parse(text);
+
+
+            if (Array.isArray(parsed)) {
+
+                return parsed
+                    .map(image => String(image).trim())
+                    .filter(Boolean);
+
+            }
+
+        }
+
+        catch (error) {
+            // Normal text URL
+        }
+
+
+        return text
+            .split(",")
+            .map(image => image.trim())
+            .filter(Boolean);
+
+    }
+
+
+    return [];
+
+}
+
 
 /* =========================
    FORMAT PRICE
 ========================= */
 
-function formatPropertyPrice(prop) {
+function formatPropertyPrice(property) {
 
-    const price = prop.price;
-
-    const priceType =
-        getPropertyPriceType(prop);
-
-    const priceNote =
-        String(
-            prop.price_note ||
-            prop.priceNote ||
-            ""
-        ).trim();
+    const price =
+        property.price;
 
 
     if (
@@ -961,93 +1206,81 @@ function formatPropertyPrice(prop) {
         Number(price);
 
 
-    const formattedPrice =
+    const formatted =
         Number.isNaN(numericPrice)
-            ? String(price)
-            : numericPrice.toLocaleString("en-US");
+            ? escapeHTML(price)
+            : numericPrice.toLocaleString(
+                isEnglish ? "en-US" : "ar-EG"
+            );
+
+
+    const priceType =
+        getPropertyPriceType(property);
 
 
     let result;
 
 
-    if (isEnglish) {
+    if (priceType === "meter") {
 
-        if (priceType === "meter") {
+        result =
+            formatted +
+            (
+                isEnglish
+                    ? " EGP / m²"
+                    : " جنيه / م²"
+            );
 
-            result =
-                formattedPrice +
-                " EGP / m²";
+    }
 
-        }
+    else if (priceType === "monthly") {
 
-        else if (priceType === "monthly") {
+        result =
+            formatted +
+            (
+                isEnglish
+                    ? " EGP / Month"
+                    : " جنيه / شهر"
+            );
 
-            result =
-                formattedPrice +
-                " EGP / Month";
+    }
 
-        }
+    else if (priceType === "yearly") {
 
-        else if (priceType === "yearly") {
-
-            result =
-                formattedPrice +
-                " EGP / Year";
-
-        }
-
-        else {
-
-            result =
-                formattedPrice +
-                " EGP";
-
-        }
+        result =
+            formatted +
+            (
+                isEnglish
+                    ? " EGP / Year"
+                    : " جنيه / سنة"
+            );
 
     }
 
     else {
 
-        if (priceType === "meter") {
-
-            result =
-                formattedPrice +
-                " جنيه / م²";
-
-        }
-
-        else if (priceType === "monthly") {
-
-            result =
-                formattedPrice +
-                " جنيه / شهر";
-
-        }
-
-        else if (priceType === "yearly") {
-
-            result =
-                formattedPrice +
-                " جنيه / سنة";
-
-        }
-
-        else {
-
-            result =
-                formattedPrice +
-                " جنيه";
-
-        }
+        result =
+            formatted +
+            (
+                isEnglish
+                    ? " EGP"
+                    : " جنيه"
+            );
 
     }
 
 
-    if (priceNote) {
+    const note =
+        String(
+            property.price_note || ""
+        ).trim();
+
+
+    if (note) {
 
         result +=
             " - " +
-            priceNote;
+            escapeHTML(note);
 
     }
 
@@ -1057,9 +1290,8 @@ function formatPropertyPrice(prop) {
 }
 
 
-
 /* =========================
-   ENGLISH DATA
+   TRANSLATION HELPERS
 ========================= */
 
 function getEnglishType(type) {
@@ -1103,32 +1335,44 @@ function getEnglishStatus(status) {
 }
 
 
-
 /* =========================
    OPEN DETAILS
 ========================= */
 
 function openPropertyDetails(property) {
 
-    const params =
-        new URLSearchParams();
+    const id =
+        property.property_id ||
+        property.id;
 
 
-    if (property.id !== null &&
-        property.id !== undefined &&
-        property.id !== "") {
+    if (
+        id === null ||
+        id === undefined ||
+        id === ""
+    ) {
 
-        params.set(
-            "id",
-            property.id
+        console.error(
+            "Property has no valid ID:",
+            property
         );
+
+        return;
 
     }
 
 
-    if (property.property_id !== null &&
-        property.property_id !== undefined &&
-        property.property_id !== "") {
+    const params =
+        new URLSearchParams();
+
+
+    params.set(
+        "id",
+        id
+    );
+
+
+    if (property.property_id) {
 
         params.set(
             "property_id",
@@ -1155,237 +1399,111 @@ function openPropertyDetails(property) {
 }
 
 
-
-/* =========================
-   LOAD PROPERTIES
-========================= */
-
-async function loadProperties() {
-
-    const container =
-        document.getElementById(
-            "allPropertiesContainer"
-        );
-
-    const loading =
-        document.getElementById(
-            "loadingText"
-        );
-
-    const noResults =
-        document.getElementById(
-            "noResultsText"
-        );
-
-
-    try {
-
-        /*
-           مهم جداً:
-           لا نستخدم created_at هنا.
-           لأن الصفحة الرئيسية شغالة
-           وده يمنع فشل الاستعلام لو العمود
-           غير موجود أو اسمه مختلف.
-        */
-
-        const result =
-            await supabaseClient
-                .from("properties")
-                .select("*");
-
-
-        console.log(
-            "Properties result:",
-            result
-        );
-
-
-        if (result.error) {
-
-            console.error(
-                "Supabase error:",
-                result.error
-            );
-
-
-            loading.style.display =
-                "none";
-
-            noResults.style.display =
-                "block";
-
-            noResults.textContent =
-                isEnglish
-                    ? "An error occurred while loading properties."
-                    : "حدث خطأ أثناء تحميل العقارات.";
-
-            return;
-
-        }
-
-
-        allProperties =
-            Array.isArray(result.data)
-                ? result.data
-                : [];
-
-
-        loading.style.display =
-            "none";
-
-
-        if (
-            allProperties.length === 0
-        ) {
-
-            noResults.style.display =
-                "block";
-
-            noResults.textContent =
-                isEnglish
-                    ? "No properties have been added yet."
-                    : "لا توجد عقارات مضافة حالياً.";
-
-            return;
-
-        }
-
-
-        displayProperties(
-            allProperties
-        );
-
-
-        restoreFilters();
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Unexpected loading error:",
-            error
-        );
-
-
-        loading.style.display =
-            "none";
-
-        noResults.style.display =
-            "block";
-
-        noResults.textContent =
-            isEnglish
-                ? "An error occurred while loading properties."
-                : "حدث خطأ أثناء تحميل العقارات.";
-
-    }
-
-}
-
-
-
 /* =========================
    CREATE CARD
 ========================= */
 
-function createPropertyCard(prop) {
+function createPropertyCard(property) {
 
     const card =
-        document.createElement("div");
+        document.createElement("article");
 
 
     card.className =
         "property-card";
 
 
-    card.onclick =
-        function() {
-
-            openPropertyDetails(
-                prop
-            );
-
-        };
-
-
     const status =
-        prop.status ||
-        "للبيع";
+        String(
+            property.status ||
+            "للبيع"
+        ).trim();
 
 
-    const type =
-        prop.property_type ||
-        "عقار";
+    /*
+     * الحالات المكتملة
+     */
+
+    const isSold =
+        status === "تم البيع";
+
+    const isRented =
+        status === "تم التأجير";
+
+    const isCompleted =
+        isSold || isRented;
 
 
-    const location =
-        prop.location ||
-        "المحلة الكبرى";
+    /*
+     * إضافة كلاس خاص للكارت
+     */
 
+    if (isSold) {
 
-    const area =
-        prop.area;
+        card.classList.add(
+            "property-sold"
+        );
 
+    }
 
-    const rooms =
-        prop.rooms;
+    if (isRented) {
 
+        card.classList.add(
+            "property-rented"
+        );
 
-    const bathrooms =
-        prop.bathrooms;
+    }
 
+    if (isCompleted) {
 
-    /* IMAGE */
-
-    let imageSrc =
-        "property1.jpg";
-
-
-    if (prop.images) {
-
-        if (
-            Array.isArray(prop.images)
-        ) {
-
-            if (
-                prop.images.length > 0
-            ) {
-
-                imageSrc =
-                    prop.images[0];
-
-            }
-
-        }
-
-        else {
-
-            const images =
-                String(prop.images)
-                    .split(",")
-                    .map(
-                        image =>
-                            image.trim()
-                    )
-                    .filter(Boolean);
-
-
-            if (
-                images.length > 0
-            ) {
-
-                imageSrc =
-                    images[0];
-
-            }
-
-        }
+        card.classList.add(
+            "property-completed"
+        );
 
     }
 
 
-    /* DISPLAY */
+    card.addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target.closest("button") ||
+                event.target.closest("a")
+            ) {
+
+                return;
+
+            }
+
+
+            openPropertyDetails(
+                property
+            );
+
+        }
+    );
+
+
+    const type =
+        String(
+            property.property_type ||
+            "عقار"
+        ).trim();
+
+
+    const location =
+        String(
+            property.location ||
+            "المحلة الكبرى"
+        ).trim();
+
+
+    const images =
+        getPropertyImages(
+            property
+        );
+
 
     const displayStatus =
         isEnglish
@@ -1396,7 +1514,7 @@ function createPropertyCard(prop) {
     const displayType =
         isEnglish
             ? (
-                prop.property_type_en ||
+                property.property_type_en ||
                 getEnglishType(type)
             )
             : type;
@@ -1405,7 +1523,7 @@ function createPropertyCard(prop) {
     const displayLocation =
         isEnglish
             ? (
-                prop.location_en ||
+                property.location_en ||
                 getEnglishLocation(location)
             )
             : location;
@@ -1414,174 +1532,241 @@ function createPropertyCard(prop) {
     const title =
         isEnglish
             ? (
-                prop.title_en ||
-                displayType +
-                " in " +
-                displayLocation
+                property.title_en ||
+                (
+                    displayType +
+                    (
+                        displayLocation
+                            ? " in " + displayLocation
+                            : ""
+                    )
+                )
             )
             : (
-                prop.title_ar ||
-                type +
-                " في " +
-                location
+                property.title_ar ||
+                type + " في " + location
             );
 
 
-    const priceText =
-        formatPropertyPrice(prop);
-
-
-    let details = [];
+    const details = [];
 
 
     if (
-        rooms !== null &&
-        rooms !== undefined &&
-        rooms !== ""
+        property.rooms !== null &&
+        property.rooms !== undefined &&
+        property.rooms !== ""
     ) {
 
         details.push(
+
             isEnglish
-                ? rooms +
+
+                ? property.rooms +
                     (
-                        Number(rooms) === 1
+                        Number(property.rooms) === 1
                             ? " Bedroom"
                             : " Bedrooms"
                     )
-                : rooms + " غرف"
+
+                : property.rooms + " غرف"
+
         );
 
     }
 
 
     if (
-        bathrooms !== null &&
-        bathrooms !== undefined &&
-        bathrooms !== ""
+        property.bathrooms !== null &&
+        property.bathrooms !== undefined &&
+        property.bathrooms !== ""
     ) {
 
         details.push(
+
             isEnglish
-                ? bathrooms +
+
+                ? property.bathrooms +
                     (
-                        Number(bathrooms) === 1
+                        Number(property.bathrooms) === 1
                             ? " Bathroom"
                             : " Bathrooms"
                     )
-                : bathrooms + " حمام"
+
+                : property.bathrooms + " حمام"
+
         );
 
     }
 
 
     if (
-        area !== null &&
-        area !== undefined &&
-        area !== ""
+        property.area !== null &&
+        property.area !== undefined &&
+        property.area !== ""
     ) {
 
         details.push(
-            area +
+
+            escapeHTML(property.area) +
             " " +
             (
                 isEnglish
                     ? "m²"
                     : "م²"
             )
+
         );
 
     }
 
 
     if (
-        prop.floor !== null &&
-        prop.floor !== undefined &&
-        prop.floor !== ""
+        property.floor !== null &&
+        property.floor !== undefined &&
+        property.floor !== ""
     ) {
 
         details.push(
+
             isEnglish
-                ? "Floor " + prop.floor
-                : "الدور " + prop.floor
+                ? "Floor " + escapeHTML(property.floor)
+                : "الدور " + escapeHTML(property.floor)
+
         );
 
     }
 
 
-    if (
-        prop.finish !== null &&
-        prop.finish !== undefined &&
-        prop.finish !== ""
-    ) {
-
-        details.push(
-            prop.finish
+    const priceText =
+        formatPropertyPrice(
+            property
         );
+
+
+    const featured =
+        property.featured === true ||
+        property.featured === "true" ||
+        property.featured === 1;
+
+
+    let imageHTML = "";
+
+
+    if (images.length > 0) {
+
+        imageHTML = `
+
+            <img
+                src="${escapeHTML(images[0])}"
+                alt="${escapeHTML(title)}"
+                loading="lazy"
+                onerror="
+                    this.style.display='none';
+                    this.nextElementSibling.style.display='flex';
+                "
+            >
+
+            <span
+                class="image-placeholder"
+                style="display:none;"
+            >
+                ${isEnglish ? "Image unavailable" : "الصورة غير متاحة"}
+            </span>
+
+        `;
+
+    }
+
+    else {
+
+        imageHTML = `
+
+            <span class="image-placeholder">
+                ${isEnglish ? "No image available" : "لا توجد صورة"}
+            </span>
+
+        `;
 
     }
 
 
-    card.setAttribute(
-        "data-status",
-        status
-    );
+    /*
+     * نص الحالة الخاصة بالكروت المكتملة
+     */
 
-    card.setAttribute(
-        "data-type",
-        type
-    );
+    let completedBadge = "";
 
-    card.setAttribute(
-        "data-location",
-        location
-    );
 
-    card.setAttribute(
-        "data-price-type",
-        getPropertyPriceType(prop)
-    );
+    if (isSold) {
 
-    card.setAttribute(
-        "data-price",
-        prop.price_category || ""
-    );
+        completedBadge = `
+            <span class="completed-badge sold-badge">
+                ${isEnglish ? "SOLD" : "تم البيع"}
+            </span>
+        `;
 
-    card.setAttribute(
-        "data-area",
-        prop.area_category || ""
-    );
+    }
+
+
+    if (isRented) {
+
+        completedBadge = `
+            <span class="completed-badge rented-badge">
+                ${isEnglish ? "RENTED" : "تم التأجير"}
+            </span>
+        `;
+
+    }
 
 
     card.innerHTML = `
 
         <div class="property-image">
 
-            <img
-                src="${imageSrc}"
-                alt="${title}"
-                onerror="this.src='property1.jpg'"
-            >
+            ${imageHTML}
+
+            ${completedBadge}
 
         </div>
 
 
         <div class="property-info">
 
-            <span>
-                ${displayStatus}
+            ${
+                featured
+
+                    ? `
+                        <span class="featured-badge">
+                            ${isEnglish ? "Featured" : "مميز"}
+                        </span>
+                      `
+
+                    : ""
+            }
+
+
+            <span class="property-status">
+                ${escapeHTML(displayStatus)}
             </span>
 
 
             <h3>
-                ${title}
+                ${escapeHTML(title)}
             </h3>
 
 
-            <p>
+            <p class="property-location">
+                📍 ${escapeHTML(displayLocation)}
+            </p>
+
+
+            <p class="property-details">
 
                 ${
                     details.length > 0
+
                         ? details.join(" • ")
+
                         : (
                             isEnglish
                                 ? "Details not added yet"
@@ -1592,19 +1777,54 @@ function createPropertyCard(prop) {
             </p>
 
 
-            <strong>
-                ${priceText}
-            </strong>
+            <div class="property-card-bottom">
+
+                <strong>
+                    ${priceText}
+                </strong>
+
+
+                <button
+                    type="button"
+                    class="property-details-button"
+                >
+                    ${isEnglish ? "View Details" : "عرض التفاصيل"}
+                </button>
+
+            </div>
 
         </div>
 
     `;
 
 
+    const detailsButton =
+        card.querySelector(
+            ".property-details-button"
+        );
+
+
+    if (detailsButton) {
+
+        detailsButton.addEventListener(
+            "click",
+            function(event) {
+
+                event.stopPropagation();
+
+                openPropertyDetails(
+                    property
+                );
+
+            }
+        );
+
+    }
+
+
     return card;
 
 }
-
 
 
 /* =========================
@@ -1626,12 +1846,9 @@ function displayProperties(properties) {
 
 
     container
-        .querySelectorAll(
-            ".property-card"
-        )
+        .querySelectorAll(".property-card")
         .forEach(
-            card =>
-                card.remove()
+            card => card.remove()
         );
 
 
@@ -1672,132 +1889,109 @@ function displayProperties(properties) {
 }
 
 
-
 /* =========================
    FILTER
 ========================= */
 
 function filterProperties() {
 
-    try {
+    const status =
+        document.getElementById("propertyStatus").value;
 
-        const status =
-            document.getElementById(
-                "propertyStatus"
-            ).value;
+    const type =
+        document.getElementById("propertyType").value;
 
+    const location =
+        document.getElementById("propertyLocation").value;
 
-        const type =
-            document.getElementById(
-                "propertyType"
-            ).value;
+    const priceType =
+        document.getElementById("propertyPriceType").value;
 
+    const priceRange =
+        document.getElementById("propertyPrice").value;
 
-        const location =
-            document.getElementById(
-                "propertyLocation"
-            ).value;
-
-
-        const priceType =
-            document.getElementById(
-                "propertyPriceType"
-            ).value;
+    const area =
+        document.getElementById("propertyArea").value;
 
 
-        const price =
-            document.getElementById(
-                "propertyPrice"
-            ).value;
+    const filtered =
+        allProperties.filter(
+            function(property) {
+
+                const propertyStatus =
+                    String(
+                        property.status || ""
+                    ).trim();
 
 
-        const area =
-            document.getElementById(
-                "propertyArea"
-            ).value;
+                const propertyType =
+                    String(
+                        property.property_type || ""
+                    ).trim();
 
 
-        const filtered =
-            allProperties.filter(
-                function(property) {
-
-                    const statusMatch =
-                        !status ||
-                        String(
-                            property.status || ""
-                        ).trim() === status;
+                const propertyLocation =
+                    String(
+                        property.location || ""
+                    ).trim();
 
 
-                    const typeMatch =
-                        !type ||
-                        String(
-                            property.property_type || ""
-                        ).trim() === type;
-
-
-                    const locationMatch =
-                        !location ||
-                        String(
-                            property.location || ""
-                        ).trim() === location;
-
-
-                    const priceTypeMatch =
-                        !priceType ||
-                        getPropertyPriceType(
-                            property
-                        ) === priceType;
-
-
-                    const priceMatch =
-                        !price ||
-                        String(
-                            property.price_category || ""
-                        ).trim() === price;
-
-
-                    const areaMatch =
-                        !area ||
-                        String(
-                            property.area_category || ""
-                        ).trim() === area;
-
-
-                    return (
-
-                        statusMatch &&
-                        typeMatch &&
-                        locationMatch &&
-                        priceTypeMatch &&
-                        priceMatch &&
-                        areaMatch
-
+                const propertyPriceType =
+                    getPropertyPriceType(
+                        property
                     );
 
-                }
-            );
 
+                return (
 
-        displayProperties(
-            filtered
+                    (!status ||
+                        propertyStatus === status)
+
+                    &&
+
+                    (!type ||
+                        propertyType === type)
+
+                    &&
+
+                    (!location ||
+                        propertyLocation === location)
+
+                    &&
+
+                    (!priceType ||
+                        propertyPriceType === priceType)
+
+                    &&
+
+                    (!priceRange ||
+                        priceMatches(
+                            property.price,
+                            priceRange
+                        ))
+
+                    &&
+
+                    (!area ||
+                        areaMatches(
+                            property.area,
+                            area
+                        ))
+
+                );
+
+            }
         );
 
 
-        saveFilters();
+    displayProperties(
+        filtered
+    );
 
-    }
 
-    catch (error) {
-
-        console.error(
-            "Filter error:",
-            error
-        );
-
-    }
+    saveFilters();
 
 }
-
 
 
 /* =========================
@@ -1809,34 +2003,22 @@ function saveFilters() {
     const filters = {
 
         status:
-            document.getElementById(
-                "propertyStatus"
-            ).value,
+            document.getElementById("propertyStatus").value,
 
         type:
-            document.getElementById(
-                "propertyType"
-            ).value,
+            document.getElementById("propertyType").value,
 
         location:
-            document.getElementById(
-                "propertyLocation"
-            ).value,
+            document.getElementById("propertyLocation").value,
 
         priceType:
-            document.getElementById(
-                "propertyPriceType"
-            ).value,
+            document.getElementById("propertyPriceType").value,
 
         price:
-            document.getElementById(
-                "propertyPrice"
-            ).value,
+            document.getElementById("propertyPrice").value,
 
         area:
-            document.getElementById(
-                "propertyArea"
-            ).value
+            document.getElementById("propertyArea").value
 
     };
 
@@ -1847,7 +2029,6 @@ function saveFilters() {
     );
 
 }
-
 
 
 /* =========================
@@ -1862,11 +2043,8 @@ function restoreFilters() {
         );
 
 
-    if (!saved) {
-
+    if (!saved)
         return;
-
-    }
 
 
     try {
@@ -1879,9 +2057,6 @@ function restoreFilters() {
             "propertyStatus"
         ).value =
             filters.status || "";
-
-
-        updatePriceOptions();
 
 
         document.getElementById(
@@ -1900,6 +2075,9 @@ function restoreFilters() {
             "propertyPriceType"
         ).value =
             filters.priceType || "";
+
+
+        updatePriceOptions();
 
 
         document.getElementById(
@@ -1943,41 +2121,23 @@ function restoreFilters() {
 }
 
 
-
 /* =========================
    RESET
 ========================= */
 
 function resetFilters() {
 
-    document.getElementById(
-        "propertyStatus"
-    ).value = "";
+    document.getElementById("propertyStatus").value = "";
 
+    document.getElementById("propertyType").value = "";
 
-    document.getElementById(
-        "propertyType"
-    ).value = "";
+    document.getElementById("propertyLocation").value = "";
 
+    document.getElementById("propertyPriceType").value = "";
 
-    document.getElementById(
-        "propertyLocation"
-    ).value = "";
+    document.getElementById("propertyPrice").value = "";
 
-
-    document.getElementById(
-        "propertyPriceType"
-    ).value = "";
-
-
-    document.getElementById(
-        "propertyArea"
-    ).value = "";
-
-
-    document.getElementById(
-        "propertyPrice"
-    ).value = "";
+    document.getElementById("propertyArea").value = "";
 
 
     sessionStorage.removeItem(
@@ -1994,6 +2154,161 @@ function resetFilters() {
 
 }
 
+
+/* =========================
+   LOAD PROPERTIES
+========================= */
+
+async function loadProperties() {
+
+    const loading =
+        document.getElementById(
+            "loadingText"
+        );
+
+
+    const noResults =
+        document.getElementById(
+            "noResultsText"
+        );
+
+
+    loading.style.display =
+        "block";
+
+    noResults.style.display =
+        "none";
+
+
+    try {
+
+        const result =
+            await supabaseClient
+                .from("properties")
+                .select(`
+                    id,
+                    property_id,
+                    property_code,
+                    status,
+                    property_type,
+                    property_type_en,
+                    location,
+                    location_en,
+                    title_ar,
+                    title_en,
+                    price,
+                    price_type,
+                    price_note,
+                    area,
+                    rooms,
+                    bathrooms,
+                    floor,
+                    images,
+                    created_at
+                `)
+                .order(
+                    "created_at",
+                    {
+                        ascending: false
+                    }
+                );
+
+
+        console.log(
+            "Properties result:",
+            result
+        );
+
+
+        if (result.error) {
+
+            console.error(
+                "Supabase error:",
+                result.error
+            );
+
+
+            loading.style.display =
+                "none";
+
+
+            noResults.style.display =
+                "block";
+
+
+            noResults.textContent =
+                isEnglish
+                    ? "An error occurred while loading properties."
+                    : "حدث خطأ أثناء تحميل العقارات.";
+
+
+            return;
+
+        }
+
+
+        allProperties =
+            Array.isArray(result.data)
+                ? result.data
+                : [];
+
+
+        loading.style.display =
+            "none";
+
+
+        if (
+            allProperties.length === 0
+        ) {
+
+            noResults.style.display =
+                "block";
+
+
+            noResults.textContent =
+                isEnglish
+                    ? "No properties have been added yet."
+                    : "لا توجد عقارات مضافة حالياً.";
+
+
+            return;
+
+        }
+
+
+        displayProperties(
+            allProperties
+        );
+
+
+        restoreFilters();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Unexpected loading error:",
+            error
+        );
+
+
+        loading.style.display =
+            "none";
+
+
+        noResults.style.display =
+            "block";
+
+
+        noResults.textContent =
+            isEnglish
+                ? "An error occurred while loading properties."
+                : "حدث خطأ أثناء تحميل العقارات.";
+
+    }
+
+}
 
 
 /* =========================
@@ -2017,16 +2332,11 @@ document
 
 
 document
-    .getElementById("propertyStatus")
+    .getElementById("propertyPriceType")
     .addEventListener(
         "change",
-        function() {
-
-            updatePriceOptions();
-
-        }
+        updatePriceOptions
     );
-
 
 
 /* =========================
@@ -2042,9 +2352,7 @@ if (isEnglish) {
 
 updatePriceOptions();
 
-
 loadProperties();
-
 
 </script>
 
