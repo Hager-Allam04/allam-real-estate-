@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title id="pageTitle">
+        اتصل بنا - مكتب علام للعقارات
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           CONTACT PAGE
+        ========================= */
+
+        .contact-page {
+            padding: 70px 20px 90px;
+            background: var(--background);
+        }
+
+        .contact-header {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 50px;
+        }
+
+        .contact-header h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .contact-header p {
+            font-size: 19px;
+            color: var(--text-medium);
+            line-height: 1.9;
+        }
+
+        .contact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            background: rgba(75, 30, 35, 0.09);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            color: var(--primary);
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            color: var(--text-medium);
+            font-size: 17px;
+            line-height: 1.9;
+            margin: 5px 0;
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           WHATSAPP
+        ========================= */
+
+        .whatsapp-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .whatsapp-btn {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 54px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: var(--olive);
+            color: var(--bone) !important;
+            text-decoration: none !important;
+            font-size: 17px;
+            font-weight: 800;
+            transition: var(--transition-fast);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* =========================
+           LOCATION
+        ========================= */
+
+        .location-section {
+            max-width: 1200px;
+            margin: 55px auto 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .location-info {
+            padding: 32px;
+        }
+
+        .location-info h3 {
+            color: var(--primary);
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .location-info p {
+            color: var(--text-medium);
+            font-size: 18px;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 430px;
+            background: var(--midnight-blue);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .map-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 54px;
+            padding: 0 25px;
+            border-radius: 12px;
+            background: var(--primary);
+            color: var(--bone) !important;
+            text-decoration: none !important;
+            font-size: 17px;
+            font-weight: 800;
+            transition: var(--transition-fast);
+        }
+
+        .map-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* =========================
+           FINAL NOTE
+        ========================= */
+
+        .contact-note {
+            max-width: 1200px;
+            margin: 55px auto 0;
+            padding: 38px;
+            border-radius: var(--radius-lg);
+            background: var(--midnight-blue);
+            color: var(--bone);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-note h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .contact-note p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .contact-page {
+                padding: 50px 15px 70px;
+            }
+
+            .contact-header h2 {
+                font-size: 32px;
+            }
+
+            .contact-header p {
+                font-size: 16px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .contact-card {
+                padding: 24px;
+            }
+
+            .contact-card h3 {
+                font-size: 21px;
+            }
+
+            .location-info {
+                padding: 25px;
+            }
+
+            .location-info h3 {
+                font-size: 24px;
+            }
+
+            .map-container {
+                height: 330px;
+            }
+
+            .contact-note {
+                padding: 28px 20px;
+            }
+
+            .contact-note h3 {
+                font-size: 24px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+    <div>
+
+        <h1 id="officeName">
+            مكتب علام
+        </h1>
+
+        <span id="officeSubtitle">
+            للعقارات
+        </span>
+
+    </div>
+
+
+    <div>
+
+        <a id="navHome" href="index.html">
+            الرئيسية
+        </a>
+
+        <a id="navProperties" href="properties.html">
+            العقارات
+        </a>
+
+        <a id="navAbout" href="about.html">
+            من نحن
+        </a>
+
+        <a id="navContact" href="contact.html">
+            اتصل بنا
+        </a>
+
+        <a id="navLanguage" href="contact.html?lang=en">
+            English
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     CONTACT PAGE
+========================= -->
+
+<main class="contact-page">
+
+
+    <div class="contact-header">
+
+        <h2 id="contactTitle">
+            تواصل معنا
+        </h2>
+
+        <p id="contactIntro">
+            نحن هنا لمساعدتك في العثور على العقار المناسب
+            والإجابة عن جميع استفساراتك.
+            تواصل معنا مباشرة أو قم بزيارة مكتبنا.
+        </p>
+
+    </div>
+
+
+
+    <!-- =========================
+         CONTACT CARDS
+    ========================== -->
+
+    <div class="contact-grid">
+
+
+        <!-- PHONE -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                📞
+            </div>
+
+            <h3 id="phoneTitle">
+                اتصل بنا
+            </h3>
+
+            <p>
+                <strong id="phoneOneLabel">
+                    الرقم الأول:
+                </strong>
+
+                <a href="tel:+201282597010">
+                    01282597010
+                </a>
+
+            </p>
+
+
+            <p>
+
+                <strong id="phoneTwoLabel">
+                    الرقم الثاني:
+                </strong>
+
+                <a href="tel:+201066008110">
+                    01066008110
+                </a>
+
+            </p>
+
+        </div>
+
+
+
+        <!-- WHATSAPP -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                💬
+            </div>
+
+            <h3 id="whatsappTitle">
+                تواصل عبر واتساب
+            </h3>
+
+            <p id="whatsappIntro">
+                يمكنك إرسال استفسارك مباشرة عبر واتساب
+                وسنساعدك في الحصول على المعلومات التي تحتاجها.
+            </p>
+
+
+            <div class="whatsapp-buttons">
+
+                <a
+                    class="whatsapp-btn"
+                    href="https://wa.me/201282597010?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A3%D8%AD%D8%AF%20%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D8%A7%D8%AA."
+                    target="_blank"
+                    rel="noopener">
+
+                    💬
+                    <span id="whatsappOne">
+                        واتساب — 01282597010
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="whatsapp-btn"
+                    href="https://wa.me/201066008110?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A3%D8%AD%D8%AF%20%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D8%A7%D8%AA."
+                    target="_blank"
+                    rel="noopener">
+
+                    💬
+                    <span id="whatsappTwo">
+                        واتساب — 01066008110
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ADDRESS -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                📍
+            </div>
+
+            <h3 id="addressTitle">
+                عنوان المكتب
+            </h3>
+
+            <p>
+                <strong>
+                    مكتب علام للعقارات
+                </strong>
+            </p>
+
+            <p id="addressCity">
+                المحلة الكبرى – الغربية – مصر
+            </p>
+
+            <p id="addressDetails">
+
+                شكري القوتلي – شارع كشري تومة
+
+                <br>
+
+                بجوار أحذية لطفي
+
+            </p>
+
+        </div>
+
+
+
+        <!-- EMAIL -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                ✉️
+            </div>
+
+            <h3 id="additionalTitle">
+                معلومات إضافية
+            </h3>
+
+            <p>
+                <strong id="emailLabel">
+                    البريد الإلكتروني:
+                </strong>
+            </p>
+
+            <p>
+
+                <a href="mailto:info@allamrealestate.com">
+                    info@allamrealestate.com
+                </a>
+
+            </p>
+
+            <p style="margin-top:15px;">
+
+                <strong id="workingHoursLabel">
+                    مواعيد العمل:
+                </strong>
+
+            </p>
+
+            <p id="workingHoursText">
+                للاستفسار عن مواعيد العمل،
+                يرجى التواصل معنا عبر الهاتف أو واتساب.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         LOCATION
+    ========================== -->
+
+    <section class="location-section">
+
+
+        <div class="location-info">
+
+            <h3 id="mapTitle">
+                📍 موقعنا على الخريطة
+            </h3>
+
+            <p id="mapDescription">
+
+                يمكنك زيارة مكتب علام للعقارات في
+
+                <strong>
+                    شكري القوتلي – شارع كشري تومة – بجوار أحذية لطفي
+                </strong>
+
+                في المحلة الكبرى.
+
+            </p>
+
+
+            <a
+                class="map-button"
+                href="https://maps.app.goo.gl/56nU92BMF7iquvtY7?g_st=aw"
+                target="_blank"
+                rel="noopener"
+                id="mapButton">
+
+                🗺️ فتح الموقع على Google Maps
+
+            </a>
+
+        </div>
+
+
+        <div class="map-container">
+
+            <iframe
+                src="https://www.google.com/maps?q=Shokry%20El%20Koutly%2C%20El%20Mahalla%20El%20Kubra%2C%20Egypt&output=embed"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FINAL NOTE
+    ========================== -->
+
+    <section class="contact-note">
+
+        <h3 id="finalTitle">
+            هل تبحث عن عقار مناسب؟
+        </h3>
+
+        <p id="finalText">
+            تصفح العقارات المتاحة لدينا أو تواصل معنا مباشرة،
+            وسنساعدك في الوصول إلى العقار الذي يناسب احتياجاتك.
+        </p>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+
+        <div class="footer-about">
+
+            <h3 id="footerOfficeName">
+                مكتب علام للعقارات
+            </h3>
+
+            <p id="footerAboutText">
+                نساعدك في العثور على عقارك المثالي
+                بكل سهولة وأمان.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3 id="footerLinksTitle">
+                روابط سريعة
+            </h3>
+
+            <a id="footerHome" href="index.html">
+                الرئيسية
+            </a>
+
+            <a id="footerProperties" href="properties.html">
+                العقارات
+            </a>
+
+            <a id="footerAbout" href="about.html">
+                من نحن
+            </a>
+
+            <a id="footerContact" href="contact.html">
+                اتصل بنا
+            </a>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <h3 id="footerContactTitle">
+                تواصل معنا
+            </h3>
+
+            <p>
+                📞
+                <a href="tel:+201282597010">
+                    01282597010
+                </a>
+            </p>
+
+            <p>
+                📞
+                <a href="tel:+201066008110">
+                    01066008110
+                </a>
+            </p>
+
+            <p id="footerLocation">
+                📍 المحلة الكبرى - الغربية
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p id="footerCopyright">
+            جميع الحقوق محفوظة © 2026 مكتب علام للعقارات
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================
+     LANGUAGE SCRIPT
+========================= -->
+
+<script>
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const isEnglish =
+    params.get("lang") === "en";
+
+
+if (isEnglish) {
+
+    document.documentElement.lang =
+        "en";
+
+    document.documentElement.dir =
+        "ltr";
+
+
+    document.title =
+        "Contact Us - Allam Real Estate";
+
+
+    /* NAVBAR */
+
+    document.getElementById("officeName").textContent =
+        "Allam Real Estate";
+
+    document.getElementById("officeSubtitle").textContent =
+        "Real Estate Office";
+
+    document.getElementById("navHome").textContent =
+        "Home";
+
+    document.getElementById("navProperties").textContent =
+        "Properties";
+
+    document.getElementById("navAbout").textContent =
+        "About Us";
+
+    document.getElementById("navContact").textContent =
+        "Contact Us";
+
+    document.getElementById("navLanguage").textContent =
+        "العربية";
+
+
+    document.getElementById("navHome").href =
+        "english.html";
+
+    document.getElementById("navProperties").href =
+        "properties.html?lang=en";
+
+    document.getElementById("navAbout").href =
+        "about.html?lang=en";
+
+    document.getElementById("navContact").href =
+        "contact.html?lang=en";
+
+    document.getElementById("navLanguage").href =
+        "contact.html";
+
+
+    /* HEADER */
+
+    document.getElementById("contactTitle").textContent =
+        "Contact Us";
+
+    document.getElementById("contactIntro").textContent =
+        "We are here to help you find the right property and answer all your questions. Contact us directly or visit our office.";
+
+
+    /* PHONE */
+
+    document.getElementById("phoneTitle").textContent =
+        "Call Us";
+
+    document.getElementById("phoneOneLabel").textContent =
+        "Phone 1:";
+
+    document.getElementById("phoneTwoLabel").textContent =
+        "Phone 2:";
+
+
+    /* WHATSAPP */
+
+    document.getElementById("whatsappTitle").textContent =
+        "Contact Us on WhatsApp";
+
+    document.getElementById("whatsappIntro").textContent =
+        "Send us your inquiry directly through WhatsApp and we will help you with the information you need.";
+
+    document.getElementById("whatsappOne").textContent =
+        "WhatsApp — 01282597010";
+
+    document.getElementById("whatsappTwo").textContent =
+        "WhatsApp — 01066008110";
+
+
+    /* ADDRESS */
+
+    document.getElementById("addressTitle").textContent =
+        "Office Address";
+
+    document.getElementById("addressCity").textContent =
+        "El Mahalla El Kubra – Gharbia – Egypt";
+
+    document.getElementById("addressDetails").innerHTML =
+        "Shokry El Koutly – Kashry Toma Street<br>Next to Lotfy Shoes";
+
+
+    /* ADDITIONAL */
+
+    document.getElementById("additionalTitle").textContent =
+        "Additional Information";
+
+    document.getElementById("emailLabel").textContent =
+        "Email:";
+
+    document.getElementById("workingHoursLabel").textContent =
+        "Working Hours:";
+
+    document.getElementById("workingHoursText").textContent =
+        "For working hours and availability, please contact us by phone or WhatsApp.";
+
+
+    /* MAP */
+
+    document.getElementById("mapTitle").textContent =
+        "📍 Our Location";
+
+    document.getElementById("mapDescription").innerHTML =
+        "You can visit Allam Real Estate at <strong>Shokry El Koutly – Kashry Toma Street – next to Lotfy Shoes</strong> in El Mahalla El Kubra.";
+
+    document.getElementById("mapButton").textContent =
+        "🗺️ Open Location on Google Maps";
+
+
+    /* FINAL */
+
+    document.getElementById("finalTitle").textContent =
+        "Looking for the right property?";
+
+    document.getElementById("finalText").textContent =
+        "Browse our available properties or contact us directly, and we will help you find a property that suits your needs.";
+
+
+    /* FOOTER */
+
+    document.getElementById("footerOfficeName").textContent =
+        "Allam Real Estate";
+
+    document.getElementById("footerAboutText").textContent =
+        "We help you find your ideal property with ease and confidence.";
+
+    document.getElementById("footerLinksTitle").textContent =
+        "Quick Links";
+
+    document.getElementById("footerHome").textContent =
+        "Home";
+
+    document.getElementById("footerProperties").textContent =
+        "Properties";
+
+    document.getElementById("footerAbout").textContent =
+        "About Us";
+
+    document.getElementById("footerContact").textContent =
+        "Contact Us";
+
+    document.getElementById("footerContactTitle").textContent =
+        "Contact Us";
+
+    document.getElementById("footerLocation").textContent =
+        "📍 El Mahalla El Kubra - Gharbia";
+
+    document.getElementById("footerCopyright").textContent =
+        "© 2026 Allam Real Estate. All Rights Reserved.";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
