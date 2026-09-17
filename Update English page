@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -105,77 +106,35 @@
                     Location
                 </option>
 
-                <option value="El Sabe' Banat">
-                    El Sabe' Banat
-                </option>
-
-                <option value="Shokry El Koutly">
-                    Shokry El Koutly
-                </option>
-
-                <option value="El Shaabia">
-                    El Shaabia
-                </option>
-
-                <option value="El Gomhoria">
-                    El Gomhoria
-                </option>
-
-                <option value="Zefta Road">
-                    Zefta Road
-                </option>
-
-                <option value="Police Club Road">
-                    Police Club Road
-                </option>
-
-                <option value="El Bandar">
-                    El Bandar
-                </option>
-
-                <option value="El Mostashar">
-                    El Mostashar
-                </option>
-
-                <option value="El Zeraa">
-                    El Zeraa
-                </option>
-
-                <option value="Labor Office">
-                    Labor Office
-                </option>
-
-                <option value="Abu Rady">
-                    Abu Rady
-                </option>
-
-                <option value="Ezbet Khodr">
-                    Ezbet Khodr
-                </option>
-
-                <option value="Souq El Laban">
-                    Souq El Laban
-                </option>
-
-                <option value="El Warraq">
-                    El Warraq
-                </option>
-
-                <option value="El Sekka El Wostania">
-                    El Sekka El Wostania
-                </option>
-
-                <option value="Mansheya El Salam">
-                    Mansheya El Salam
-                </option>
-
-                <option value="Mahb">
-                    Mahb
-                </option>
-
-                <option value="El Meshma">
-                    El Meshma
-                </option>
+                <option value="El Sabe' Banat">El Sabe' Banat</option>
+                <option value="Shokry El Koutly">Shokry El Koutly</option>
+                <option value="El Shaabia">El Shaabia</option>
+                <option value="El Gomhoria">El Gomhoria</option>
+                <option value="Zefta Road">Zefta Road</option>
+                <option value="Police Club Road">Police Club Road</option>
+                <option value="El Bandar">El Bandar</option>
+                <option value="El Mostashar">El Mostashar</option>
+                <option value="El Zeraa">El Zeraa</option>
+                <option value="Labor Office">Labor Office</option>
+                <option value="Abu Rady">Abu Rady</option>
+                <option value="Ezbet Khodr">Ezbet Khodr</option>
+                <option value="Souq El Laban">Souq El Laban</option>
+                <option value="El Warraq">El Warraq</option>
+                <option value="El Sekka El Wostania">El Sekka El Wostania</option>
+                <option value="Mansheya El Salam">Mansheya El Salam</option>
+                <option value="Mahb">Mahb</option>
+                <option value="El Meshma">El Meshma</option>
+                <option value="El Shon">El Shon</option>
+                <option value="El Mansheya El Gedida">El Mansheya El Gedida</option>
+                <option value="El Sheeshtawy">El Sheeshtawy</option>
+                <option value="Baladeya Club">Baladeya Club</option>
+                <option value="Taqseem El Shamy">Taqseem El Shamy</option>
+                <option value="Adel El Refai">Adel El Refai</option>
+                <option value="Old Mansoura">Old Mansoura</option>
+                <option value="El Dakhleya">El Dakhleya</option>
+                <option value="El Teraa Street">El Teraa Street</option>
+                <option value="El Bahr Street">El Bahr Street</option>
+                <option value="Mahallet El Borg">Mahallet El Borg</option>
 
             </select>
 
@@ -378,12 +337,6 @@
 const SUPABASE_URL =
     "https://pqralzsrhiizmjwzrnwb.supabase.co";
 
-
-/*
-    IMPORTANT:
-    This is the working Legacy anon/public key.
-*/
-
 const SUPABASE_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBxcmFsenNyaGlpem1qd3pybndiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkzMTMzNDksImV4cCI6MjEwNDg4OTM0OX0.XaQpZhcj_qCOZltyQlcTkjqp7FQvwwTOQqvjjV3n0dI";
 
@@ -397,11 +350,22 @@ const supabaseClient =
 let allEnglishProperties = [];
 
 
+function getPropertyId(property) {
+
+    return property.property_id || property.id || "";
+
+}
+
+
 function openPropertyDetails(id) {
+
+    if (!id) {
+        return;
+    }
 
     window.location.href =
         "property-details.html?id=" +
-        id +
+        encodeURIComponent(id) +
         "&lang=en";
 
 }
@@ -501,7 +465,6 @@ const englishPriceRanges = {
 
     ],
 
-
     meter: [
 
         {
@@ -548,7 +511,6 @@ const englishPriceRanges = {
 
     ],
 
-
     monthly: [
 
         {
@@ -594,7 +556,6 @@ const englishPriceRanges = {
         }
 
     ],
-
 
     yearly: [
 
@@ -668,13 +629,10 @@ function updateEnglishPriceOptions() {
 
     allOption.value = "all";
 
-    allOption.textContent =
-        "Price";
+    allOption.textContent = "Price";
 
 
-    priceSelect.appendChild(
-        allOption
-    );
+    priceSelect.appendChild(allOption);
 
 
     const selectedType =
@@ -692,18 +650,13 @@ function updateEnglishPriceOptions() {
         const option =
             document.createElement("option");
 
-
         option.value =
             range.value;
-
 
         option.textContent =
             range.text;
 
-
-        priceSelect.appendChild(
-            option
-        );
+        priceSelect.appendChild(option);
 
     });
 
@@ -716,12 +669,8 @@ function englishPriceMatches(
     selectedRange
 ) {
 
-    if (
-        selectedRange === "all"
-    ) {
-
+    if (selectedRange === "all") {
         return true;
-
     }
 
 
@@ -730,9 +679,7 @@ function englishPriceMatches(
 
 
     if (!ranges) {
-
         return true;
-
     }
 
 
@@ -745,9 +692,7 @@ function englishPriceMatches(
 
 
     if (!range) {
-
         return true;
-
     }
 
 
@@ -755,12 +700,8 @@ function englishPriceMatches(
         Number(price);
 
 
-    if (
-        Number.isNaN(numericPrice)
-    ) {
-
+    if (Number.isNaN(numericPrice)) {
         return false;
-
     }
 
 
@@ -790,9 +731,7 @@ function formatEnglishPrice(property) {
 
 
     if (Number.isNaN(price)) {
-
         return "";
-
     }
 
 
@@ -837,6 +776,96 @@ function formatEnglishPrice(property) {
 }
 
 
+function getFirstPropertyImage(property) {
+
+    const possibleImages = [
+        property.images,
+        property.image_urls,
+        property.imageUrls,
+        property.image_url,
+        property.imageUrl,
+        property.image,
+        property.photo,
+        property.photos
+    ];
+
+
+    for (const value of possibleImages) {
+
+        if (!value) {
+            continue;
+        }
+
+
+        if (Array.isArray(value)) {
+
+            if (value.length > 0 && value[0]) {
+                return String(value[0]);
+            }
+
+            continue;
+        }
+
+
+        if (typeof value === "string") {
+
+            const trimmed =
+                value.trim();
+
+
+            if (!trimmed) {
+                continue;
+            }
+
+
+            try {
+
+                const parsed =
+                    JSON.parse(trimmed);
+
+
+                if (
+                    Array.isArray(parsed) &&
+                    parsed.length > 0
+                ) {
+
+                    return String(parsed[0]);
+
+                }
+
+            } catch (error) {
+                // Not JSON, continue below.
+            }
+
+
+            if (trimmed.includes(",")) {
+
+                const first =
+                    trimmed
+                        .split(",")
+                        .map(item => item.trim())
+                        .find(Boolean);
+
+
+                if (first) {
+                    return first;
+                }
+
+            }
+
+
+            return trimmed;
+
+        }
+
+    }
+
+
+    return "";
+
+}
+
+
 async function loadEnglishProperties() {
 
     const container =
@@ -872,7 +901,6 @@ async function loadEnglishProperties() {
 
             loading.textContent =
                 "Could not load properties.";
-
 
             return;
 
@@ -930,7 +958,6 @@ function displayEnglishProperties(properties) {
         noResults.style.display =
             "block";
 
-
         return;
 
     }
@@ -950,30 +977,21 @@ function displayEnglishProperties(properties) {
             "property-card";
 
 
+        const propertyId =
+            getPropertyId(property);
+
+
         card.onclick = function() {
 
             openPropertyDetails(
-                property.id ||
-                property.property_id
+                propertyId
             );
 
         };
 
 
-        let image =
-            "property1.jpg";
-
-
-        if (
-            property.images &&
-            Array.isArray(property.images) &&
-            property.images.length > 0
-        ) {
-
-            image =
-                property.images[0];
-
-        }
+        const image =
+            getFirstPropertyImage(property);
 
 
         let statusText =
@@ -982,43 +1000,40 @@ function displayEnglishProperties(properties) {
 
         if (statusText === "للبيع") {
 
-            statusText =
-                "For Sale";
+            statusText = "For Sale";
 
         } else if (statusText === "للإيجار") {
 
-            statusText =
-                "For Rent";
+            statusText = "For Rent";
 
         } else if (statusText === "تم البيع") {
 
-            statusText =
-                "Sold";
+            statusText = "Sold";
 
         } else if (statusText === "تم التأجير") {
 
-            statusText =
-                "Rented";
+            statusText = "Rented";
 
         }
 
 
-        let type =
-            property.property_type_en ||
-            "";
+        const type =
+            property.property_type_en || "";
 
 
-        let location =
-            property.location_en ||
-            "";
+        const location =
+            property.location_en || "";
 
 
-        let title =
+        const title =
             property.title_en ||
             (
                 type +
-                " in " +
-                location
+                (
+                    location
+                        ? " in " + location
+                        : ""
+                )
             );
 
 
@@ -1093,15 +1108,23 @@ function displayEnglishProperties(properties) {
         }
 
 
+        const imageHTML =
+            image
+                ? `
+                    <img
+                        src="${image}"
+                        alt="${title}"
+                        onerror="this.remove();"
+                    >
+                `
+                : "";
+
+
         card.innerHTML = `
 
             <div class="property-image">
 
-                <img
-                    src="${image}"
-                    alt="${title}"
-                    onerror="this.src='property1.jpg'"
-                >
+                ${imageHTML}
 
             </div>
 
@@ -1367,3 +1390,4 @@ loadEnglishProperties();
 </body>
 
 </html>
+```
