@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -5,7 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>مكتب علام للعقارات</title>
+    <title>مكتب علام للعقارات | عقارات للبيع والإيجار</title>
+
+    <meta name="description"
+        content="مكتب علام للعقارات - تصفح العقارات المتاحة للبيع والإيجار في المحلة الكبرى والمناطق المحيطة.">
 
     <link rel="stylesheet" href="style.css">
 
@@ -13,22 +17,54 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
+
 <body>
 
-    <nav>
-        <div>
-            <h1>مكتب علام</h1>
-            <span>للعقارات</span>
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-brand">
+
+            <a href="index.html" class="brand-link">
+
+                <h1>مكتب علام</h1>
+
+                <span>للعقارات</span>
+
+            </a>
+
         </div>
 
-        <div>
-            <a href="index.html">الرئيسية</a>
-            <a href="properties.html">العقارات</a>
-            <a href="about.html">من نحن</a>
-            <a href="contact.html">اتصل بنا</a>
-            <a href="english.html">English</a>
+
+        <div class="nav-links">
+
+            <a href="index.html" class="active">
+                الرئيسية
+            </a>
+
+            <a href="properties.html">
+                العقارات
+            </a>
+
+            <a href="about.html">
+                من نحن
+            </a>
+
+            <a href="contact.html">
+                اتصل بنا
+            </a>
+
+            <a href="english.html">
+                English
+            </a>
+
         </div>
+
     </nav>
+
 
 
     <!-- =========================
@@ -37,156 +73,361 @@
 
     <section class="hero">
 
+        <div class="hero-overlay"></div>
+
+
         <div class="hero-content">
 
             <span class="hero-label">
                 مكتب علام للعقارات
             </span>
 
+
             <h2>
                 ابحث عن عقارك المثالي
             </h2>
 
+
             <p>
-                اكتشف أفضل العقارات للبيع والإيجار في المحلة الكبرى والمناطق المحيطة بها.
+                اكتشف العقارات المتاحة للبيع والإيجار
+                في المحلة الكبرى والمناطق المحيطة بها.
             </p>
 
 
-            <!-- SEARCH -->
+            <!-- =========================
+                 SEARCH BOX
+            ========================== -->
 
             <div class="search-box">
 
-                <select id="searchStatus">
-                    <option value="all">بيع أو إيجار</option>
-                    <option value="للبيع">للبيع</option>
-                    <option value="للإيجار">للإيجار</option>
-                </select>
+                <!-- الحالة -->
+
+                <div class="search-field">
+
+                    <label for="searchStatus">
+                        الحالة
+                    </label>
+
+                    <select id="searchStatus">
+
+                        <option value="all">
+                            بيع أو إيجار
+                        </option>
+
+                        <option value="للبيع">
+                            للبيع
+                        </option>
+
+                        <option value="للإيجار">
+                            للإيجار
+                        </option>
+
+                    </select>
+
+                </div>
 
 
-                <select id="searchType">
-                    <option value="all">نوع العقار</option>
-                    <option value="شقة سكنية">شقة سكنية</option>
-                    <option value="شقة إدارية">شقة إدارية</option>
-                    <option value="محل تجاري">محل تجاري</option>
-                    <option value="أرض">أرض</option>
-                    <option value="مصانع ومخازن">مصانع ومخازن</option>
-                    <option value="منزل">منزل</option>
-                </select>
+
+                <!-- النوع -->
+
+                <div class="search-field">
+
+                    <label for="searchType">
+                        نوع العقار
+                    </label>
+
+                    <select id="searchType">
+
+                        <option value="all">
+                            كل الأنواع
+                        </option>
+
+                        <option value="شقة سكنية">
+                            شقة سكنية
+                        </option>
+
+                        <option value="شقة إدارية">
+                            شقة إدارية
+                        </option>
+
+                        <option value="محل تجاري">
+                            محل تجاري
+                        </option>
+
+                        <option value="أرض">
+                            أرض
+                        </option>
+
+                        <option value="مصانع ومخازن">
+                            مصانع ومخازن
+                        </option>
+
+                        <option value="منزل">
+                            منزل
+                        </option>
+
+                    </select>
+
+                </div>
 
 
-                <select id="searchLocation">
 
-                    <option value="all">المنطقة</option>
+                <!-- المنطقة -->
 
-                     <option value="السبع بنات">السبع بنات</option>
-                    <option value="شكرى القوتلي">شكرى القوتلي</option>
-                    <option value="الشعبية">الشعبية</option>
-                    <option value="الجمهورية">الجمهورية</option>
-                    <option value="سكة زفتى">سكة زفتى</option>
-                    <option value="طريق نادي الشرطة">طريق نادي الشرطة</option>
-                    <option value="البندر">البندر</option>
-                    <option value="المستشار">المستشار</option>
-                    <option value="الزراعة">الزراعة</option>
-                    <option value="مكتب العمل">مكتب العمل</option>
-                    <option value="ابو راضي">ابو راضي</option>
-                    <option value="عزبة خضر">عزبة خضر</option>
-                    <option value="سوق اللبن">سوق اللبن</option>
-                    <option value="الوراقة">الوراقة</option>
-                    <option value="السكة الوسطانية">السكة الوسطانية</option>
-                    <option value="منشية السلام">منشية السلام</option>
-                    <option value="محب">محب</option>
-                    <option value="المشحمة">المشحمة</option>
-                    <option value="الشون">الشون</option>
-                    <option value="المنشية الجديدة">المنشية الجديدة</option>
-                    <option value="الشيشتاوي">الشيشتاوي</option>
-                    <option value="نادي البلدية">نادي البلدية</option>
-                    <option value="تقسيم الشامي">تقسيم الشامي</option>
-                    <option value="عادل الرفاعي">عادل الرفاعي</option>
-                    <option value="المنصورة القديمة">المنصورة القديمة</option>
-                    <option value="الدواخلية">الدواخلية</option>
-                    <option value="شارع الترعة">شارع الترعة</option>
-                    <option value="شارع البحر">شارع البحر</option>
-                    <option value="محلة البرج">محلة البرج</option>
-                    <option value=""></option>
+                <div class="search-field">
 
+                    <label for="searchLocation">
+                        المنطقة
+                    </label>
 
-                </select>
+                    <select id="searchLocation">
+
+                        <option value="all">
+                            كل المناطق
+                        </option>
+
+                        <option value="السبع بنات">
+                            السبع بنات
+                        </option>
+
+                        <option value="شكرى القوتلي">
+                            شكرى القوتلي
+                        </option>
+
+                        <option value="الشعبية">
+                            الشعبية
+                        </option>
+
+                        <option value="الجمهورية">
+                            الجمهورية
+                        </option>
+
+                        <option value="سكة زفتى">
+                            سكة زفتى
+                        </option>
+
+                        <option value="طريق نادي الشرطة">
+                            طريق نادي الشرطة
+                        </option>
+
+                        <option value="البندر">
+                            البندر
+                        </option>
+
+                        <option value="المستشار">
+                            المستشار
+                        </option>
+
+                        <option value="الزراعة">
+                            الزراعة
+                        </option>
+
+                        <option value="مكتب العمل">
+                            مكتب العمل
+                        </option>
+
+                        <option value="ابو راضي">
+                            ابو راضي
+                        </option>
+
+                        <option value="عزبة خضر">
+                            عزبة خضر
+                        </option>
+
+                        <option value="سوق اللبن">
+                            سوق اللبن
+                        </option>
+
+                        <option value="الوراقة">
+                            الوراقة
+                        </option>
+
+                        <option value="السكة الوسطانية">
+                            السكة الوسطانية
+                        </option>
+
+                        <option value="منشية السلام">
+                            منشية السلام
+                        </option>
+
+                        <option value="محب">
+                            محب
+                        </option>
+
+                        <option value="المشحمة">
+                            المشحمة
+                        </option>
+
+                        <option value="الشون">
+                            الشون
+                        </option>
+
+                        <option value="المنشية الجديدة">
+                            المنشية الجديدة
+                        </option>
+
+                        <option value="الشيشتاوي">
+                            الشيشتاوي
+                        </option>
+
+                        <option value="نادي البلدية">
+                            نادي البلدية
+                        </option>
+
+                        <option value="تقسيم الشامي">
+                            تقسيم الشامي
+                        </option>
+
+                        <option value="عادل الرفاعي">
+                            عادل الرفاعي
+                        </option>
+
+                        <option value="المنصورة القديمة">
+                            المنصورة القديمة
+                        </option>
+
+                        <option value="الدواخلية">
+                            الدواخلية
+                        </option>
+
+                        <option value="شارع الترعة">
+                            شارع الترعة
+                        </option>
+
+                        <option value="شارع البحر">
+                            شارع البحر
+                        </option>
+
+                        <option value="محلة البرج">
+                            محلة البرج
+                        </option>
+
+                    </select>
+
+                </div>
+
 
 
                 <!-- نوع السعر -->
 
-                <select id="searchPriceType">
+                <div class="search-field">
 
-                    <option value="all">
+                    <label for="searchPriceType">
                         نوع السعر
-                    </option>
+                    </label>
 
-                    <option value="total">
-                        سعر العقار بالكامل
-                    </option>
+                    <select id="searchPriceType">
 
-                    <option value="meter">
-                        سعر المتر
-                    </option>
+                        <option value="all">
+                            كل الأسعار
+                        </option>
 
-                    <option value="monthly">
-                        سعر شهري
-                    </option>
+                        <option value="total">
+                            سعر العقار بالكامل
+                        </option>
 
-                    <option value="yearly">
-                        سعر سنوي
-                    </option>
+                        <option value="meter">
+                            سعر المتر
+                        </option>
 
-                </select>
+                        <option value="monthly">
+                            سعر شهري
+                        </option>
+
+                        <option value="yearly">
+                            سعر سنوي
+                        </option>
+
+                    </select>
+
+                </div>
+
 
 
                 <!-- السعر -->
 
-                <select id="searchPrice">
+                <div class="search-field">
 
-                    <option value="all">
+                    <label for="searchPrice">
                         السعر
-                    </option>
+                    </label>
 
-                </select>
+                    <select id="searchPrice">
+
+                        <option value="all">
+                            كل الأسعار
+                        </option>
+
+                    </select>
+
+                </div>
 
 
-                <select id="searchArea">
 
-                    <option value="all">
+                <!-- المساحة -->
+
+                <div class="search-field">
+
+                    <label for="searchArea">
                         المساحة
-                    </option>
+                    </label>
 
-                    <option value="less-100">
-                        أقل من 100 م²
-                    </option>
+                    <select id="searchArea">
 
-                    <option value="100-150">
-                        100 - 150 م²
-                    </option>
+                        <option value="all">
+                            كل المساحات
+                        </option>
 
-                    <option value="150-200">
-                        150 - 200 م²
-                    </option>
+                        <option value="less-100">
+                            أقل من 100 م²
+                        </option>
 
-                    <option value="200-300">
-                        200 - 300 م²
-                    </option>
+                        <option value="100-150">
+                            100 - 150 م²
+                        </option>
 
-                    <option value="more-300">
-                        أكثر من 300 م²
-                    </option>
+                        <option value="150-200">
+                            150 - 200 م²
+                        </option>
 
-                </select>
+                        <option value="200-300">
+                            200 - 300 م²
+                        </option>
+
+                        <option value="more-300">
+                            أكثر من 300 م²
+                        </option>
+
+                    </select>
+
+                </div>
 
 
-                <button id="searchButton">
-                    بحث
-                </button>
 
-                <button id="resetButton">
-                    إعادة تعيين
-                </button>
+                <!-- الأزرار -->
+
+                <div class="search-actions">
+
+                    <button
+                        id="searchButton"
+                        class="btn btn-primary"
+                        type="button">
+
+                        بحث
+
+                    </button>
+
+
+                    <button
+                        id="resetButton"
+                        class="btn btn-secondary"
+                        type="button">
+
+                        إعادة تعيين
+
+                    </button>
+
+                </div>
 
             </div>
 
@@ -195,41 +436,138 @@
     </section>
 
 
+
     <!-- =========================
-         FEATURED PROPERTIES
+         PROPERTIES
     ========================== -->
 
     <section class="featured-properties">
 
-        <h2>
-            العقارات المميزة
-        </h2>
+        <div class="section-heading">
 
-        <p>
-            اختر من بين أفضل العقارات المتاحة لدينا
-        </p>
+            <span class="section-label">
+                اكتشف عقاراتنا
+            </span>
 
+            <h2>
+                العقارات المميزة
+            </h2>
 
-        <div
-            class="properties-container"
-            id="propertiesContainer"
-        >
-
-            <p
-                id="noResultsText"
-                style="
-                    display:none;
-                    text-align:center;
-                    grid-column:1 / -1;
-                    color:#777;
-                "
-            >
-                عذراً، لا توجد عقارات تطابق بحثك.
+            <p>
+                اختر من بين العقارات المتاحة لدينا
+                وابحث عن العقار المناسب لاحتياجاتك.
             </p>
 
         </div>
 
+
+        <!-- عدد النتائج -->
+
+        <div
+            id="resultsCount"
+            class="results-count"
+            style="display:none;">
+
+        </div>
+
+
+        <!-- تحميل -->
+
+        <div
+            id="loadingText"
+            class="loading-message">
+
+            جاري تحميل العقارات...
+
+        </div>
+
+
+        <!-- العقارات -->
+
+        <div
+            class="properties-container"
+            id="propertiesContainer">
+
+        </div>
+
+
+        <!-- لا توجد نتائج -->
+
+        <div
+            id="noResultsText"
+            class="no-results"
+            style="display:none;">
+
+            <h3>
+                لم نجد عقارات مطابقة لبحثك حاليًا.
+            </h3>
+
+            <p>
+                جرّب تعديل الفلاتر أو توسيع نطاق البحث.
+            </p>
+
+            <button
+                id="noResultsReset"
+                class="btn btn-primary"
+                type="button">
+
+                إعادة ضبط البحث
+
+            </button>
+
+        </div>
+
     </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta-section">
+
+        <div class="cta-content">
+
+            <span class="section-label">
+                هل تبحث عن عقار؟
+            </span>
+
+            <h2>
+                دعنا نساعدك في العثور على العقار المناسب
+            </h2>
+
+            <p>
+                تواصل معنا لمعرفة العقارات المتاحة
+                أو للاستفسار عن عقار معين.
+            </p>
+
+
+            <div class="cta-actions">
+
+                <a
+                    href="properties.html"
+                    class="btn btn-primary">
+
+                    تصفح العقارات
+
+                </a>
+
+
+                <a
+                    href="contact.html"
+                    class="btn btn-secondary">
+
+                    تواصل معنا
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
 
 
     <!-- =========================
@@ -241,6 +579,8 @@
         <div class="footer-content">
 
 
+            <!-- About -->
+
             <div class="footer-about">
 
                 <h3>
@@ -248,11 +588,15 @@
                 </h3>
 
                 <p>
-                    نساعدك في العثور على عقارك المثالي بكل سهولة وأمان.
+                    نساعدك في العثور على عقارك المناسب
+                    بكل سهولة ووضوح.
                 </p>
 
             </div>
 
+
+
+            <!-- Links -->
 
             <div class="footer-links">
 
@@ -279,15 +623,18 @@
             </div>
 
 
+
+            <!-- Contact -->
+
             <div class="footer-contact">
 
                 <h3>
                     تواصل معنا
                 </h3>
 
-                <p>
+                <a href="tel:01282597010">
                     📞 01282597010
-                </p>
+                </a>
 
                 <p>
                     📍 المحلة الكبرى - الغربية
@@ -302,12 +649,16 @@
         <div class="footer-bottom">
 
             <p>
-                جميع الحقوق محفوظة &copy; 2026 مكتب علام للعقارات
+                جميع الحقوق محفوظة
+                &copy;
+                2026
+                مكتب علام للعقارات
             </p>
 
         </div>
 
     </footer>
+
 
 
     <!-- =========================
@@ -316,15 +667,17 @@
 
     <script>
 
-        /* =========================
+        /* ==================================================
            SUPABASE
-        ========================== */
+        ================================================== */
 
         const SUPABASE_URL =
             "https://pqralzsrhiizmjwzrnwb.supabase.co";
 
+
         const SUPABASE_KEY =
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBxcmFsenNyaGlpem1qd3pybndiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkzMTMzNDksImV4cCI6MjEwNDg4OTM0OX0.XaQpZhcj_qCOZltyQlcTkjqp7FQvwwTOQqvjjV3n0dI";
+
 
         const supabaseClient =
             window.supabase.createClient(
@@ -333,21 +686,58 @@
             );
 
 
-        /* =========================
-           فتح صفحة تفاصيل العقار
-        ========================== */
+
+        /* ==================================================
+           عناصر الصفحة
+        ================================================== */
+
+        const container =
+            document.getElementById(
+                "propertiesContainer"
+            );
+
+
+        const loadingText =
+            document.getElementById(
+                "loadingText"
+            );
+
+
+        const noResultsText =
+            document.getElementById(
+                "noResultsText"
+            );
+
+
+        const resultsCount =
+            document.getElementById(
+                "resultsCount"
+            );
+
+
+
+        /* ==================================================
+           فتح تفاصيل العقار
+        ================================================== */
 
         function openPropertyDetails(id) {
 
+            if (!id) {
+                return;
+            }
+
+
             window.location.href =
-                "property-details.html?id=" + id;
+                "property-details.html?id=" +
+                encodeURIComponent(id);
 
         }
 
 
-        /* =========================
-           نوع السعر
-        ========================== */
+
+        /* ==================================================
+           الحصول على نوع السعر
+        ================================================== */
 
         function getPriceType(prop) {
 
@@ -447,9 +837,10 @@
         }
 
 
-        /* =========================
-           إنشاء نطاقات السعر
-        ========================== */
+
+        /* ==================================================
+           تحديث قائمة الأسعار
+        ================================================== */
 
         function updatePriceOptions() {
 
@@ -457,6 +848,7 @@
                 document.getElementById(
                     "searchPriceType"
                 ).value;
+
 
             const priceSelect =
                 document.getElementById(
@@ -468,208 +860,201 @@
                 priceSelect.value;
 
 
-            let html = `
-                <option value="all">
-                    السعر
-                </option>
-            `;
+            let ranges = [];
 
 
-            /* =========================
-               سعر العقار بالكامل
-            ========================== */
+            if (priceType === "meter") {
 
-            if (priceType === "total") {
+                ranges = [
 
-                html += `
+                    [
+                        "less-10k",
+                        "أقل من 10 آلاف / م²"
+                    ],
 
-                    <option value="less-500k">
-                        أقل من 500 ألف
-                    </option>
+                    [
+                        "10k-15k",
+                        "10 - 15 ألف / م²"
+                    ],
 
-                    <option value="500k-1m">
-                        500 ألف - مليون
-                    </option>
+                    [
+                        "15k-20k",
+                        "15 - 20 ألف / م²"
+                    ],
 
-                    <option value="1m-2m">
-                        مليون - 2 مليون
-                    </option>
+                    [
+                        "20k-30k",
+                        "20 - 30 ألف / م²"
+                    ],
 
-                    <option value="2m-3m">
-                        2 مليون - 3 مليون
-                    </option>
+                    [
+                        "30k-50k",
+                        "30 - 50 ألف / م²"
+                    ],
 
-                    <option value="3m-5m">
-                        3 مليون - 5 مليون
-                    </option>
+                    [
+                        "more-50k",
+                        "أكثر من 50 ألف / م²"
+                    ]
 
-                    <option value="more-5m">
-                        أكثر من 5 مليون
-                    </option>
-
-                `;
+                ];
 
             }
-
-
-            /* =========================
-               سعر المتر
-            ========================== */
-
-            else if (priceType === "meter") {
-
-                html += `
-
-                    <option value="less-10k">
-                        أقل من 10 آلاف / م²
-                    </option>
-
-                    <option value="10k-15k">
-                        10 - 15 ألف / م²
-                    </option>
-
-                    <option value="15k-20k">
-                        15 - 20 ألف / م²
-                    </option>
-
-                    <option value="20k-30k">
-                        20 - 30 ألف / م²
-                    </option>
-
-                    <option value="30k-50k">
-                        30 - 50 ألف / م²
-                    </option>
-
-                    <option value="more-50k">
-                        أكثر من 50 ألف / م²
-                    </option>
-
-                `;
-
-            }
-
-
-            /* =========================
-               سعر شهري
-            ========================== */
 
             else if (priceType === "monthly") {
 
-                html += `
+                ranges = [
 
-                    <option value="less-5k">
-                        أقل من 5 آلاف / شهر
-                    </option>
+                    [
+                        "less-5k",
+                        "أقل من 5 آلاف / شهر"
+                    ],
 
-                    <option value="5k-10k">
-                        5 - 10 آلاف / شهر
-                    </option>
+                    [
+                        "5k-10k",
+                        "5 - 10 آلاف / شهر"
+                    ],
 
-                    <option value="10k-15k">
-                        10 - 15 ألف / شهر
-                    </option>
+                    [
+                        "10k-15k",
+                        "10 - 15 ألف / شهر"
+                    ],
 
-                    <option value="15k-20k">
-                        15 - 20 ألف / شهر
-                    </option>
+                    [
+                        "15k-20k",
+                        "15 - 20 ألف / شهر"
+                    ],
 
-                    <option value="20k-30k">
-                        20 - 30 ألف / شهر
-                    </option>
+                    [
+                        "20k-30k",
+                        "20 - 30 ألف / شهر"
+                    ],
 
-                    <option value="more-30k">
-                        أكثر من 30 ألف / شهر
-                    </option>
+                    [
+                        "more-30k",
+                        "أكثر من 30 ألف / شهر"
+                    ]
 
-                `;
+                ];
 
             }
-
-
-            /* =========================
-               سعر سنوي
-            ========================== */
 
             else if (priceType === "yearly") {
 
-                html += `
+                ranges = [
 
-                    <option value="less-100k">
-                        أقل من 100 ألف / سنة
-                    </option>
+                    [
+                        "less-100k",
+                        "أقل من 100 ألف / سنة"
+                    ],
 
-                    <option value="100k-200k">
-                        100 - 200 ألف / سنة
-                    </option>
+                    [
+                        "100k-200k",
+                        "100 - 200 ألف / سنة"
+                    ],
 
-                    <option value="200k-300k">
-                        200 - 300 ألف / سنة
-                    </option>
+                    [
+                        "200k-300k",
+                        "200 - 300 ألف / سنة"
+                    ],
 
-                    <option value="300k-500k">
-                        300 - 500 ألف / سنة
-                    </option>
+                    [
+                        "300k-500k",
+                        "300 - 500 ألف / سنة"
+                    ],
 
-                    <option value="500k-1m">
-                        500 ألف - مليون / سنة
-                    </option>
+                    [
+                        "500k-1m",
+                        "500 ألف - مليون / سنة"
+                    ],
 
-                    <option value="more-1m">
-                        أكثر من مليون / سنة
-                    </option>
+                    [
+                        "more-1m",
+                        "أكثر من مليون / سنة"
+                    ]
 
-                `;
+                ];
 
             }
-
-
-            /* =========================
-               لم يتم اختيار نوع السعر
-            ========================== */
 
             else {
 
-                html += `
+                ranges = [
 
-                    <option value="less-500k">
-                        أقل من 500 ألف
-                    </option>
+                    [
+                        "less-500k",
+                        "أقل من 500 ألف"
+                    ],
 
-                    <option value="500k-1m">
-                        500 ألف - مليون
-                    </option>
+                    [
+                        "500k-1m",
+                        "500 ألف - مليون"
+                    ],
 
-                    <option value="1m-2m">
-                        مليون - 2 مليون
-                    </option>
+                    [
+                        "1m-2m",
+                        "مليون - 2 مليون"
+                    ],
 
-                    <option value="2m-3m">
-                        2 مليون - 3 مليون
-                    </option>
+                    [
+                        "2m-3m",
+                        "2 مليون - 3 مليون"
+                    ],
 
-                    <option value="3m-5m">
-                        3 مليون - 5 مليون
-                    </option>
+                    [
+                        "3m-5m",
+                        "3 مليون - 5 مليون"
+                    ],
 
-                    <option value="more-5m">
-                        أكثر من 5 مليون
-                    </option>
+                    [
+                        "more-5m",
+                        "أكثر من 5 مليون"
+                    ]
 
-                `;
+                ];
 
             }
 
 
-            priceSelect.innerHTML = html;
+            priceSelect.innerHTML =
+                '<option value="all">كل الأسعار</option>';
+
+
+            ranges.forEach(
+                function(range) {
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+
+                    option.value =
+                        range[0];
+
+
+                    option.textContent =
+                        range[1];
+
+
+                    priceSelect.appendChild(
+                        option
+                    );
+
+                }
+            );
 
 
             const exists =
-                [
-                    ...priceSelect.options
-                ].some(
-                    option =>
-                        option.value === oldValue
-                );
+                Array
+                    .from(
+                        priceSelect.options
+                    )
+                    .some(
+                        option =>
+                            option.value ===
+                            oldValue
+                    );
 
 
             if (exists) {
@@ -689,9 +1074,10 @@
         }
 
 
-        /* =========================
-           فحص نطاق السعر
-        ========================== */
+
+        /* ==================================================
+           فحص السعر
+        ================================================== */
 
         function priceMatches(
             price,
@@ -713,7 +1099,7 @@
 
 
             if (
-                isNaN(value)
+                !Number.isFinite(value)
             ) {
 
                 return false;
@@ -721,218 +1107,238 @@
             }
 
 
-            /* =========================
-               العقار بالكامل
-            ========================== */
+            const ranges = {
 
-            if (
-                priceType === "total"
-            ) {
+                total: {
 
-                if (
-                    selectedRange ===
-                    "less-500k"
-                )
-                    return value < 500000;
+                    "less-500k":
+                        [0, 500000],
 
-                if (
-                    selectedRange ===
-                    "500k-1m"
-                )
-                    return value >= 500000 &&
-                           value < 1000000;
+                    "500k-1m":
+                        [500000, 1000000],
 
-                if (
-                    selectedRange ===
-                    "1m-2m"
-                )
-                    return value >= 1000000 &&
-                           value < 2000000;
+                    "1m-2m":
+                        [1000000, 2000000],
 
-                if (
-                    selectedRange ===
-                    "2m-3m"
-                )
-                    return value >= 2000000 &&
-                           value < 3000000;
+                    "2m-3m":
+                        [2000000, 3000000],
 
-                if (
-                    selectedRange ===
-                    "3m-5m"
-                )
-                    return value >= 3000000 &&
-                           value < 5000000;
+                    "3m-5m":
+                        [3000000, 5000000],
 
-                if (
-                    selectedRange ===
-                    "more-5m"
-                )
-                    return value >= 5000000;
+                    "more-5m":
+                        [5000000, Infinity]
 
-            }
+                },
 
 
-            /* =========================
-               سعر المتر
-            ========================== */
+                meter: {
 
-            if (
-                priceType === "meter"
-            ) {
+                    "less-10k":
+                        [0, 10000],
 
-                if (
-                    selectedRange ===
-                    "less-10k"
-                )
-                    return value < 10000;
+                    "10k-15k":
+                        [10000, 15000],
 
-                if (
-                    selectedRange ===
-                    "10k-15k"
-                )
-                    return value >= 10000 &&
-                           value < 15000;
+                    "15k-20k":
+                        [15000, 20000],
 
-                if (
-                    selectedRange ===
-                    "15k-20k"
-                )
-                    return value >= 15000 &&
-                           value < 20000;
+                    "20k-30k":
+                        [20000, 30000],
 
-                if (
-                    selectedRange ===
-                    "20k-30k"
-                )
-                    return value >= 20000 &&
-                           value < 30000;
+                    "30k-50k":
+                        [30000, 50000],
 
-                if (
-                    selectedRange ===
-                    "30k-50k"
-                )
-                    return value >= 30000 &&
-                           value < 50000;
+                    "more-50k":
+                        [50000, Infinity]
 
-                if (
-                    selectedRange ===
-                    "more-50k"
-                )
-                    return value >= 50000;
-
-            }
+                },
 
 
-            /* =========================
-               شهري
-            ========================== */
+                monthly: {
 
-            if (
-                priceType === "monthly"
-            ) {
+                    "less-5k":
+                        [0, 5000],
 
-                if (
-                    selectedRange ===
-                    "less-5k"
-                )
-                    return value < 5000;
+                    "5k-10k":
+                        [5000, 10000],
 
-                if (
-                    selectedRange ===
-                    "5k-10k"
-                )
-                    return value >= 5000 &&
-                           value < 10000;
+                    "10k-15k":
+                        [10000, 15000],
 
-                if (
-                    selectedRange ===
-                    "10k-15k"
-                )
-                    return value >= 10000 &&
-                           value < 15000;
+                    "15k-20k":
+                        [15000, 20000],
 
-                if (
-                    selectedRange ===
-                    "15k-20k"
-                )
-                    return value >= 15000 &&
-                           value < 20000;
+                    "20k-30k":
+                        [20000, 30000],
 
-                if (
-                    selectedRange ===
-                    "20k-30k"
-                )
-                    return value >= 20000 &&
-                           value < 30000;
+                    "more-30k":
+                        [30000, Infinity]
 
-                if (
-                    selectedRange ===
-                    "more-30k"
-                )
-                    return value >= 30000;
+                },
+
+
+                yearly: {
+
+                    "less-100k":
+                        [0, 100000],
+
+                    "100k-200k":
+                        [100000, 200000],
+
+                    "200k-300k":
+                        [200000, 300000],
+
+                    "300k-500k":
+                        [300000, 500000],
+
+                    "500k-1m":
+                        [500000, 1000000],
+
+                    "more-1m":
+                        [1000000, Infinity]
+
+                }
+
+            };
+
+
+            const typeRanges =
+                ranges[priceType] ||
+                ranges.total;
+
+
+            const selected =
+                typeRanges[selectedRange];
+
+
+            if (!selected) {
+
+                return false;
 
             }
 
 
-            /* =========================
-               سنوي
-            ========================== */
-
-            if (
-                priceType === "yearly"
-            ) {
-
-                if (
-                    selectedRange ===
-                    "less-100k"
-                )
-                    return value < 100000;
-
-                if (
-                    selectedRange ===
-                    "100k-200k"
-                )
-                    return value >= 100000 &&
-                           value < 200000;
-
-                if (
-                    selectedRange ===
-                    "200k-300k"
-                )
-                    return value >= 200000 &&
-                           value < 300000;
-
-                if (
-                    selectedRange ===
-                    "300k-500k"
-                )
-                    return value >= 300000 &&
-                           value < 500000;
-
-                if (
-                    selectedRange ===
-                    "500k-1m"
-                )
-                    return value >= 500000 &&
-                           value < 1000000;
-
-                if (
-                    selectedRange ===
-                    "more-1m"
-                )
-                    return value >= 1000000;
-
-            }
-
-
-            return false;
+            return (
+                value >= selected[0] &&
+                value < selected[1]
+            );
 
         }
 
 
-        /* =========================
-           تنسيق السعر على الكارت
-        ========================== */
+
+        /* ==================================================
+           الحصول على الصور
+        ================================================== */
+
+        function getPropertyImages(prop) {
+
+            let images =
+                prop.images ||
+                prop.image ||
+                "";
+
+
+            if (!images) {
+
+                return [];
+
+            }
+
+
+            if (
+                Array.isArray(images)
+            ) {
+
+                return images
+                    .filter(Boolean)
+                    .map(
+                        image =>
+                            String(image).trim()
+                    );
+
+            }
+
+
+            const value =
+                String(images).trim();
+
+
+            if (
+                value.startsWith("[")
+            ) {
+
+                try {
+
+                    const parsed =
+                        JSON.parse(value);
+
+
+                    if (
+                        Array.isArray(parsed)
+                    ) {
+
+                        return parsed
+                            .filter(Boolean)
+                            .map(
+                                image =>
+                                    String(image).trim()
+                            );
+
+                    }
+
+                }
+
+                catch (error) {
+
+                    console.warn(
+                        "Could not parse images:",
+                        error
+                    );
+
+                }
+
+            }
+
+
+            return value
+                .split(",")
+                .map(
+                    image =>
+                        image.trim()
+                )
+                .filter(Boolean);
+
+        }
+
+
+
+        /* ==================================================
+           صورة Placeholder
+        ================================================== */
+
+        function createPlaceholder() {
+
+            return `
+
+                <div class="property-placeholder">
+
+                    <span>
+                        لا توجد صورة متاحة
+                    </span>
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        /* ==================================================
+           تنسيق السعر
+        ================================================== */
 
         function formatPropertyPrice(prop) {
 
@@ -952,27 +1358,30 @@
 
 
             const price =
-                isNaN(numericPrice)
-                    ? String(prop.price)
-                    : numericPrice.toLocaleString("ar-EG");
+                Number.isFinite(
+                    numericPrice
+                )
+
+                    ? numericPrice.toLocaleString(
+                        "ar-EG"
+                    )
+
+                    : String(
+                        prop.price
+                    );
 
 
-            const priceType =
+            const type =
                 getPriceType(prop);
 
 
-            const priceNote =
-                String(
-                    prop.price_note ||
-                    ""
-                ).trim();
-
-
-            let result;
+            let result =
+                price +
+                " جنيه";
 
 
             if (
-                priceType === "meter"
+                type === "meter"
             ) {
 
                 result =
@@ -982,7 +1391,7 @@
             }
 
             else if (
-                priceType === "monthly"
+                type === "monthly"
             ) {
 
                 result =
@@ -992,7 +1401,7 @@
             }
 
             else if (
-                priceType === "yearly"
+                type === "yearly"
             ) {
 
                 result =
@@ -1001,20 +1410,19 @@
 
             }
 
-            else {
 
-                result =
-                    price +
-                    " جنيه";
+            const note =
+                String(
+                    prop.price_note ||
+                    ""
+                ).trim();
 
-            }
 
-
-            if (priceNote) {
+            if (note) {
 
                 result +=
                     " - " +
-                    priceNote;
+                    note;
 
             }
 
@@ -1024,38 +1432,557 @@
         }
 
 
-        /* =========================
-           تحميل العقارات من Supabase
-        ========================== */
+
+        /* ==================================================
+           قيمة المساحة
+        ================================================== */
+
+        function getAreaValue(prop) {
+
+            const value =
+                Number(
+                    prop.area
+                );
+
+
+            if (
+                Number.isFinite(value)
+            ) {
+
+                return value;
+
+            }
+
+
+            return null;
+
+        }
+
+
+
+        /* ==================================================
+           فحص المساحة
+        ================================================== */
+
+        function areaMatches(
+            area,
+            selectedArea
+        ) {
+
+            if (
+                selectedArea === "all"
+            ) {
+
+                return true;
+
+            }
+
+
+            const value =
+                Number(area);
+
+
+            if (
+                !Number.isFinite(value)
+            ) {
+
+                return false;
+
+            }
+
+
+            if (
+                selectedArea ===
+                "less-100"
+            ) {
+
+                return value < 100;
+
+            }
+
+
+            if (
+                selectedArea ===
+                "100-150"
+            ) {
+
+                return (
+                    value >= 100 &&
+                    value < 150
+                );
+
+            }
+
+
+            if (
+                selectedArea ===
+                "150-200"
+            ) {
+
+                return (
+                    value >= 150 &&
+                    value < 200
+                );
+
+            }
+
+
+            if (
+                selectedArea ===
+                "200-300"
+            ) {
+
+                return (
+                    value >= 200 &&
+                    value < 300
+                );
+
+            }
+
+
+            if (
+                selectedArea ===
+                "more-300"
+            ) {
+
+                return value >= 300;
+
+            }
+
+
+            return true;
+
+        }
+
+
+
+        /* ==================================================
+           إنشاء كارت العقار
+        ================================================== */
+
+        function createPropertyCard(
+            prop
+        ) {
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "property-card";
+
+
+            const propertyId =
+                prop.property_id ||
+                prop.id;
+
+
+            card.dataset.id =
+                propertyId || "";
+
+
+            card.dataset.status =
+                String(
+                    prop.status || ""
+                ).trim();
+
+
+            card.dataset.type =
+                String(
+                    prop.property_type || ""
+                ).trim();
+
+
+            card.dataset.location =
+                String(
+                    prop.location || ""
+                ).trim();
+
+
+            card.dataset.priceType =
+                getPriceType(prop);
+
+
+            card.dataset.price =
+                prop.price ?? "";
+
+
+            card.dataset.area =
+                getAreaValue(prop) ?? "";
+
+
+
+            /* =========================
+               الصور
+            ========================== */
+
+            const images =
+                getPropertyImages(prop);
+
+
+            let imageHTML;
+
+
+            if (
+                images.length > 0
+            ) {
+
+                imageHTML = `
+
+                    <div class="property-image">
+
+                        <img
+                            src="${escapeHTML(images[0])}"
+                            alt="${escapeHTML(
+                                prop.title_ar ||
+                                prop.property_type ||
+                                "عقار"
+                            )}"
+                            loading="lazy"
+                            onerror="
+                                this.style.display='none';
+                                this.parentElement.classList.add('image-error');
+                            "
+                        >
+
+                    </div>
+
+                `;
+
+            }
+
+            else {
+
+                imageHTML = `
+
+                    <div class="property-image property-placeholder">
+
+                        <span>
+                            لا توجد صورة متاحة
+                        </span>
+
+                    </div>
+
+                `;
+
+            }
+
+
+
+            /* =========================
+               البيانات
+            ========================== */
+
+            const status =
+                prop.status ||
+                "متاح";
+
+
+            const title =
+                prop.title_ar ||
+                (
+                    (
+                        prop.property_type ||
+                        "عقار"
+                    ) +
+                    (
+                        prop.location
+                            ? " في " +
+                              prop.location
+                            : ""
+                    )
+                );
+
+
+            const location =
+                prop.location ||
+                "";
+
+
+            let features = "";
+
+
+            if (
+                prop.rooms !== null &&
+                prop.rooms !== undefined &&
+                prop.rooms !== ""
+            ) {
+
+                features +=
+                    `<span>🛏 ${escapeHTML(
+                        prop.rooms
+                    )} غرف</span>`;
+
+            }
+
+
+            if (
+                prop.bathrooms !== null &&
+                prop.bathrooms !== undefined &&
+                prop.bathrooms !== ""
+            ) {
+
+                features +=
+                    `<span>🛁 ${escapeHTML(
+                        prop.bathrooms
+                    )} حمام</span>`;
+
+            }
+
+
+            if (
+                prop.area !== null &&
+                prop.area !== undefined &&
+                prop.area !== ""
+            ) {
+
+                features +=
+                    `<span>📐 ${escapeHTML(
+                        prop.area
+                    )} م²</span>`;
+
+            }
+
+
+            /* =========================
+               Featured
+            ========================== */
+
+            const featured =
+                prop.featured === true ||
+                prop.featured === "true" ||
+                prop.featured === 1 ||
+                prop.featured === "1";
+
+
+            const featuredBadge =
+                featured
+
+                    ? `
+                        <span class="property-featured-badge">
+                            مميز
+                        </span>
+                      `
+
+                    : "";
+
+
+
+            /* =========================
+               الكارت
+            ========================== */
+
+            card.innerHTML = `
+
+                ${imageHTML}
+
+                <div class="property-info">
+
+                    <div class="property-card-top">
+
+                        <span class="property-status">
+                            ${escapeHTML(status)}
+                        </span>
+
+                        ${featuredBadge}
+
+                    </div>
+
+
+                    <h3>
+                        ${escapeHTML(title)}
+                    </h3>
+
+
+                    ${
+                        location
+
+                            ? `
+                                <p class="property-location">
+                                    📍
+                                    ${escapeHTML(location)}
+                                </p>
+                              `
+
+                            : ""
+                    }
+
+
+                    ${
+                        features
+
+                            ? `
+                                <div class="property-features">
+                                    ${features}
+                                </div>
+                              `
+
+                            : ""
+                    }
+
+
+                    <div class="property-card-bottom">
+
+                        <strong class="property-price">
+                            ${escapeHTML(
+                                formatPropertyPrice(prop)
+                            )}
+                        </strong>
+
+
+                        <button
+                            type="button"
+                            class="property-details-button">
+
+                            عرض التفاصيل
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            card.addEventListener(
+                "click",
+                function(event) {
+
+                    if (
+                        event.target.closest(
+                            ".property-details-button"
+                        )
+                    ) {
+
+                        openPropertyDetails(
+                            propertyId
+                        );
+
+                        return;
+
+                    }
+
+
+                    openPropertyDetails(
+                        propertyId
+                    );
+
+                }
+            );
+
+
+            const detailsButton =
+                card.querySelector(
+                    ".property-details-button"
+                );
+
+
+            if (detailsButton) {
+
+                detailsButton.addEventListener(
+                    "click",
+                    function(event) {
+
+                        event.stopPropagation();
+
+                        openPropertyDetails(
+                            propertyId
+                        );
+
+                    }
+                );
+
+            }
+
+
+            return card;
+
+        }
+
+
+
+        /* ==================================================
+           حماية النصوص من HTML
+        ================================================== */
+
+        function escapeHTML(value) {
+
+            return String(
+                value ?? ""
+            )
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+            .replace(
+                /</g,
+                "&lt;"
+            )
+            .replace(
+                />/g,
+                "&gt;"
+            )
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+        }
+
+
+
+        /* ==================================================
+           تحميل العقارات
+        ================================================== */
+
+        let allProperties = [];
+
 
         async function loadProperties() {
 
-            const container =
-                document.getElementById(
-                    "propertiesContainer"
-                );
+            loadingText.style.display =
+                "block";
 
 
-            const noRes =
-                document.getElementById(
-                    "noResultsText"
-                );
+            container.innerHTML =
+                "";
+
+
+            noResultsText.style.display =
+                "none";
+
+
+            resultsCount.style.display =
+                "none";
 
 
             try {
 
-                const {
-                    data: properties,
-                    error
-                } = await supabaseClient
-                    .from("properties")
-                    .select("*")
-                    .order(
-                        "created_at",
-                        {
-                            ascending: false
-                        }
-                    );
+                const response =
+                    await supabaseClient
+                        .from("properties")
+                        .select("*")
+                        .order(
+                            "created_at",
+                            {
+                                ascending: false
+                            }
+                        );
+
+
+                const properties =
+                    response.data;
+
+
+                const error =
+                    response.error;
 
 
                 if (error) {
@@ -1065,270 +1992,623 @@
                         error
                     );
 
-                    noRes.style.display =
-                        "block";
+
+                    loadingText.textContent =
+                        "تعذر تحميل العقارات حاليًا.";
+
 
                     return;
 
                 }
+
+
+                allProperties =
+                    Array.isArray(
+                        properties
+                    )
+
+                        ? properties
+
+                        : [];
+
+
+                loadingText.style.display =
+                    "none";
 
 
                 if (
-                    !properties ||
-                    properties.length === 0
+                    allProperties.length === 0
                 ) {
 
-                    noRes.style.display =
-                        "block";
+                    showNoResults(
+                        "لا توجد عقارات متاحة حاليًا."
+                    );
 
                     return;
 
                 }
 
 
-                properties.forEach(
-                    function(prop) {
-
-                        const card =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        card.className =
-                            "property-card";
-
-
-                        /* ID */
-
-                        const propId =
-                            prop.id ||
-                            prop.property_id;
-
-
-                        card.setAttribute(
-                            "onclick",
-                            `openPropertyDetails('${propId}')`
-                        );
-
-
-                        /* =========================
-                           بيانات البحث
-                        ========================== */
-
-                        card.setAttribute(
-                            "data-status",
-                            prop.status || ""
-                        );
-
-
-                        card.setAttribute(
-                            "data-type",
-                            prop.property_type || ""
-                        );
-
-
-                        card.setAttribute(
-                            "data-location",
-                            prop.location || ""
-                        );
-
-
-                        card.setAttribute(
-                            "data-price-type",
-                            getPriceType(prop)
-                        );
-
-
-                        card.setAttribute(
-                            "data-price-value",
-                            prop.price || ""
-                        );
-
-
-                        card.setAttribute(
-                            "data-area",
-                            prop.area_category || "all"
-                        );
-
-
-                        /* =========================
-                           الصورة
-                        ========================== */
-
-                        let imgSrc =
-                            "property1.jpg";
-
-
-                        if (prop.images) {
-
-                            let images = [];
-
-
-                            if (
-                                Array.isArray(
-                                    prop.images
-                                )
-                            ) {
-
-                                images =
-                                    prop.images;
-
-                            }
-
-                            else {
-
-                                images =
-                                    String(
-                                        prop.images
-                                    )
-                                    .split(",")
-                                    .map(
-                                        img =>
-                                            img.trim()
-                                    )
-                                    .filter(
-                                        img => img
-                                    );
-
-                            }
-
-
-                            if (
-                                images.length > 0
-                            ) {
-
-                                imgSrc =
-                                    images[0];
-
-                            }
-
-                        }
-
-
-                        /* =========================
-                           السعر
-                        ========================== */
-
-                        const priceFormatted =
-                            formatPropertyPrice(
-                                prop
-                            );
-
-
-                        /* =========================
-                           إنشاء الكارت
-                        ========================== */
-
-                        card.innerHTML = `
-
-                            <div class="property-image">
-
-                                <img
-                                    src="${imgSrc}"
-                                    alt="${
-                                        prop.title_ar ||
-                                        prop.property_type ||
-                                        "عقار"
-                                    }"
-                                    onerror="this.src='property1.jpg'"
-                                >
-
-                            </div>
-
-
-                            <div class="property-info">
-
-                                <span>
-                                    ${
-                                        prop.status ||
-                                        "للبيع"
-                                    }
-                                </span>
-
-
-                                <h3>
-                                    ${
-                                        prop.title_ar ||
-                                        (
-                                            (
-                                                prop.property_type ||
-                                                "عقار"
-                                            )
-                                            +
-                                            " في "
-                                            +
-                                            (
-                                                prop.location ||
-                                                "المحلة الكبرى"
-                                            )
-                                        )
-                                    }
-                                </h3>
-
-
-                                <p>
-
-                                    ${
-                                        prop.rooms
-                                            ? prop.rooms +
-                                              " غرف • "
-                                            : ""
-                                    }
-
-                                    ${
-                                        prop.bathrooms
-                                            ? prop.bathrooms +
-                                              " حمام • "
-                                            : ""
-                                    }
-
-                                    ${
-                                        prop.area
-                                            ? prop.area +
-                                              " م²"
-                                            : ""
-                                    }
-
-                                </p>
-
-
-                                <strong>
-                                    ${priceFormatted}
-                                </strong>
-
-                            </div>
-
-                        `;
-
-
-                        container.insertBefore(
-                            card,
-                            noRes
-                        );
-
-                    }
+                renderProperties(
+                    allProperties
                 );
 
 
-            } catch (error) {
+            }
+
+            catch (error) {
 
                 console.error(
                     "Unexpected Error:",
                     error
                 );
 
-                noRes.style.display =
-                    "block";
+
+                loadingText.textContent =
+                    "حدث خطأ أثناء تحميل العقارات.";
 
             }
 
         }
 
 
-        /* =========================
-           تشغيل تحميل العقارات
-        ========================== */
+
+        /* ==================================================
+           عرض العقارات
+        ================================================== */
+
+        function renderProperties(
+            properties
+        ) {
+
+            container.innerHTML =
+                "";
+
+
+            if (
+                !properties ||
+                properties.length === 0
+            ) {
+
+                showNoResults();
+
+                return;
+
+            }
+
+
+            properties.forEach(
+                function(prop) {
+
+                    const card =
+                        createPropertyCard(
+                            prop
+                        );
+
+
+                    container.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+
+            resultsCount.style.display =
+                "block";
+
+
+            resultsCount.textContent =
+                `تم العثور على ${properties.length} عقار`;
+
+        }
+
+
+
+        /* ==================================================
+           رسالة عدم وجود نتائج
+        ================================================== */
+
+        function showNoResults(
+            customMessage
+        ) {
+
+            container.innerHTML =
+                "";
+
+
+            resultsCount.style.display =
+                "none";
+
+
+            noResultsText.style.display =
+                "block";
+
+
+            const heading =
+                noResultsText.querySelector(
+                    "h3"
+                );
+
+
+            if (heading) {
+
+                heading.textContent =
+                    customMessage ||
+                    "لم نجد عقارات مطابقة لبحثك حاليًا.";
+
+            }
+
+        }
+
+
+
+        /* ==================================================
+           البحث
+        ================================================== */
+
+        function performSearch() {
+
+            const status =
+                document.getElementById(
+                    "searchStatus"
+                ).value;
+
+
+            const type =
+                document.getElementById(
+                    "searchType"
+                ).value;
+
+
+            const location =
+                document.getElementById(
+                    "searchLocation"
+                ).value;
+
+
+            const priceType =
+                document.getElementById(
+                    "searchPriceType"
+                ).value;
+
+
+            const selectedPrice =
+                document.getElementById(
+                    "searchPrice"
+                ).value;
+
+
+            const selectedArea =
+                document.getElementById(
+                    "searchArea"
+                ).value;
+
+
+
+            const filtered =
+                allProperties.filter(
+                    function(prop) {
+
+                        const propStatus =
+                            String(
+                                prop.status || ""
+                            ).trim();
+
+
+                        const propType =
+                            String(
+                                prop.property_type || ""
+                            ).trim();
+
+
+                        const propLocation =
+                            String(
+                                prop.location || ""
+                            ).trim();
+
+
+                        const actualPriceType =
+                            getPriceType(
+                                prop
+                            );
+
+
+                        const statusMatch =
+                            status === "all" ||
+                            propStatus === status;
+
+
+                        const typeMatch =
+                            type === "all" ||
+                            propType === type;
+
+
+                        const locationMatch =
+                            location === "all" ||
+                            propLocation === location;
+
+
+                        const priceTypeMatch =
+                            priceType === "all" ||
+                            actualPriceType === priceType;
+
+
+                        const priceMatch =
+                            priceType === "all"
+
+                                ? (
+                                    selectedPrice ===
+                                    "all"
+                                      ? true
+                                      : priceMatches(
+                                            prop.price,
+                                            actualPriceType,
+                                            selectedPrice
+                                        )
+                                  )
+
+                                : priceMatches(
+                                    prop.price,
+                                    actualPriceType,
+                                    selectedPrice
+                                  );
+
+
+                        const areaMatch =
+                            areaMatches(
+                                prop.area,
+                                selectedArea
+                            );
+
+
+                        return (
+                            statusMatch &&
+                            typeMatch &&
+                            locationMatch &&
+                            priceTypeMatch &&
+                            priceMatch &&
+                            areaMatch
+                        );
+
+                    }
+                );
+
+
+            renderProperties(
+                filtered
+            );
+
+
+            if (
+                filtered.length === 0
+            ) {
+
+                showNoResults();
+
+            }
+
+
+            scrollToProperties();
+
+        }
+
+
+
+        /* ==================================================
+           Scroll للعقارات
+        ================================================== */
+
+        function scrollToProperties() {
+
+            const section =
+                document.querySelector(
+                    ".featured-properties"
+                );
+
+
+            if (!section) {
+                return;
+            }
+
+
+            const offset =
+                80;
+
+
+            const top =
+                section.getBoundingClientRect()
+                    .top +
+                window.scrollY -
+                offset;
+
+
+            window.scrollTo({
+
+                top: Math.max(
+                    0,
+                    top
+                ),
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+
+        /* ==================================================
+           إعادة الضبط
+        ================================================== */
+
+        function resetSearch(
+            shouldScroll = false
+        ) {
+
+            document.getElementById(
+                "searchStatus"
+            ).value =
+                "all";
+
+
+            document.getElementById(
+                "searchType"
+            ).value =
+                "all";
+
+
+            document.getElementById(
+                "searchLocation"
+            ).value =
+                "all";
+
+
+            document.getElementById(
+                "searchPriceType"
+            ).value =
+                "all";
+
+
+            document.getElementById(
+                "searchArea"
+            ).value =
+                "all";
+
+
+            updatePriceOptions();
+
+
+            document.getElementById(
+                "searchPrice"
+            ).value =
+                "all";
+
+
+            renderProperties(
+                allProperties
+            );
+
+
+            noResultsText.style.display =
+                "none";
+
+
+            if (shouldScroll) {
+
+                scrollToProperties();
+
+            }
+
+        }
+
+
+
+        /* ==================================================
+           حفظ البحث
+        ================================================== */
+
+        function saveSearch() {
+
+            const searchData = {
+
+                status:
+                    document.getElementById(
+                        "searchStatus"
+                    ).value,
+
+                type:
+                    document.getElementById(
+                        "searchType"
+                    ).value,
+
+                location:
+                    document.getElementById(
+                        "searchLocation"
+                    ).value,
+
+                priceType:
+                    document.getElementById(
+                        "searchPriceType"
+                    ).value,
+
+                price:
+                    document.getElementById(
+                        "searchPrice"
+                    ).value,
+
+                area:
+                    document.getElementById(
+                        "searchArea"
+                    ).value
+
+            };
+
+
+            try {
+
+                sessionStorage.setItem(
+                    "allamHomeSearch",
+                    JSON.stringify(
+                        searchData
+                    )
+                );
+
+            }
+
+            catch (error) {
+
+                console.warn(
+                    "Could not save search:",
+                    error
+                );
+
+            }
+
+        }
+
+
+
+        /* ==================================================
+           استرجاع البحث
+        ================================================== */
+
+        function restoreSearch() {
+
+            try {
+
+                const saved =
+                    sessionStorage.getItem(
+                        "allamHomeSearch"
+                    );
+
+
+                if (!saved) {
+
+                    return;
+
+                }
+
+
+                const data =
+                    JSON.parse(
+                        saved
+                    );
+
+
+                if (
+                    data.status
+                ) {
+
+                    document.getElementById(
+                        "searchStatus"
+                    ).value =
+                        data.status;
+
+                }
+
+
+                if (
+                    data.type
+                ) {
+
+                    document.getElementById(
+                        "searchType"
+                    ).value =
+                        data.type;
+
+                }
+
+
+                if (
+                    data.location
+                ) {
+
+                    document.getElementById(
+                        "searchLocation"
+                    ).value =
+                        data.location;
+
+                }
+
+
+                if (
+                    data.priceType
+                ) {
+
+                    document.getElementById(
+                        "searchPriceType"
+                    ).value =
+                        data.priceType;
+
+                }
+
+
+                updatePriceOptions();
+
+
+                if (
+                    data.price
+                ) {
+
+                    const priceSelect =
+                        document.getElementById(
+                            "searchPrice"
+                        );
+
+
+                    const exists =
+                        Array
+                            .from(
+                                priceSelect.options
+                            )
+                            .some(
+                                option =>
+                                    option.value ===
+                                    data.price
+                            );
+
+
+                    if (exists) {
+
+                        priceSelect.value =
+                            data.price;
+
+                    }
+
+                }
+
+
+                if (
+                    data.area
+                ) {
+
+                    document.getElementById(
+                        "searchArea"
+                    ).value =
+                        data.area;
+
+                }
+
+
+            }
+
+            catch (error) {
+
+                console.warn(
+                    "Could not restore search:",
+                    error
+                );
+
+            }
+
+        }
+
+
+
+        /* ==================================================
+           Events
+        ================================================== */
 
         document.addEventListener(
             "DOMContentLoaded",
@@ -1336,251 +2616,86 @@
 
                 updatePriceOptions();
 
+                restoreSearch();
+
                 loadProperties();
+
+
+                document.getElementById(
+                    "searchPriceType"
+                ).addEventListener(
+                    "change",
+                    function() {
+
+                        updatePriceOptions();
+
+                    }
+                );
+
+
+                document.getElementById(
+                    "searchButton"
+                ).addEventListener(
+                    "click",
+                    function() {
+
+                        saveSearch();
+
+                        performSearch();
+
+                    }
+                );
+
+
+                document.getElementById(
+                    "resetButton"
+                ).addEventListener(
+                    "click",
+                    function() {
+
+                        resetSearch(
+                            true
+                        );
+
+                        try {
+
+                            sessionStorage.removeItem(
+                                "allamHomeSearch"
+                            );
+
+                        }
+
+                        catch (error) {
+
+                            console.warn(
+                                error
+                            );
+
+                        }
+
+                    }
+                );
+
+
+                document.getElementById(
+                    "noResultsReset"
+                ).addEventListener(
+                    "click",
+                    function() {
+
+                        resetSearch(
+                            true
+                        );
+
+                    }
+                );
 
             }
         );
-
-
-        /* =========================
-           تغيير نوع السعر
-        ========================== */
-
-        document
-            .getElementById(
-                "searchPriceType"
-            )
-            .addEventListener(
-                "change",
-                function() {
-
-                    updatePriceOptions();
-
-                }
-            );
-
-
-        /* =========================
-           نظام البحث والفلترة
-        ========================== */
-
-        document
-            .getElementById(
-                "searchButton"
-            )
-            .addEventListener(
-                "click",
-                function() {
-
-
-                    const status =
-                        document.getElementById(
-                            "searchStatus"
-                        ).value;
-
-
-                    const type =
-                        document.getElementById(
-                            "searchType"
-                        ).value;
-
-
-                    const location =
-                        document.getElementById(
-                            "searchLocation"
-                        ).value;
-
-
-                    const priceType =
-                        document.getElementById(
-                            "searchPriceType"
-                        ).value;
-
-
-                    const price =
-                        document.getElementById(
-                            "searchPrice"
-                        ).value;
-
-
-                    const area =
-                        document.getElementById(
-                            "searchArea"
-                        ).value;
-
-
-                    const cards =
-                        document.querySelectorAll(
-                            ".property-card"
-                        );
-
-
-                    let found = false;
-
-
-                    cards.forEach(
-                        function(card) {
-
-                            const matchStatus =
-                                status === "all" ||
-                                status ===
-                                    card.dataset.status;
-
-
-                            const matchType =
-                                type === "all" ||
-                                type ===
-                                    card.dataset.type;
-
-
-                            const matchLocation =
-                                location === "all" ||
-                                location ===
-                                    card.dataset.location;
-
-
-                            const cardPriceType =
-                                card.dataset.priceType ||
-                                "total";
-
-
-                            const matchPriceType =
-                                priceType === "all" ||
-                                priceType ===
-                                    cardPriceType;
-
-
-                            const matchPrice =
-                                price === "all" ||
-                                priceMatches(
-                                    card.dataset.priceValue,
-                                    cardPriceType,
-                                    price
-                                );
-
-
-                            const matchArea =
-                                area === "all" ||
-                                area ===
-                                    card.dataset.area;
-
-
-                            if (
-                                matchStatus &&
-                                matchType &&
-                                matchLocation &&
-                                matchPriceType &&
-                                matchPrice &&
-                                matchArea
-                            ) {
-
-                                card.style.display =
-                                    "block";
-
-                                found = true;
-
-                            }
-
-                            else {
-
-                                card.style.display =
-                                    "none";
-
-                            }
-
-                        }
-                    );
-
-
-                    document.getElementById(
-                        "noResultsText"
-                    ).style.display =
-                        found
-                            ? "none"
-                            : "block";
-
-
-                }
-            );
-
-
-        /* =========================
-           إعادة ضبط البحث
-        ========================== */
-
-        document
-            .getElementById(
-                "resetButton"
-            )
-            .addEventListener(
-                "click",
-                function() {
-
-
-                    document.getElementById(
-                        "searchStatus"
-                    ).value =
-                        "all";
-
-
-                    document.getElementById(
-                        "searchType"
-                    ).value =
-                        "all";
-
-
-                    document.getElementById(
-                        "searchLocation"
-                    ).value =
-                        "all";
-
-
-                    document.getElementById(
-                        "searchPriceType"
-                    ).value =
-                        "all";
-
-
-                    updatePriceOptions();
-
-
-                    document.getElementById(
-                        "searchPrice"
-                    ).value =
-                        "all";
-
-
-                    document.getElementById(
-                        "searchArea"
-                    ).value =
-                        "all";
-
-
-                    document
-                        .querySelectorAll(
-                            ".property-card"
-                        )
-                        .forEach(
-                            function(card) {
-
-                                card.style.display =
-                                    "block";
-
-                            }
-                        );
-
-
-                    document.getElementById(
-                        "noResultsText"
-                    ).style.display =
-                        "none";
-
-
-                }
-            );
 
     </script>
 
 </body>
 
 </html>
+```
